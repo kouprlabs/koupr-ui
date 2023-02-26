@@ -2,19 +2,25 @@
 
 ## Getting Started
 
+```shell
+npm install @koupr/ui
+```
+
+## Development
+
 Install [Node.js](https://nodejs.org/en/download), preferrably with [NVM](https://github.com/nvm-sh/nvm).
 
 ### Build and Run
 
 Install dependencies:
 
-```shell script
+```shell
 npm install
 ```
 
 Build:
 
-```shell script
+```shell
 npm run build
 ```
 
