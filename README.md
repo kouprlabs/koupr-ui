@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-```shell
+```sh
 npm install @koupr/ui
 ```
 
@@ -14,19 +14,19 @@ Install [Node.js](https://nodejs.org/en/download), preferrably with [NVM](https:
 
 Install dependencies:
 
-```shell
+```sh
 npm install
 ```
 
 Build:
 
-```shell
+```sh
 npm run build
 ```
 
 Watch:
 
-```shell
+```sh
 npm run watch
 ```
 
