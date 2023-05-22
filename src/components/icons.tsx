@@ -31,160 +31,150 @@ import {
   FiDownload,
 } from 'react-icons/fi'
 import { IoMdAlert } from 'react-icons/io'
-import { IoTimeOutline, IoCheckmarkCircle } from 'react-icons/io5'
+import { IoTimeOutline, IoCheckmarkCircle, IoRefresh } from 'react-icons/io5'
 import { TbUsers } from 'react-icons/tb'
 import { TbPlaylistX } from 'react-icons/tb'
 import { VscClose } from 'react-icons/vsc'
 
-const DEFAULT_FONT_SIZE = '14px'
+const FONT_SIZE = '14px'
+const FONT_SIZE_LG = '16px'
 
 export const IconPlay = ({ fontSize, ...props }: IconBaseProps) => (
-  <BsFillPlayFill fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <BsFillPlayFill fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconError = ({ fontSize, ...props }: IconBaseProps) => (
-  <BsFillExclamationCircleFill
-    fontSize={fontSize || DEFAULT_FONT_SIZE}
-    {...props}
-  />
+  <BsFillExclamationCircleFill fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconUpload = ({ fontSize, ...props }: IconBaseProps) => (
-  <FiUpload fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <FiUpload fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconNotification = ({ fontSize, ...props }: IconBaseProps) => (
-  <FiBell fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <FiBell fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconDotsVertical = ({ fontSize, ...props }: IconBaseProps) => (
-  <FiMoreVertical fontSize={fontSize || '16px'} {...props} />
+  <FiMoreVertical fontSize={fontSize || FONT_SIZE_LG} {...props} />
 )
 
 export const IconDotsVerticalSm = ({ fontSize, ...props }: IconBaseProps) => (
-  <FiMoreVertical fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <FiMoreVertical fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconExit = ({ fontSize, ...props }: IconBaseProps) => (
-  <FiLogOut fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <FiLogOut fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconChevronLeft = ({ fontSize, ...props }: IconBaseProps) => (
-  <FiChevronLeft fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <FiChevronLeft fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconChevronRight = ({ fontSize, ...props }: IconBaseProps) => (
-  <FiChevronRight fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <FiChevronRight fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconAdd = ({ fontSize, ...props }: IconBaseProps) => (
-  <FiPlus fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <FiPlus fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconEdit = ({ fontSize, ...props }: IconBaseProps) => (
-  <FiEdit3 fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <FiEdit3 fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconShare = ({ fontSize, ...props }: IconBaseProps) => (
-  <FiUsers fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <FiUsers fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconDownload = ({ fontSize, ...props }: IconBaseProps) => (
-  <FiDownload fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <FiDownload fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconMove = ({ fontSize, ...props }: IconBaseProps) => (
-  <FiCornerUpRight fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <FiCornerUpRight fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconCopy = ({ fontSize, ...props }: IconBaseProps) => (
-  <FiCopy fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <FiCopy fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconTrash = ({ fontSize, ...props }: IconBaseProps) => (
-  <FiTrash fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <FiTrash fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconSend = ({ fontSize, ...props }: IconBaseProps) => (
-  <FiSend fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <FiSend fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconUserPlus = ({ fontSize, ...props }: IconBaseProps) => (
-  <FiUserPlus fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <FiUserPlus fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconCheck = ({ fontSize, ...props }: IconBaseProps) => (
-  <BsCheck2 fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <BsCheck2 fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconCheckCircle = ({ fontSize, ...props }: IconBaseProps) => (
-  <FiCheckCircle fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <FiCheckCircle fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconAlertCircle = ({ fontSize, ...props }: IconBaseProps) => (
-  <FiAlertCircle fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <FiAlertCircle fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconCheckCircleFill = ({ fontSize, ...props }: IconBaseProps) => (
-  <IoCheckmarkCircle fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <IoCheckmarkCircle fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconAlertCircleFill = ({ fontSize, ...props }: IconBaseProps) => (
-  <IoMdAlert fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <IoMdAlert fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconCircle = ({ fontSize, ...props }: IconBaseProps) => (
-  <FiCircle fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <FiCircle fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconWorkspace = ({ fontSize, ...props }: IconBaseProps) => (
-  <BsCollection fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <BsCollection fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconGroup = ({ fontSize, ...props }: IconBaseProps) => (
-  <TbUsers fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} />
+  <TbUsers fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconOrganization = ({ fontSize, ...props }: IconBaseProps) => (
-  <BsFlag fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} {...props} />
+  <BsFlag fontSize={fontSize || FONT_SIZE} {...props} {...props} />
 )
 
 export const IconClose = ({ fontSize, ...props }: IconBaseProps) => (
-  <VscClose fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} {...props} />
+  <VscClose fontSize={fontSize || FONT_SIZE} {...props} {...props} />
 )
 
 export const IconTime = ({ fontSize, ...props }: IconBaseProps) => (
-  <IoTimeOutline
-    fontSize={fontSize || DEFAULT_FONT_SIZE}
-    {...props}
-    {...props}
-  />
+  <IoTimeOutline fontSize={fontSize || FONT_SIZE} {...props} {...props} />
 )
 
 export const IconDeleteListItem = ({ fontSize, ...props }: IconBaseProps) => (
-  <TbPlaylistX fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} {...props} />
+  <TbPlaylistX fontSize={fontSize || FONT_SIZE} {...props} {...props} />
 )
 
 export const IconExternalLink = ({ fontSize, ...props }: IconBaseProps) => (
-  <BsBoxArrowUpRight
-    fontSize={fontSize || DEFAULT_FONT_SIZE}
-    {...props}
-    {...props}
-  />
+  <BsBoxArrowUpRight fontSize={fontSize || FONT_SIZE} {...props} {...props} />
 )
 
 export const IconInfoCircle = ({ fontSize, ...props }: IconBaseProps) => (
-  <BsInfoCircle
-    fontSize={fontSize || DEFAULT_FONT_SIZE}
-    {...props}
-    {...props}
-  />
+  <BsInfoCircle fontSize={fontSize || FONT_SIZE} {...props} {...props} />
 )
 
 export const IconSearch = ({ fontSize, ...props }: IconBaseProps) => (
-  <BsSearch fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} {...props} />
+  <BsSearch fontSize={fontSize || FONT_SIZE} {...props} {...props} />
 )
 
 export const IconSearchBold = ({ fontSize, ...props }: IconBaseProps) => (
-  <FaSearch fontSize={fontSize || DEFAULT_FONT_SIZE} {...props} {...props} />
+  <FaSearch fontSize={fontSize || FONT_SIZE} {...props} {...props} />
+)
+
+export const IconRefresh = ({ fontSize, ...props }: IconBaseProps) => (
+  <IoRefresh fontSize={fontSize || FONT_SIZE_LG} {...props} {...props} />
 )
