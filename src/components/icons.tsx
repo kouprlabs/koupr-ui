@@ -8,6 +8,9 @@ import {
   BsSearch,
   BsFillExclamationCircleFill,
   BsFillPlayFill,
+  BsGridFill,
+  BsSortDown,
+  BsSortUp,
 } from 'react-icons/bs'
 import { FaSearch } from 'react-icons/fa'
 import {
@@ -177,4 +180,16 @@ export const IconSearchBold = ({ fontSize, ...props }: IconBaseProps) => (
 
 export const IconRefresh = ({ fontSize, ...props }: IconBaseProps) => (
   <IoRefresh fontSize={fontSize || FONT_SIZE_LG} {...props} {...props} />
+)
+
+export const IconGridFill = ({ fontSize, ...props }: IconBaseProps) => (
+  <BsGridFill fontSize={fontSize || FONT_SIZE_LG} {...props} {...props} />
+)
+
+export const IconSortDown = ({ fontSize, ...props }: IconBaseProps) => (
+  <BsSortDown fontSize={fontSize || FONT_SIZE_LG} {...props} {...props} />
+)
+
+export const IconSortUp = ({ fontSize, ...props }: IconBaseProps) => (
+  <BsSortUp fontSize={fontSize || FONT_SIZE_LG} {...props} {...props} />
 )
