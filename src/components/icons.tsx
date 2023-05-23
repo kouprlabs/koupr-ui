@@ -183,13 +183,13 @@ export const IconRefresh = ({ fontSize, ...props }: IconBaseProps) => (
 )
 
 export const IconGridFill = ({ fontSize, ...props }: IconBaseProps) => (
-  <BsGridFill fontSize={fontSize || FONT_SIZE_LG} {...props} {...props} />
+  <BsGridFill fontSize={fontSize || FONT_SIZE} {...props} {...props} />
 )
 
 export const IconSortDown = ({ fontSize, ...props }: IconBaseProps) => (
-  <BsSortDown fontSize={fontSize || FONT_SIZE_LG} {...props} {...props} />
+  <BsSortDown fontSize={fontSize || FONT_SIZE} {...props} {...props} />
 )
 
 export const IconSortUp = ({ fontSize, ...props }: IconBaseProps) => (
-  <BsSortUp fontSize={fontSize || FONT_SIZE_LG} {...props} {...props} />
+  <BsSortUp fontSize={fontSize || FONT_SIZE} {...props} {...props} />
 )
