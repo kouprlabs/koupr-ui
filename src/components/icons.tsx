@@ -7,7 +7,7 @@ import {
   BsCheck2,
   BsSearch,
   BsFillExclamationCircleFill,
-  BsFillPlayFill,
+  BsPlayFill,
   BsGridFill,
   BsSortDown,
   BsSortUp,
@@ -43,7 +43,7 @@ const FONT_SIZE = '14px'
 const FONT_SIZE_LG = '16px'
 
 export const IconPlay = ({ fontSize, ...props }: IconBaseProps) => (
-  <BsFillPlayFill fontSize={fontSize || FONT_SIZE} {...props} />
+  <BsPlayFill fontSize={fontSize || FONT_SIZE} {...props} />
 )
 
 export const IconError = ({ fontSize, ...props }: IconBaseProps) => (
