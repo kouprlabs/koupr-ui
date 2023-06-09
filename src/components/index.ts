@@ -1,4 +1,4 @@
-export * from './drawer'
+export { Drawer, DrawerItem, DrawerContext } from './drawer'
 export * from './icons'
-export * from './spinner'
-export * from './section-spinner'
+export { Spinner } from './spinner'
+export { SectionSpinner } from './section-spinner'
