@@ -3,7 +3,7 @@ import { variables } from '../variables'
 const styles = {
   global: {
     body: {
-      fontFamily: 'Work Sans',
+      fontFamily: 'Lato',
       fontSize: variables.bodyFontSize,
     },
   },
