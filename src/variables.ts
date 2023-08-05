@@ -1,4 +1,5 @@
 export const variables = {
+  headingFontWeight: '500',
   bodyFontSize: '14px',
   bodyFontWeight: '400',
   spacingXs: '5px',
