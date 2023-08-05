@@ -17,13 +17,13 @@ function filledStyle(props: StyleFunctionProps): SystemStyleObject {
   }
 }
 
-const baseStyleFilledTrack: SystemStyleFunction = (props) => {
+const baseStyleFilledTrack: SystemStyleFunction = (props: any) => {
   return {
     ...filledStyle(props),
   }
 }
 
-const baseStyle: PartsStyleFunction<typeof parts> = (props) => ({
+const baseStyle: PartsStyleFunction<typeof parts> = (props: any) => ({
   filledTrack: baseStyleFilledTrack(props),
   track: {
     borderRadius: variables.borderRadius,

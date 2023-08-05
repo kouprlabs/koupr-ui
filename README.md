@@ -1,35 +1,43 @@
 # Koupr UI
 
+Koupr Design System 🪐
+
 ## Getting Started
 
 ```sh
-npm install @koupr/ui
+pnpm install @koupr/ui
 ```
 
 ## Development
 
-Install [Node.js](https://nodejs.org/en/download), preferrably with [NVM](https://github.com/nvm-sh/nvm).
+Install [Node.js 18.x](https://nodejs.org).
+
+Enable [pnpm](https://pnpm.io):
+
+```shell
+corepack enable
+```
 
 ### Build and Run
 
 Install dependencies:
 
 ```sh
-npm install
+pnpm install
 ```
 
 Build:
 
 ```sh
-npm run build
+pnpm run build
 ```
 
 Watch:
 
 ```sh
-npm run watch
+pnpm run watch
 ```
 
 ## Licensing
 
-Koupr UI is released under the [The MIT License](./LICENSE).
+Koupr UI is released under the [The MIT License](./LICENSE.md).
