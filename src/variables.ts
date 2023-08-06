@@ -1,5 +1,8 @@
 export const variables = {
+  headingFontFamily:
+    "'IBM Plex Serif', Almarai, 'Noto Sans JP', 'Noto Sans TC', 'Noto Sans SC', 'Noto Sans KR', Poppins, 'Noto Sans Bengali'",
   headingFontWeight: '500',
+  bodyFontFamily: 'IBM Plex Sans',
   bodyFontSize: '14px',
   bodyFontWeight: '400',
   spacingXs: '5px',

@@ -3,7 +3,7 @@ import { variables } from '../variables'
 const styles = {
   global: {
     body: {
-      fontFamily: 'IBM Plex Sans',
+      fontFamily: variables.bodyFontFamily,
       fontSize: variables.bodyFontSize,
       fontWeight: variables.bodyFontWeight,
     },
