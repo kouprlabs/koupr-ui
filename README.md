@@ -2,40 +2,30 @@
 
 Koupr Design System 🪐
 
-## Getting Started
+## Installation
 
-```sh
+```shell
 pnpm install @koupr/ui
 ```
 
 ## Development
 
-Install [Node.js 18.x](https://nodejs.org).
-
-Enable [pnpm](https://pnpm.io):
-
-```shell
-corepack enable
-```
-
-### Build and Run
-
 Install dependencies:
 
-```sh
+```shell
 pnpm install
 ```
 
 Build:
 
-```sh
-pnpm run build
+```shell
+pnpm build
 ```
 
 Watch:
 
-```sh
-pnpm run watch
+```shell
+pnpm watch
 ```
 
 ## Licensing
