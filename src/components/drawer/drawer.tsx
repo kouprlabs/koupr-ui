@@ -35,7 +35,7 @@ export const Drawer = ({
       `${localStoragePrefix || 'app'}_${
         localStorageNamespace || 'main'
       }_drawer_collapsed`,
-    [localStoragePrefix, localStorageNamespace]
+    [localStoragePrefix, localStorageNamespace],
   )
 
   useEffect(() => {
@@ -106,7 +106,7 @@ export const Drawer = ({
             setIsTouched(true)
             localStorage.setItem(
               localStorageCollapsedKey,
-              JSON.stringify(!isCollapsed)
+              JSON.stringify(!isCollapsed),
             )
           }}
         >
