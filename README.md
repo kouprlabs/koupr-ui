@@ -1,6 +1,6 @@
 # Koupr UI
 
-Koupr design system 🪐
+Rich components for React.
 
 ## Installation
 
