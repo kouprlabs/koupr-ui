@@ -5,7 +5,7 @@ Koupr design system 🪐
 ## Installation
 
 ```shell
-npm install @koupr/ui
+npm i @koupr/ui
 ```
 
 ## Development
