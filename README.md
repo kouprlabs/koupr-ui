@@ -1,6 +1,6 @@
 # Koupr UI
 
-Rich components for React.
+Koupr design system 🪐
 
 ## Installation
 
@@ -24,4 +24,4 @@ npm run watch
 
 ## Licensing
 
-Koupr UI is released under the [GNU General Public License v3.0 License](./LICENSE.txt).
+Koupr UI is released under [The MIT License](./LICENSE.md).
