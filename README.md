@@ -1,6 +1,6 @@
 # Koupr UI
 
-Koupr design system 🪐
+Koupr Design System 🪐
 
 ## Installation
 
