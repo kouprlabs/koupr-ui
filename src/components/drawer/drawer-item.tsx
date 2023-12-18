@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { variables } from '../../variables'
 import { DrawerContext } from './drawer-context'
 
-export type DrawerItemProps = {
+type DrawerItemProps = {
   icon: ReactElement
   href: string
   primaryText: string

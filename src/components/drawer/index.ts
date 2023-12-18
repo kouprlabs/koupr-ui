@@ -1,5 +1,3 @@
-import { Drawer } from './drawer'
-import { DrawerContext } from './drawer-context'
-import { DrawerItem } from './drawer-item'
-
-export { Drawer, DrawerItem, DrawerContext }
+export * from './drawer'
+export * from './drawer-context'
+export * from './drawer-item'

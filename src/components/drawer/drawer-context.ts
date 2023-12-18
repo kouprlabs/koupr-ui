@@ -1,6 +1,6 @@
 import { createContext } from 'react'
 
-export type DrawerContextType = {
+type DrawerContextType = {
   isCollapsed: boolean | undefined
   isTouched: boolean
 }

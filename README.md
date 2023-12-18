@@ -1,33 +1,25 @@
 # Koupr UI
 
-Koupr design system 🪐
-
 ## Installation
 
 ```shell
-pnpm install @koupr/ui
+npm i @koupr/ui
 ```
 
 ## Development
 
-Install dependencies:
-
-```shell
-pnpm install
-```
-
 Build:
 
 ```shell
-pnpm build
+npm run build
 ```
 
 Watch:
 
 ```shell
-pnpm watch
+npm run watch
 ```
 
 ## Licensing
 
-Koupr UI is released under the [The MIT License](./LICENSE.md).
+Koupr UI is released under [The MIT License](./LICENSE.md).
