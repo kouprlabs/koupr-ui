@@ -1,7 +1,5 @@
 # Koupr UI
 
-Koupr Design System 🪐
-
 ## Installation
 
 ```shell
