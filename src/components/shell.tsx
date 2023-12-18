@@ -1,34 +1,34 @@
 import { ReactElement } from 'react'
 import { Stack } from '@chakra-ui/react'
 import { Flex } from '@chakra-ui/react'
+import { StorageOptions } from '../types'
 import { variables } from '../variables'
 import { Drawer, DrawerItem } from './drawer'
 
-export type ShellItem = {
+type ShellItem = {
   href: string
   icon: ReactElement
   primaryText: string
   secondaryText: string
 }
 
-export type ShellProps = {
-  localStorage?: {
-    prefix?: string
-    namespace?: string
-  }
+type ShellProps = {
+  storage?: StorageOptions
   logo: ReactElement
   topBar: ReactElement
   items: ShellItem[]
   children?: ReactElement
 }
 
-export const Shell = ({ logo, topBar, items, children }: ShellProps) => (
+export const Shell = ({
+  logo,
+  topBar,
+  items,
+  storage,
+  children,
+}: ShellProps) => (
   <Stack direction="row" spacing={0} h="100%">
-    <Drawer
-      localStoragePrefix="voltaserve"
-      localStorageNamespace="main"
-      logo={logo}
-    >
+    <Drawer storage={storage} logo={logo}>
       {items.map((item, index) => (
         <DrawerItem
           key={index}

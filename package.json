@@ -1,7 +1,7 @@
 {
   "name": "@koupr/ui",
-  "version": "2.0.0",
-  "license": "GPL-3.0-only",
+  "version": "1.2.0",
+  "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/main.js",
   "module": "dist/module.js",
@@ -13,26 +13,12 @@
   "scripts": {
     "watch": "parcel watch",
     "build": "parcel build",
+    "tsc": "tsc",
     "format": "prettier --write .",
     "lint": "eslint 'src/**/*.{ts,tsx}'"
   },
   "engines": {
     "node": "20.x"
-  },
-  "devDependencies": {
-    "@parcel/packager-ts": "2.10.3",
-    "@parcel/transformer-typescript-types": "2.10.3",
-    "@trivago/prettier-plugin-sort-imports": "4.3.0",
-    "@types/react": "18.2.45",
-    "@types/react-dom": "18.2.18",
-    "@typescript-eslint/eslint-plugin": "6.14.0",
-    "@typescript-eslint/parser": "6.14.0",
-    "eslint": "8.56.0",
-    "eslint-config-prettier": "9.1.0",
-    "eslint-config-react-app": "7.0.1",
-    "parcel": "2.10.3",
-    "prettier": "3.1.1",
-    "typescript": "5.3.3"
   },
   "dependencies": {
     "@chakra-ui/react": "2.8.2",
@@ -55,5 +41,22 @@
     "react-dom": ">= 18.2.0 < 19.0.0",
     "react-icons": ">= 4.12.0 < 5.0.0",
     "react-router-dom": ">= 6.21.0 < 7.0.0"
+  },
+  "devDependencies": {
+    "@parcel/packager-ts": "2.10.3",
+    "@parcel/transformer-typescript-types": "2.10.3",
+    "@trivago/prettier-plugin-sort-imports": "4.3.0",
+    "@types/react": "18.2.45",
+    "@types/react-dom": "18.2.18",
+    "@typescript-eslint/eslint-plugin": "6.14.0",
+    "@typescript-eslint/parser": "6.14.0",
+    "eslint": "8.56.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-config-react-app": "7.0.1",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-react-refresh": "0.4.5",
+    "parcel": "2.10.3",
+    "prettier": "3.1.1",
+    "typescript": "5.3.3"
   }
 }
