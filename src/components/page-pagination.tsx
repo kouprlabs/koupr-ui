@@ -1,3 +1,4 @@
+import { ChangeEvent, useCallback } from 'react'
 import { Select } from '@chakra-ui/react'
 import { Pagination } from './pagination'
 
@@ -6,8 +7,9 @@ type PagePaginationProps = {
   page: number
   size: number
   paginationSize?: string
-  onPageChange: (page: number) => void
-  onSizeChange: (size: number) => void
+  steps?: number[]
+  handlePageChange: (page: number) => void
+  setSize: (size: number) => void
 }
 
 export const PagePagination = ({
@@ -15,30 +17,37 @@ export const PagePagination = ({
   page,
   size,
   paginationSize = 'md',
-  onPageChange,
-  onSizeChange,
+  steps = [5, 10, 20, 40, 80, 100],
+  handlePageChange,
+  setSize,
 }: PagePaginationProps) => {
+  const handleSizeChange = useCallback(
+    (event: ChangeEvent<HTMLSelectElement>) => {
+      setSize(parseInt(event.target.value))
+      handlePageChange(1)
+    },
+    [setSize, handlePageChange],
+  )
+
   return (
     <>
       {totalPages > 1 ? (
-        <Pagination
-          size={paginationSize}
-          page={page}
-          totalPages={totalPages}
-          onPageChange={onPageChange}
-        />
+        <>
+          <Pagination
+            size={paginationSize}
+            page={page}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
+          <Select defaultValue={size} onChange={handleSizeChange}>
+            {steps.map((step, index) => (
+              <option key={index} value={step.toString()}>
+                {step} items
+              </option>
+            ))}
+          </Select>
+        </>
       ) : null}
-      <Select
-        defaultValue={size}
-        onChange={(event) => onSizeChange(parseInt(event.target.value))}
-      >
-        <option value="5">5 items</option>
-        <option value="10">10 items</option>
-        <option value="20">20 items</option>
-        <option value="40">40 items</option>
-        <option value="80">80 items</option>
-        <option value="100">100 items</option>
-      </Select>
     </>
   )
 }

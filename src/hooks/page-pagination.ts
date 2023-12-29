@@ -65,5 +65,5 @@ export const usePagePagination = ({
     [queryParams, navigate],
   )
 
-  return { page, size, onPageChange: handlePageChange, onSizeChange: setSize }
+  return { page, size, handlePageChange, setSize }
 }
