@@ -18,6 +18,7 @@ type UsePagePaginationOptions = {
     prefix?: string
     namespace?: string
   }
+  steps?: number[]
 }
 
 export const usePagePagination = ({
@@ -28,6 +29,7 @@ export const usePagePagination = ({
     prefix: 'app',
     namespace: 'main',
   },
+  steps = [5, 10, 20, 40, 80, 100],
 }: UsePagePaginationOptions) => {
   const queryParams = useMemo(
     () => new URLSearchParams(location.search),
@@ -41,7 +43,7 @@ export const usePagePagination = ({
   const [size, setSize] = useState(
     localStorage.getItem(storageSizeKey) && !storage.enabled
       ? parseInt(localStorage.getItem(storageSizeKey) as string)
-      : 5,
+      : steps[0],
   )
 
   useEffect(() => {
@@ -65,5 +67,5 @@ export const usePagePagination = ({
     [queryParams, navigate],
   )
 
-  return { page, size, handlePageChange, setSize }
+  return { page, size, steps, handlePageChange, setSize }
 }

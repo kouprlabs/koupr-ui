@@ -6,8 +6,8 @@ type PagePaginationProps = {
   totalPages: number
   page: number
   size: number
-  paginationSize?: string
-  steps?: number[]
+  steps: number[]
+  uiSize?: string
   handlePageChange: (page: number) => void
   setSize: (size: number) => void
 }
@@ -16,8 +16,8 @@ export const PagePagination = ({
   totalPages,
   page,
   size,
-  paginationSize = 'md',
-  steps = [5, 10, 20, 40, 80, 100],
+  uiSize = 'md',
+  steps,
   handlePageChange,
   setSize,
 }: PagePaginationProps) => {
@@ -34,7 +34,7 @@ export const PagePagination = ({
       {totalPages > 1 ? (
         <>
           <Pagination
-            size={paginationSize}
+            uiSize={uiSize}
             page={page}
             totalPages={totalPages}
             onPageChange={handlePageChange}
