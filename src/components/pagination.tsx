@@ -20,10 +20,11 @@ type PaginationProps = {
 export const Pagination = ({
   totalPages,
   page,
-  maxButtons = 5,
+  maxButtons: maxButtonsProp = 5,
   uiSize = 'md',
   onPageChange,
 }: PaginationProps) => {
+  const maxButtons = totalPages < maxButtonsProp ? totalPages : maxButtonsProp
   const pages = useMemo(() => {
     const end = Math.ceil(page / maxButtons) * maxButtons
     const start = end - maxButtons + 1
