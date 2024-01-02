@@ -59,7 +59,7 @@ export const usePagePagination = ({
     }
   }, [queryParams, navigate])
 
-  const handlePageChange = useCallback(
+  const setPage = useCallback(
     (page: number) => {
       queryParams.set('page', String(page))
       navigate({ search: `?${queryParams.toString()}` })
@@ -67,5 +67,5 @@ export const usePagePagination = ({
     [queryParams, navigate],
   )
 
-  return { page, size, steps, handlePageChange, setSize }
+  return { page, size, steps, setPage, setSize }
 }
