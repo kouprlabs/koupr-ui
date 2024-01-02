@@ -1,4 +1,13 @@
-import { ButtonGroup, Button } from '@chakra-ui/react'
+import { useCallback, useMemo } from 'react'
+import { ButtonGroup, Button, IconButton } from '@chakra-ui/react'
+import {
+  MdOutlineKeyboardArrowLeft,
+  MdOutlineKeyboardArrowRight,
+  MdOutlineKeyboardDoubleArrowLeft,
+  MdOutlineKeyboardDoubleArrowRight,
+  MdOutlineFirstPage,
+  MdOutlineLastPage,
+} from 'react-icons/md'
 
 type PaginationProps = {
   totalPages: number
@@ -15,62 +24,88 @@ export const Pagination = ({
   uiSize = 'md',
   onPageChange,
 }: PaginationProps) => {
-  const getPageNumbers = () => {
-    const currentPage = Math.min(Math.max(1, page), totalPages)
+  const pages = useMemo(() => {
+    const end = Math.ceil(page / maxButtons) * maxButtons
+    const start = end - maxButtons + 1
+    return Array.from({ length: end - start + 1 }, (_, index) => start + index)
+  }, [page, maxButtons])
+  const firstPage = 1
+  const lastPage = totalPages
+  const fastForwardPage = pages[pages.length - 1] + 1
+  const rewindPage = pages[0] - maxButtons
+  const nextPage = page + 1
+  const previousPage = page - 1
 
-    let startPage = Math.max(currentPage - Math.floor(maxButtons / 2), 1)
-    const endPage = Math.min(startPage + maxButtons - 1, totalPages)
-
-    if (endPage - startPage + 1 < maxButtons) {
-      startPage = Math.max(endPage - maxButtons + 1, 1)
-    }
-
-    return Array.from(
-      { length: endPage - startPage + 1 },
-      (_, i) => startPage + i,
-    )
-  }
-
-  const handlePageChange = (pageNumber: number) => {
-    if (pageNumber !== page) {
-      onPageChange?.(pageNumber)
-    }
-  }
-
-  const pageNumbers = getPageNumbers()
+  const handlePageChange = useCallback(
+    (value: number) => {
+      if (value !== page) {
+        onPageChange?.(value)
+      }
+    },
+    [page, onPageChange],
+  )
 
   return (
     <ButtonGroup>
-      {page > 1 && (
-        <Button size={uiSize} onClick={() => handlePageChange(1)}>
-          First
-        </Button>
-      )}
-      {page > 1 && (
-        <Button size={uiSize} onClick={() => handlePageChange(page - 1)}>
-          Previous
-        </Button>
-      )}
-      {pageNumbers.map((pageNumber) => (
+      <IconButton
+        variant="outline"
+        size={uiSize}
+        isDisabled={page === 1}
+        icon={<MdOutlineFirstPage />}
+        aria-label="First"
+        onClick={() => handlePageChange(firstPage)}
+      />
+      <IconButton
+        variant="outline"
+        size={uiSize}
+        isDisabled={rewindPage < 1}
+        icon={<MdOutlineKeyboardDoubleArrowLeft />}
+        aria-label="Rewind"
+        onClick={() => handlePageChange(rewindPage)}
+      />
+      <IconButton
+        variant="outline"
+        size={uiSize}
+        isDisabled={page === 1}
+        icon={<MdOutlineKeyboardArrowLeft />}
+        aria-label="Previous"
+        onClick={() => handlePageChange(previousPage)}
+      />
+      {pages.map((index) => (
         <Button
           size={uiSize}
-          key={pageNumber}
-          onClick={() => handlePageChange(pageNumber)}
-          colorScheme={pageNumber === page ? 'blue' : undefined}
+          key={index}
+          isDisabled={index > totalPages}
+          onClick={() => handlePageChange(index)}
+          colorScheme={index === page ? 'blue' : undefined}
         >
-          {pageNumber}
+          {index}
         </Button>
       ))}
-      {page < totalPages && (
-        <Button size={uiSize} onClick={() => handlePageChange(page + 1)}>
-          Next
-        </Button>
-      )}
-      {page < totalPages && (
-        <Button size={uiSize} onClick={() => handlePageChange(totalPages)}>
-          Last ({totalPages})
-        </Button>
-      )}
+      <IconButton
+        variant="outline"
+        size={uiSize}
+        isDisabled={page === lastPage}
+        icon={<MdOutlineKeyboardArrowRight />}
+        aria-label="Next"
+        onClick={() => handlePageChange(nextPage)}
+      />
+      <IconButton
+        variant="outline"
+        size={uiSize}
+        isDisabled={fastForwardPage > lastPage}
+        icon={<MdOutlineKeyboardDoubleArrowRight />}
+        aria-label="Fast Forward"
+        onClick={() => handlePageChange(fastForwardPage)}
+      />
+      <IconButton
+        variant="outline"
+        size={uiSize}
+        isDisabled={page === lastPage}
+        icon={<MdOutlineLastPage />}
+        aria-label="Last"
+        onClick={() => handlePageChange(lastPage)}
+      />
     </ButtonGroup>
   )
 }
