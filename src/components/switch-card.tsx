@@ -18,7 +18,7 @@ import {
 } from '@chakra-ui/react'
 import cx from 'classnames'
 
-type SwitchCardProps = {
+export type SwitchCardProps = {
   children?: ReactNode
   icon: ReactElement
   label: string
@@ -27,7 +27,7 @@ type SwitchCardProps = {
   expandedMinWidth?: string
 }
 
-const SwitchCard = ({
+export const SwitchCard = ({
   children,
   icon,
   label,
@@ -126,5 +126,3 @@ const SwitchCard = ({
     )
   }
 }
-
-export default SwitchCard

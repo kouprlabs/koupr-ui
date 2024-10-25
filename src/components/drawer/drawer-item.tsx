@@ -4,7 +4,7 @@ import cx from 'classnames'
 import { Link, useLocation } from 'react-router-dom'
 import { DrawerContext } from './drawer-context'
 
-type DrawerItemProps = {
+export type DrawerItemProps = {
   icon: ReactElement
   href: string
   primaryText: string

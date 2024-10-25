@@ -18,7 +18,7 @@ import {
 import cx from 'classnames'
 import { IconClose, IconSearch } from './icons'
 
-type SearchInputProps = {
+export type SearchInputProps = {
   placeholder?: string
   query?: string
   onChange?: (value: string) => void
@@ -26,7 +26,7 @@ type SearchInputProps = {
   onClear?: () => void
 }
 
-const SearchInput = ({
+export const SearchInput = ({
   placeholder,
   query,
   onChange,
@@ -109,5 +109,3 @@ const SearchInput = ({
     </HStack>
   )
 }
-
-export default SearchInput
