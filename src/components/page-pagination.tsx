@@ -1,8 +1,8 @@
 import React, { ChangeEvent, useCallback } from 'react'
-import { HStack, Select } from '@chakra-ui/react'
-import { usePageMonitor } from '../hooks/page-monitor'
-import { variables } from '../variables'
-import { Pagination } from './pagination'
+import { Select } from '@chakra-ui/react'
+import cx from 'classnames'
+import usePageMonitor from '../hooks/page-monitor'
+import Pagination from './pagination'
 
 type PagePaginationProps = {
   totalPages: number
@@ -14,9 +14,11 @@ type PagePaginationProps = {
   style?: React.CSSProperties
   setPage: (page: number) => void
   setSize: (size: number) => void
+  disableMiddleNav?: boolean
+  disableLastNav?: boolean
 }
 
-export const PagePagination = ({
+const PagePagination = ({
   totalElements,
   totalPages,
   page,
@@ -26,6 +28,8 @@ export const PagePagination = ({
   style,
   setPage,
   setSize,
+  disableMiddleNav = false,
+  disableLastNav = false,
 }: PagePaginationProps) => {
   const { hasPageSwitcher, hasSizeSelector } = usePageMonitor({
     totalElements,
@@ -44,13 +48,18 @@ export const PagePagination = ({
   return (
     <>
       {!hasPageSwitcher && !hasSizeSelector ? null : (
-        <HStack style={style} spacing={variables.spacing}>
+        <div
+          className={cx('flex', 'flex-row', 'items-center', 'gap-1.5')}
+          style={style}
+        >
           {hasPageSwitcher ? (
             <Pagination
               uiSize={uiSize}
               page={page}
               totalPages={totalPages}
               onPageChange={setPage}
+              disableMiddleNav={disableMiddleNav}
+              disableLastNav={disableLastNav}
             />
           ) : null}
           {hasSizeSelector ? (
@@ -62,8 +71,10 @@ export const PagePagination = ({
               ))}
             </Select>
           ) : null}
-        </HStack>
+        </div>
       )}
     </>
   )
 }
+
+export default PagePagination

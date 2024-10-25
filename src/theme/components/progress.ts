@@ -6,7 +6,7 @@ import {
   SystemStyleFunction,
   SystemStyleObject,
 } from '@chakra-ui/theme-tools'
-import { variables } from '../../variables'
+import variables from '../../variables'
 
 function filledStyle(props: StyleFunctionProps): SystemStyleObject {
   const { colorScheme, hasStripe } = props
@@ -17,12 +17,14 @@ function filledStyle(props: StyleFunctionProps): SystemStyleObject {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const baseStyleFilledTrack: SystemStyleFunction = (props: any) => {
   return {
     ...filledStyle(props),
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const baseStyle: PartsStyleFunction<typeof parts> = (props: any) => ({
   filledTrack: baseStyleFilledTrack(props),
   track: {

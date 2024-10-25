@@ -1,9 +1,7 @@
-import { ReactElement } from 'react'
-import { Stack } from '@chakra-ui/react'
-import { Flex } from '@chakra-ui/react'
+import { MouseEvent, ReactElement } from 'react'
+import cx from 'classnames'
 import { StorageOptions } from '../types'
-import { variables } from '../variables'
-import { Drawer, DrawerItem } from './drawer'
+import Drawer, { DrawerItem } from './drawer'
 
 type ShellItem = {
   href: string
@@ -18,16 +16,18 @@ type ShellProps = {
   topBar: ReactElement
   items: ShellItem[]
   children?: ReactElement
+  onContentClick?: (event: MouseEvent) => void
 }
 
-export const Shell = ({
+const Shell = ({
   logo,
   topBar,
   items,
   storage,
   children,
+  onContentClick,
 }: ShellProps) => (
-  <Stack direction="row" spacing={0} h="100%">
+  <div className={cx('flex', 'flex-row', 'items-center', 'gap-0', 'h-full')}>
     <Drawer storage={storage} logo={logo}>
       {items.map((item, index) => (
         <DrawerItem
@@ -39,19 +39,28 @@ export const Shell = ({
         />
       ))}
     </Drawer>
-    <Flex direction="column" alignItems="center" h="100%" w="100%">
+    <div
+      className={cx('flex', 'flex-col', 'items-center', 'h-full', 'w-full')}
+      onClick={onContentClick}
+    >
       {topBar}
-      <Flex
-        direction="column"
-        width={{ base: 'full', '2xl': '1250px' }}
-        px={variables.spacing2Xl}
-        pt={variables.spacing2Xl}
-        overflowY="auto"
-        overflowX="hidden"
-        flexGrow={1}
+      <div
+        className={cx(
+          'flex',
+          'flex-col',
+          'w-full',
+          'lg:w-[1250px]',
+          'px-2',
+          'pt-2',
+          'overflow-y-auto',
+          'overflow-x-hidden',
+          'grow',
+        )}
       >
         {children}
-      </Flex>
-    </Flex>
-  </Stack>
+      </div>
+    </div>
+  </div>
 )
+
+export default Shell

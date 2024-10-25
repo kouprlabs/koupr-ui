@@ -1,13 +1,13 @@
 import { useCallback, useMemo } from 'react'
 import { ButtonGroup, Button, IconButton } from '@chakra-ui/react'
 import {
-  MdOutlineKeyboardArrowLeft,
-  MdOutlineKeyboardArrowRight,
-  MdOutlineKeyboardDoubleArrowLeft,
-  MdOutlineKeyboardDoubleArrowRight,
-  MdOutlineFirstPage,
-  MdOutlineLastPage,
-} from 'react-icons/md'
+  IconKeyboardArrowLeft,
+  IconKeyboardArrowRight,
+  IconKeyboardDoubleArrowLeft,
+  IconKeyboardDoubleArrowRight,
+  IconFirstPage,
+  IconLastPage,
+} from './icons'
 
 type PaginationProps = {
   totalPages: number
@@ -15,14 +15,18 @@ type PaginationProps = {
   maxButtons?: number
   uiSize?: string
   onPageChange?: (page: number) => void
+  disableMiddleNav?: boolean
+  disableLastNav?: boolean
 }
 
-export const Pagination = ({
+const Pagination = ({
   totalPages,
   page,
   maxButtons: maxButtonsProp = 5,
   uiSize = 'md',
   onPageChange,
+  disableMiddleNav = false,
+  disableLastNav = false,
 }: PaginationProps) => {
   const maxButtons = totalPages < maxButtonsProp ? totalPages : maxButtonsProp
   const pages = useMemo(() => {
@@ -48,27 +52,31 @@ export const Pagination = ({
 
   return (
     <ButtonGroup>
+      {!disableLastNav ? (
+        <IconButton
+          variant="outline"
+          size={uiSize}
+          isDisabled={page === 1}
+          icon={<IconFirstPage />}
+          aria-label="First"
+          onClick={() => handlePageChange(firstPage)}
+        />
+      ) : null}
+      {!disableMiddleNav ? (
+        <IconButton
+          variant="outline"
+          size={uiSize}
+          isDisabled={rewindPage < 1}
+          icon={<IconKeyboardDoubleArrowLeft />}
+          aria-label="Rewind"
+          onClick={() => handlePageChange(rewindPage)}
+        />
+      ) : null}
       <IconButton
         variant="outline"
         size={uiSize}
         isDisabled={page === 1}
-        icon={<MdOutlineFirstPage />}
-        aria-label="First"
-        onClick={() => handlePageChange(firstPage)}
-      />
-      <IconButton
-        variant="outline"
-        size={uiSize}
-        isDisabled={rewindPage < 1}
-        icon={<MdOutlineKeyboardDoubleArrowLeft />}
-        aria-label="Rewind"
-        onClick={() => handlePageChange(rewindPage)}
-      />
-      <IconButton
-        variant="outline"
-        size={uiSize}
-        isDisabled={page === 1}
-        icon={<MdOutlineKeyboardArrowLeft />}
+        icon={<IconKeyboardArrowLeft />}
         aria-label="Previous"
         onClick={() => handlePageChange(previousPage)}
       />
@@ -87,26 +95,32 @@ export const Pagination = ({
         variant="outline"
         size={uiSize}
         isDisabled={page === lastPage}
-        icon={<MdOutlineKeyboardArrowRight />}
+        icon={<IconKeyboardArrowRight />}
         aria-label="Next"
         onClick={() => handlePageChange(nextPage)}
       />
-      <IconButton
-        variant="outline"
-        size={uiSize}
-        isDisabled={fastForwardPage > lastPage}
-        icon={<MdOutlineKeyboardDoubleArrowRight />}
-        aria-label="Fast Forward"
-        onClick={() => handlePageChange(fastForwardPage)}
-      />
-      <IconButton
-        variant="outline"
-        size={uiSize}
-        isDisabled={page === lastPage}
-        icon={<MdOutlineLastPage />}
-        aria-label="Last"
-        onClick={() => handlePageChange(lastPage)}
-      />
+      {!disableLastNav ? (
+        <IconButton
+          variant="outline"
+          size={uiSize}
+          isDisabled={fastForwardPage > lastPage}
+          icon={<IconKeyboardDoubleArrowRight />}
+          aria-label="Fast Forward"
+          onClick={() => handlePageChange(fastForwardPage)}
+        />
+      ) : null}
+      {!disableLastNav ? (
+        <IconButton
+          variant="outline"
+          size={uiSize}
+          isDisabled={page === lastPage}
+          icon={<IconLastPage />}
+          aria-label="Last"
+          onClick={() => handlePageChange(lastPage)}
+        />
+      ) : null}
     </ButtonGroup>
   )
 }
+
+export default Pagination

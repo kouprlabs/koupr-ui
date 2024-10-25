@@ -4,25 +4,36 @@ import {
   useState,
   ChangeEvent,
   KeyboardEvent,
+  useRef,
 } from 'react'
 import {
   Button,
   HStack,
   InputGroup,
   InputLeftElement,
-  Icon,
   InputRightElement,
   IconButton,
   Input,
 } from '@chakra-ui/react'
+import cx from 'classnames'
 import { IconClose, IconSearch } from './icons'
 
 type SearchInputProps = {
+  placeholder?: string
   query?: string
   onChange?: (value: string) => void
+  onValue?: (value: string) => void
+  onClear?: () => void
 }
 
-export const SearchInput = ({ query, onChange }: SearchInputProps) => {
+const SearchInput = ({
+  placeholder,
+  query,
+  onChange,
+  onValue,
+  onClear,
+}: SearchInputProps) => {
+  const inputRef = useRef<HTMLInputElement>(null)
   const [draft, setDraft] = useState('')
   const [text, setText] = useState('')
   const [isFocused, setIsFocused] = useState(false)
@@ -38,15 +49,20 @@ export const SearchInput = ({ query, onChange }: SearchInputProps) => {
   const handleClear = useCallback(() => {
     setDraft('')
     setText('')
-  }, [])
+    onClear?.()
+  }, [onClear])
 
   const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     setDraft(event.target.value || '')
   }, [])
 
-  const handleSearch = useCallback((value: string) => {
-    setText(value)
-  }, [])
+  const handleSearch = useCallback(
+    (value: string) => {
+      setText(value)
+      onValue?.(value)
+    },
+    [onValue],
+  )
 
   const handleKeyDown = useCallback(
     (event: KeyboardEvent<HTMLInputElement>, value: string) => {
@@ -60,19 +76,21 @@ export const SearchInput = ({ query, onChange }: SearchInputProps) => {
   return (
     <HStack>
       <InputGroup>
-        <InputLeftElement pointerEvents="none">
-          <Icon as={IconSearch} color="gray.300" />
+        <InputLeftElement className={cx('pointer-events-none')}>
+          <IconSearch className={cx('text-gray-300')} />
         </InputLeftElement>
         <Input
+          ref={inputRef}
           value={draft}
-          placeholder={draft || 'Search'}
+          placeholder={draft || placeholder || 'Search'}
           variant="filled"
           onKeyDown={(event) => handleKeyDown(event, draft)}
           onChange={handleChange}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
+          autoFocus
         />
-        {draft && (
+        {draft ? (
           <InputRightElement>
             <IconButton
               icon={<IconClose />}
@@ -81,7 +99,7 @@ export const SearchInput = ({ query, onChange }: SearchInputProps) => {
               aria-label="Clear"
             />
           </InputRightElement>
-        )}
+        ) : null}
       </InputGroup>
       {draft || (isFocused && draft) ? (
         <Button onClick={() => handleSearch(draft)} isDisabled={!draft}>
@@ -91,3 +109,5 @@ export const SearchInput = ({ query, onChange }: SearchInputProps) => {
     </HStack>
   )
 }
+
+export default SearchInput

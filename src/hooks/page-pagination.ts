@@ -1,27 +1,29 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
-type NavigateArgs = {
+export type NavigateArgs = {
   search: string
 }
 
-type NavigateFunction = (args: NavigateArgs) => void
+export type NavigateFunction = (args: NavigateArgs) => void
 
-type LocationObject = {
+export type LocationObject = {
   search: string
 }
 
-type UsePagePaginationOptions = {
+export type StorageOptions = {
+  enabled?: boolean
+  prefix?: string
+  namespace?: string
+}
+
+export type UsePagePaginationOptions = {
   navigate: NavigateFunction
   location: LocationObject
-  storage?: {
-    enabled?: boolean
-    prefix?: string
-    namespace?: string
-  }
+  storage?: StorageOptions
   steps?: number[]
 }
 
-export const usePagePagination = ({
+const usePagePagination = ({
   navigate,
   location,
   storage = {
@@ -41,16 +43,20 @@ export const usePagePagination = ({
     [storage],
   )
   const [size, setSize] = useState(
-    localStorage.getItem(storageSizeKey) && !storage.enabled
+    localStorage.getItem(storageSizeKey) && storage.enabled
       ? parseInt(localStorage.getItem(storageSizeKey) as string)
       : steps[0],
   )
 
-  useEffect(() => {
-    if (size && !storage.enabled) {
-      localStorage.setItem(storageSizeKey, JSON.stringify(size))
-    }
-  }, [size, storageSizeKey, storage])
+  const _setSize = useCallback(
+    (size: number) => {
+      setSize(size)
+      if (size && storage.enabled) {
+        localStorage.setItem(storageSizeKey, JSON.stringify(size))
+      }
+    },
+    [storageSizeKey, storage],
+  )
 
   useEffect(() => {
     if (!queryParams.has('page')) {
@@ -67,5 +73,7 @@ export const usePagePagination = ({
     [queryParams, navigate],
   )
 
-  return { page, size, steps, setPage, setSize }
+  return { page, size, steps, setPage, setSize: _setSize }
 }
+
+export default usePagePagination

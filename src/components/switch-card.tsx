@@ -13,13 +13,10 @@ import {
   PopoverBody,
   PopoverContent,
   PopoverTrigger,
-  Stack,
-  Box,
-  Text,
   Switch,
-  HStack,
+  Tooltip,
 } from '@chakra-ui/react'
-import { variables } from '../variables'
+import cx from 'classnames'
 
 type SwitchCardProps = {
   children?: ReactNode
@@ -30,7 +27,7 @@ type SwitchCardProps = {
   expandedMinWidth?: string
 }
 
-export const SwitchCard = ({
+const SwitchCard = ({
   children,
   icon,
   label,
@@ -76,16 +73,17 @@ export const SwitchCard = ({
     return (
       <Popover>
         <PopoverTrigger>
-          <IconButton
-            icon={icon}
-            variant="outline"
-            w="50px"
-            h="50px"
-            p={variables.spacing}
-            borderRadius={variables.borderRadiusSm}
-            aria-label={label}
-            title={label}
-          />
+          <div>
+            <Tooltip label={label}>
+              <IconButton
+                icon={icon}
+                variant="outline"
+                className={cx('w-[50px]', 'h-[50px]', 'p-1.5', 'rounded-md')}
+                aria-label={label}
+                title={label}
+              />
+            </Tooltip>
+          </div>
         </PopoverTrigger>
         <PopoverContent>
           <PopoverBody>{children}</PopoverBody>
@@ -94,32 +92,39 @@ export const SwitchCard = ({
     )
   } else {
     return (
-      <Stack
-        border="1px solid"
-        borderColor="gray.200"
-        borderRadius={variables.borderRadiusSm}
-        minW={expandedMinWidth}
-        spacing={0}
+      <div
+        className={cx(
+          'flex',
+          'flex-col',
+          'gap-0',
+          'border',
+          'border-gray-200',
+          'dark:border-gray-600',
+          'rounded-md',
+        )}
+        style={{ minWidth: expandedMinWidth }}
       >
-        <HStack
-          direction="row"
-          spacing={variables.spacingSm}
-          h="50px"
-          px={variables.spacing}
-          flexShrink={0}
+        <div
+          className={cx(
+            'flex',
+            'flex-row',
+            'items-center',
+            'gap-1',
+            'h-[50px]',
+            'px-1',
+            'shrink-0',
+          )}
         >
           {icon}
-          <Text flexGrow={1}>{label}</Text>
+          <span className={cx('grow')}>{label}</span>
           <Switch isChecked={isActive} onChange={handleChange} />
-        </HStack>
-        {isActive && (
-          <Box
-            p={`0 ${variables.spacingSm} ${variables.spacingSm} ${variables.spacingSm}`}
-          >
-            {children}
-          </Box>
-        )}
-      </Stack>
+        </div>
+        {isActive ? (
+          <div className={cx('pt-0', 'pr-1', 'pb-1', 'pl-1')}>{children}</div>
+        ) : null}
+      </div>
     )
   }
 }
+
+export default SwitchCard
