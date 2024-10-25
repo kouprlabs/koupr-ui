@@ -7,7 +7,10 @@ export type NotificationBadgeProps = {
   children?: ReactNode
 }
 
-const NotificationBadge = ({ hasBadge, children }: NotificationBadgeProps) => {
+export const NotificationBadge = ({
+  hasBadge,
+  children,
+}: NotificationBadgeProps) => {
   return (
     <div className={cx('flex', 'items-center', 'justify-center', 'relative')}>
       {children}
@@ -17,5 +20,3 @@ const NotificationBadge = ({ hasBadge, children }: NotificationBadgeProps) => {
     </div>
   )
 }
-
-export default NotificationBadge

@@ -1,13 +1,13 @@
 import React, { ReactNode, useEffect, useRef } from 'react'
 import cx from 'classnames'
 
-interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
   children?: ReactNode
   noOfLines?: number
   maxCharacters?: number
 }
 
-const Text: React.FC<TextProps> = ({
+export const Text: React.FC<TextProps> = ({
   children,
   noOfLines,
   maxCharacters,
@@ -45,5 +45,3 @@ const Text: React.FC<TextProps> = ({
     </span>
   )
 }
-
-export default Text

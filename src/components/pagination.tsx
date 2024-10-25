@@ -9,7 +9,7 @@ import {
   IconLastPage,
 } from './icons'
 
-type PaginationProps = {
+export type PaginationProps = {
   totalPages: number
   page: number
   maxButtons?: number
@@ -19,7 +19,7 @@ type PaginationProps = {
   disableLastNav?: boolean
 }
 
-const Pagination = ({
+export const Pagination = ({
   totalPages,
   page,
   maxButtons: maxButtonsProp = 5,
@@ -122,5 +122,3 @@ const Pagination = ({
     </ButtonGroup>
   )
 }
-
-export default Pagination

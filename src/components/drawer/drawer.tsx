@@ -5,13 +5,13 @@ import { StorageOptions } from '../../types'
 import { IconChevronLeft, IconChevronRight } from '../icons'
 import { DrawerContext } from './drawer-context'
 
-type DrawerProps = {
+export type DrawerProps = {
   children?: ReactNode
   logo?: ReactNode
   storage?: StorageOptions
 }
 
-const Drawer = ({ children, storage, logo }: DrawerProps) => {
+export const Drawer = ({ children, storage, logo }: DrawerProps) => {
   const [isCollapsed, setIsCollapsed] = useState<boolean | undefined>(undefined)
   const [isTouched, setIsTouched] = useState(false)
   const localStorageCollapsedKey = useMemo(
@@ -130,6 +130,5 @@ const Drawer = ({ children, storage, logo }: DrawerProps) => {
   )
 }
 
-export default Drawer
 export { DrawerContext } from './drawer-context'
 export { DrawerItem } from './drawer-item'
