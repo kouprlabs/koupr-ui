@@ -1,7 +1,7 @@
 import { ReactElement, useContext, useEffect, useState } from 'react'
-import { Center, Stack, useColorModeValue, Text } from '@chakra-ui/react'
+import { Tooltip } from '@chakra-ui/react'
+import cx from 'classnames'
 import { Link, useLocation } from 'react-router-dom'
-import { variables } from '../../variables'
 import { DrawerContext } from './drawer-context'
 
 type DrawerItemProps = {
@@ -21,10 +21,6 @@ export const DrawerItem = ({
   const location = useLocation()
   const [isActive, setIsActive] = useState<boolean>()
   const { isCollapsed } = useContext(DrawerContext)
-  const bgPressedColor = useColorModeValue('gray.200', 'gray.700')
-  const bgHoverColor = useColorModeValue('gray.100', 'gray.600')
-  const bgActiveColor = useColorModeValue('black', 'white')
-  const textActiveColor = useColorModeValue('white', 'gray.800')
 
   useEffect(() => {
     if (
@@ -40,27 +36,60 @@ export const DrawerItem = ({
   return (
     <Link
       to={href}
-      style={{ width: '100%' }}
       title={isCollapsed ? `${primaryText}: ${secondaryText}` : secondaryText}
+      className={cx('w-full')}
     >
-      <Stack
-        direction="row"
-        spacing={variables.spacing}
-        _hover={{ bg: isActive ? '' : bgHoverColor }}
-        _active={{ bg: isActive ? '' : bgPressedColor }}
-        bg={isActive ? bgActiveColor : ''}
-        borderRadius={variables.borderRadiusSm}
-        p={variables.spacing}
-        minW="50px"
-        h="50px"
-      >
-        <Center flexShrink={0} color={isActive ? textActiveColor : ''}>
-          {icon}
-        </Center>
-        {!isCollapsed && (
-          <Text color={isActive ? textActiveColor : ''}>{primaryText}</Text>
-        )}
-      </Stack>
+      <Tooltip label={primaryText} isDisabled={!isCollapsed}>
+        <div
+          className={cx(
+            'flex',
+            'flex-row',
+            'items-center',
+            'gap-1.5',
+            'p-1.5',
+            'rounded-md',
+            {
+              'bg-black': isActive,
+              'dark:bg-white': isActive,
+            },
+            {
+              'hover:bg-gray-100': !isActive,
+              'dark:hover:bg-gray-600': !isActive,
+            },
+            {
+              'hover:bg-gray-200': !isActive,
+              'dark:hover:bg-gray-700': !isActive,
+            },
+          )}
+        >
+          <div
+            className={cx(
+              'flex',
+              'items-center',
+              'justify-center',
+              'shrink-0',
+              'w-[21px]',
+              'h-[21px]',
+              {
+                'text-white': isActive,
+                'dark:text-gray-800': isActive,
+              },
+            )}
+          >
+            {icon}
+          </div>
+          {!isCollapsed ? (
+            <span
+              className={cx({
+                'text-white': isActive,
+                'dark:text-gray-800': isActive,
+              })}
+            >
+              {primaryText}
+            </span>
+          ) : null}
+        </div>
+      </Tooltip>
     </Link>
   )
 }

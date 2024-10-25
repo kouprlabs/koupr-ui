@@ -3,6 +3,7 @@ import breakpoints from './breakpoints'
 import colors from './colors'
 import Breadcrumb from './components/breadcrumb'
 import Button from './components/button'
+import Card from './components/card'
 import Checkbox from './components/checkbox'
 import Heading from './components/heading'
 import Input from './components/input'
@@ -38,7 +39,10 @@ const overrides = {
     Popover,
     Breadcrumb,
     Menu,
+    Card,
   },
 }
 
-export const theme = extendTheme(overrides)
+const theme = extendTheme(overrides)
+
+export default theme
