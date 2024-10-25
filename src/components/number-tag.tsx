@@ -8,7 +8,7 @@ export type TabTagProps = {
   isActive?: boolean
 }
 
-const NumberTag = ({ isActive, className, children }: TabTagProps) => {
+export const NumberTag = ({ isActive, className, children }: TabTagProps) => {
   const { colorMode } = useColorMode()
   const bg = useMemo(() => {
     if (isActive) {
@@ -47,5 +47,3 @@ const NumberTag = ({ isActive, className, children }: TabTagProps) => {
     </Tag>
   )
 }
-
-export default NumberTag
