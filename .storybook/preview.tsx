@@ -1,5 +1,6 @@
 import { ChakraProvider } from '@chakra-ui/react'
 import type { Preview } from '@storybook/react'
+import { MemoryRouter } from 'react-router-dom'
 import theme from '../src/theme'
 import '../styles/index.css'
 
@@ -15,7 +16,9 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <ChakraProvider theme={theme}>
-        <Story />
+        <MemoryRouter>
+          <Story />
+        </MemoryRouter>
       </ChakraProvider>
     ),
   ],

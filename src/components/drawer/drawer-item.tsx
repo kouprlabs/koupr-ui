@@ -1,7 +1,6 @@
 import { ReactElement, useContext, useEffect, useState } from 'react'
-import { Tooltip } from '@chakra-ui/react'
+import { Tooltip, Link } from '@chakra-ui/react'
 import cx from 'classnames'
-import { Link, useLocation } from 'react-router-dom'
 import { DrawerContext } from './drawer-context'
 
 export type DrawerItemProps = {
@@ -10,6 +9,8 @@ export type DrawerItemProps = {
   primaryText: string
   secondaryText: string
   isActive?: boolean
+  pathnameFn: () => string
+  navigateFn: (href: string) => void
 }
 
 export const DrawerItem = ({
@@ -17,27 +18,29 @@ export const DrawerItem = ({
   href,
   primaryText,
   secondaryText,
+  pathnameFn,
+  navigateFn,
 }: DrawerItemProps) => {
-  const location = useLocation()
+  const pathname = pathnameFn()
   const [isActive, setIsActive] = useState<boolean>()
   const { isCollapsed } = useContext(DrawerContext)
 
   useEffect(() => {
     if (
-      (href === '/' && location.pathname === '/') ||
-      (href !== '/' && location.pathname.startsWith(href))
+      (href === '/' && pathname === '/') ||
+      (href !== '/' && pathname.startsWith(href))
     ) {
       setIsActive(true)
     } else {
       setIsActive(false)
     }
-  }, [location.pathname, href])
+  }, [pathname, href])
 
   return (
     <Link
-      to={href}
       title={isCollapsed ? `${primaryText}: ${secondaryText}` : secondaryText}
-      className={cx('w-full')}
+      className={cx('w-full', 'no-underline')}
+      onClick={() => navigateFn(href)}
     >
       <Tooltip label={primaryText} isDisabled={!isCollapsed}>
         <div

@@ -2,7 +2,7 @@ import { Button } from '@chakra-ui/react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Example/Button',
+  title: 'Components/Button',
   component: Button,
   parameters: {
     layout: 'centered',
@@ -14,8 +14,8 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
-  render: () => (
-    <Button type="button" variant="solid" colorScheme="blue">
+  render: (args) => (
+    <Button {...args} type="button" variant="solid" colorScheme="blue">
       Primary
     </Button>
   ),

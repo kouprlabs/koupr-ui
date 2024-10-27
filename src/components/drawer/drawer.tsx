@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useMemo, useState } from 'react'
+import { Link } from '@chakra-ui/react'
 import cx from 'classnames'
-import { Link } from 'react-router-dom'
 import { StorageOptions } from '../../types'
 import { IconChevronLeft, IconChevronRight } from '../icons'
 import { DrawerContext } from './drawer-context'
@@ -9,9 +9,17 @@ export type DrawerProps = {
   children?: ReactNode
   logo?: ReactNode
   storage?: StorageOptions
+  homeHref?: string
+  navigateFn: (href: string) => void
 }
 
-export const Drawer = ({ children, storage, logo }: DrawerProps) => {
+export const Drawer = ({
+  children,
+  storage,
+  logo,
+  homeHref,
+  navigateFn,
+}: DrawerProps) => {
   const [isCollapsed, setIsCollapsed] = useState<boolean | undefined>(undefined)
   const [isTouched, setIsTouched] = useState(false)
   const localStorageCollapsedKey = useMemo(
@@ -61,13 +69,7 @@ export const Drawer = ({ children, storage, logo }: DrawerProps) => {
         <div
           className={cx('flex', 'items-center', 'justify-center', 'h-[80px]')}
         >
-          <Link
-            to={
-              location.pathname.startsWith('/console')
-                ? '/console/dashboard'
-                : '/'
-            }
-          >
+          <Link onClick={() => navigateFn(homeHref ?? '/')}>
             <div className={cx('flex', 'h-[40px]')}>
               <div
                 className={cx(
