@@ -5,7 +5,7 @@ export type DrawerContextType = {
   isTouched: boolean
 }
 
-export const DrawerContext = createContext<DrawerContextType>({
+export const LayoutDrawerContext = createContext<DrawerContextType>({
   isCollapsed: undefined,
   isTouched: false,
 })

@@ -3,7 +3,7 @@ import { Link } from '@chakra-ui/react'
 import cx from 'classnames'
 import { StorageOptions } from '../../types'
 import { IconChevronLeft, IconChevronRight } from '../icons'
-import { DrawerContext } from './drawer-context'
+import { LayoutDrawerContext } from './layout-drawer-context'
 
 export type DrawerProps = {
   children?: ReactNode
@@ -13,7 +13,7 @@ export type DrawerProps = {
   navigateFn: (href: string) => void
 }
 
-export const Drawer = ({
+export const LayoutDrawer = ({
   children,
   storage,
   logo,
@@ -48,7 +48,7 @@ export const Drawer = ({
   }
 
   return (
-    <DrawerContext.Provider
+    <LayoutDrawerContext.Provider
       value={{
         isCollapsed,
         isTouched,
@@ -128,9 +128,9 @@ export const Drawer = ({
           {isCollapsed ? <IconChevronRight /> : <IconChevronLeft />}
         </div>
       </div>
-    </DrawerContext.Provider>
+    </LayoutDrawerContext.Provider>
   )
 }
 
-export { DrawerContext } from './drawer-context'
-export { DrawerItem } from './drawer-item'
+export { LayoutDrawerContext } from './layout-drawer-context'
+export { LayoutDrawerItem } from './layout-drawer-item'

@@ -1,7 +1,7 @@
 import { ReactElement, useContext, useEffect, useState } from 'react'
 import { Tooltip, Link } from '@chakra-ui/react'
 import cx from 'classnames'
-import { DrawerContext } from './drawer-context'
+import { LayoutDrawerContext } from './layout-drawer-context'
 
 export type DrawerItemProps = {
   icon: ReactElement
@@ -13,7 +13,7 @@ export type DrawerItemProps = {
   navigateFn: (href: string) => void
 }
 
-export const DrawerItem = ({
+export const LayoutDrawerItem = ({
   icon,
   href,
   primaryText,
@@ -23,7 +23,7 @@ export const DrawerItem = ({
 }: DrawerItemProps) => {
   const pathname = pathnameFn()
   const [isActive, setIsActive] = useState<boolean>()
-  const { isCollapsed } = useContext(DrawerContext)
+  const { isCollapsed } = useContext(LayoutDrawerContext)
 
   useEffect(() => {
     if (
