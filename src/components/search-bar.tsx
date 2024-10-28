@@ -55,7 +55,7 @@ export const SearchBar = ({
     setBuffer('')
     handleSearch('')
     onClear?.()
-  }, [handleSearch])
+  }, [handleSearch, onClear])
 
   const handleKeyDown = useCallback(
     (event: KeyboardEvent<HTMLInputElement>) => {
