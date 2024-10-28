@@ -1,32 +1,127 @@
-import type { StoryObj } from '@storybook/react'
+import { useState } from 'react'
+import { Button, IconButton, MenuItem, useDisclosure } from '@chakra-ui/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import cx from 'classnames'
-import { useLocation, useNavigate } from 'react-router-dom'
-import { IconFlag, IconGroup, IconWorkspaces, Shell, Logo } from '../components'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import {
+  AccountMenu,
+  AppBar,
+  AuxiliaryDrawer,
+  IconAdd,
+  IconAdmin,
+  IconFlag,
+  IconGroup,
+  IconStacks,
+  IconTune,
+  IconUpload,
+  IconWorkspaces,
+  Logo,
+  NumberTag,
+  SearchBar,
+  Shell,
+} from '../components'
 
-const meta = {
+const meta: Meta<typeof Shell> = {
   title: 'Components/Shell',
+  component: Shell,
   parameters: {
     layout: 'fullscreen',
   },
-  tags: ['autodocs'],
 }
 
 export default meta
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof Shell>
 
 export const Default: Story = {
   render: () => {
     const location = useLocation()
     const navigate = useNavigate()
+    const tasks = useDisclosure()
+    const uploads = useDisclosure()
+    const [query, setQuery] = useState('')
+
     return (
       <Shell
-        storage={{ prefix: 'voltaserve', namespace: 'main' }}
-        logo={
-          <div className={cx('w-[16px]')}>
-            <Logo />
-          </div>
+        storage={{ prefix: 'lorem-ipsum', namespace: 'main' }}
+        logo={<Logo type="voltaserve" size="sm" />}
+        topBar={
+          <AppBar
+            bar={
+              <SearchBar
+                query={query}
+                placeholder="Search"
+                buttons={
+                  <IconButton icon={<IconTune />} aria-label="Filters" />
+                }
+                onSearch={(value) => setQuery(value)}
+                onClear={() => setQuery('')}
+              />
+            }
+            buttons={
+              <>
+                <Button
+                  as={Link}
+                  to="/new/workspace"
+                  leftIcon={<IconAdd />}
+                  variant="solid"
+                  colorScheme="blue"
+                >
+                  New Workspace
+                </Button>
+                <IconButton icon={<IconAdmin />} aria-label="Cloud Console" />
+                <AuxiliaryDrawer
+                  icon={<IconUpload />}
+                  header="Uploads"
+                  body={<></>}
+                  isOpen={uploads.isOpen}
+                  onClose={uploads.onClose}
+                  onOpen={uploads.onOpen}
+                />
+                <AuxiliaryDrawer
+                  icon={<IconStacks />}
+                  header="Tasks"
+                  body={<></>}
+                  hasBadge={true}
+                  isOpen={tasks.isOpen}
+                  onOpen={tasks.onOpen}
+                  onClose={tasks.onClose}
+                />
+                <AccountMenu
+                  name="Bruce Wayne"
+                  email="bruce.wayne@koupr.com"
+                  hasBadge={true}
+                  menuItems={
+                    <>
+                      <MenuItem as={Link} to="/account/settings">
+                        Settings
+                      </MenuItem>
+                      <MenuItem as={Link} to="/account/invitation">
+                        <div
+                          className={cx(
+                            'flex',
+                            'flex-row',
+                            'items-center',
+                            'gap-1',
+                          )}
+                        >
+                          <span>Invitations</span>
+                          <NumberTag>5</NumberTag>
+                        </div>
+                      </MenuItem>
+                      <MenuItem
+                        as={Link}
+                        to="/sign-out"
+                        className={cx('text-red-500')}
+                      >
+                        Sign Out
+                      </MenuItem>
+                    </>
+                  }
+                />
+              </>
+            }
+          />
         }
-        topBar={<></>}
         items={[
           {
             href: '/workspace',
@@ -41,7 +136,7 @@ export const Default: Story = {
             secondaryText: 'Allows assigning permissions to a group of users.',
           },
           {
-            href: '/organization',
+            href: '/organizations',
             icon: <IconFlag />,
             primaryText: 'Organizations',
             secondaryText: 'Umbrellas for workspaces and users.',
