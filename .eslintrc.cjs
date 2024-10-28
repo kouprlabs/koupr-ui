@@ -18,6 +18,6 @@ module.exports = {
     ],
     '@typescript-eslint/no-explicit-any': 'off',
     'react-hooks/rules-of-hooks': 'off',
-    'react-refresh/only-export-components': 'off',
+    'react-hooks/exhaustive-deps': 'error',
   },
 }
