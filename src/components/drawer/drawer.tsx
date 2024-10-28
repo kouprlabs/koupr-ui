@@ -129,6 +129,3 @@ export const Drawer = ({ children, storage, logo }: DrawerProps) => {
     </DrawerContext.Provider>
   )
 }
-
-export { DrawerContext } from './drawer-context'
-export { DrawerItem } from './drawer-item'

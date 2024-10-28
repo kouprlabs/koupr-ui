@@ -1,6 +1,6 @@
 {
   "name": "@koupr/ui",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/main.js",
@@ -47,8 +47,8 @@
     "react-router-dom": ">= 6.21.0 < 7.0.0"
   },
   "devDependencies": {
-    "@parcel/packager-ts": "2.10.3",
-    "@parcel/transformer-typescript-types": "2.10.3",
+    "@parcel/packager-ts": "2.12.0",
+    "@parcel/transformer-typescript-types": "2.12.0",
     "@trivago/prettier-plugin-sort-imports": "4.3.0",
     "@types/react": "18.2.45",
     "@types/react-dom": "18.2.18",
@@ -59,7 +59,7 @@
     "eslint-config-react-app": "7.0.1",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-react-refresh": "0.4.5",
-    "parcel": "2.10.3",
+    "parcel": "2.12.0",
     "prettier": "3.1.1",
     "typescript": "5.3.3"
   }
