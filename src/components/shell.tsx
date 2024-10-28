@@ -1,7 +1,7 @@
 import { MouseEvent, ReactElement } from 'react'
 import cx from 'classnames'
 import { StorageOptions } from '../types'
-import { Drawer, DrawerItem } from './drawer'
+import { LayoutDrawer, LayoutDrawerItem } from './layout-drawer'
 
 export type ShellItem = {
   href: string
@@ -17,6 +17,8 @@ export type ShellProps = {
   items: ShellItem[]
   children?: ReactElement
   onContentClick?: (event: MouseEvent) => void
+  pathnameFn: () => string
+  navigateFn: (href: string) => void
 }
 
 export const Shell = ({
@@ -26,19 +28,23 @@ export const Shell = ({
   storage,
   children,
   onContentClick,
+  pathnameFn,
+  navigateFn,
 }: ShellProps) => (
   <div className={cx('flex', 'flex-row', 'items-center', 'gap-0', 'h-full')}>
-    <Drawer storage={storage} logo={logo}>
+    <LayoutDrawer storage={storage} logo={logo} navigateFn={navigateFn}>
       {items.map((item, index) => (
-        <DrawerItem
+        <LayoutDrawerItem
           key={index}
           href={item.href}
           icon={item.icon}
           primaryText={item.primaryText}
           secondaryText={item.secondaryText}
+          pathnameFn={pathnameFn}
+          navigateFn={navigateFn}
         />
       ))}
-    </Drawer>
+    </LayoutDrawer>
     <div
       className={cx('flex', 'flex-col', 'items-center', 'h-full', 'w-full')}
       onClick={onContentClick}
