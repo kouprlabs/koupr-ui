@@ -131,6 +131,3 @@ export const LayoutDrawer = ({
     </LayoutDrawerContext.Provider>
   )
 }
-
-export { LayoutDrawerContext } from './layout-drawer-context'
-export { LayoutDrawerItem } from './layout-drawer-item'
