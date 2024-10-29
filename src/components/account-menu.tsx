@@ -12,7 +12,7 @@ import {
 import { forwardRef } from '@chakra-ui/system'
 import cx from 'classnames'
 import { truncateEnd, truncateMiddle } from '../helpers'
-import variables from '../variables'
+import { variables } from '../variables'
 import { NotificationBadge } from './notification-badge'
 
 export type AccountMenuProps = {
