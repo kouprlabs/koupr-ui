@@ -1,4 +1,4 @@
-const variables = {
+export const variables = {
   headingFontFamily: "'Unbounded'",
   headingFontSize: '24px',
   headingFontWeight: '500',
@@ -18,5 +18,3 @@ const variables = {
   borderRadiusXs: '5px',
   gradiant: 'linear-gradient(90deg, #00c9ff 0%, #92fe9d 100%)',
 }
-
-export default variables
