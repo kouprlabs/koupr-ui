@@ -1,7 +1,7 @@
 import { MouseEvent, ReactElement } from 'react'
 import cx from 'classnames'
 import { StorageOptions } from '../types'
-import { LayoutDrawer, LayoutDrawerItem } from './layout-drawer'
+import { Sidenav, SidenavItem } from './sidenav'
 
 export type ShellProps = {
   storage?: StorageOptions
@@ -32,10 +32,10 @@ export const Shell = ({
   navigateFn,
 }: ShellProps) => (
   <div className={cx('flex', 'flex-row', 'items-center', 'gap-0', 'h-full')}>
-    <LayoutDrawer storage={storage} logo={logo} navigateFn={navigateFn}>
+    <Sidenav storage={storage} logo={logo} navigateFn={navigateFn}>
       {items
         ? items.map((item, index) => (
-            <LayoutDrawerItem
+            <SidenavItem
               key={index}
               href={item.href}
               icon={item.icon}
@@ -46,7 +46,7 @@ export const Shell = ({
             />
           ))
         : null}
-    </LayoutDrawer>
+    </Sidenav>
     <div
       className={cx('flex', 'flex-col', 'items-center', 'h-full', 'w-full')}
       onClick={onContentClick}

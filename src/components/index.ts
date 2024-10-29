@@ -1,4 +1,4 @@
-export * from './layout-drawer'
+export * from './sidenav'
 export * from './icons'
 export * from './spinner'
 export * from './section-spinner'

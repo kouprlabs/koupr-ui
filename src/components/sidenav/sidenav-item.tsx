@@ -1,9 +1,9 @@
 import { ReactElement, useContext, useEffect, useState } from 'react'
 import { Tooltip, Link } from '@chakra-ui/react'
 import cx from 'classnames'
-import { LayoutDrawerContext } from './layout-drawer-context'
+import { SidenavContext } from './sidenav-context'
 
-export type DrawerItemProps = {
+export type SidenavItemProps = {
   icon: ReactElement
   href: string
   primaryText: string
@@ -12,17 +12,17 @@ export type DrawerItemProps = {
   navigateFn: (href: string) => void
 }
 
-export const LayoutDrawerItem = ({
+export const SidenavItem = ({
   icon,
   href,
   primaryText,
   secondaryText,
   pathnameFn,
   navigateFn,
-}: DrawerItemProps) => {
+}: SidenavItemProps) => {
   const pathname = pathnameFn()
   const [isActive, setIsActive] = useState<boolean>()
-  const { isCollapsed } = useContext(LayoutDrawerContext)
+  const { isCollapsed } = useContext(SidenavContext)
 
   useEffect(() => {
     if (

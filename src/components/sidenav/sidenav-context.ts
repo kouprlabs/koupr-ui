@@ -1,11 +1,11 @@
 import { createContext } from 'react'
 
-export type LayoutDrawerContextType = {
+export type SidenavContextType = {
   isCollapsed: boolean | undefined
   isTouched: boolean
 }
 
-export const LayoutDrawerContext = createContext<LayoutDrawerContextType>({
+export const SidenavContext = createContext<SidenavContextType>({
   isCollapsed: undefined,
   isTouched: false,
 })
