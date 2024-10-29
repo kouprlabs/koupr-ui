@@ -5,8 +5,12 @@
 /.github
 .vscode
 .parcel-cache
+.eslintrc.cjs
+postcss.config.cjs
+tailwind.config.cjs
 .eslintignore
 .eslintrc
 .prettierignore
 .prettierrc.json
 tsconfig.json
+vercel.json
