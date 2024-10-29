@@ -2,8 +2,8 @@ import { ReactElement } from 'react'
 import cx from 'classnames'
 
 export type AppBarProps = {
-  bar: ReactElement
-  buttons: ReactElement
+  bar?: ReactElement
+  buttons?: ReactElement
 }
 
 export const AppBar = ({ bar, buttons }: AppBarProps) => (
@@ -18,7 +18,9 @@ export const AppBar = ({ bar, buttons }: AppBarProps) => (
       'w-full',
     )}
   >
-    <div className={cx('grow')}>{bar}</div>
+    <div className={cx('flex', 'flex-row', 'items-center', 'gap-1.5', 'grow')}>
+      {bar}
+    </div>
     <div className={cx('flex', 'flex-row', 'items-center', 'gap-1.5')}>
       {buttons}
     </div>

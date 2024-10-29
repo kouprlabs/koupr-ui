@@ -35,7 +35,7 @@ export const AuxiliaryDrawer = ({
 }: AuxiliaryDrawerProps) => {
   const buttonRef = useRef<HTMLButtonElement>(null)
   return (
-    <>
+    <div className="inline-block">
       <NotificationBadge hasBadge={hasBadge}>
         <IconButton
           ref={buttonRef}
@@ -59,6 +59,6 @@ export const AuxiliaryDrawer = ({
           <DrawerFooter>{footer}</DrawerFooter>
         </DrawerContent>
       </Drawer>
-    </>
+    </div>
   )
 }

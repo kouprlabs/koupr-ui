@@ -1,11 +1,11 @@
 import { createContext } from 'react'
 
-export type DrawerContextType = {
+export type LayoutDrawerContextType = {
   isCollapsed: boolean | undefined
   isTouched: boolean
 }
 
-export const LayoutDrawerContext = createContext<DrawerContextType>({
+export const LayoutDrawerContext = createContext<LayoutDrawerContextType>({
   isCollapsed: undefined,
   isTouched: false,
 })

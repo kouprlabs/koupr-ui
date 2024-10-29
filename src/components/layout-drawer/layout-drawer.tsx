@@ -5,7 +5,7 @@ import { StorageOptions } from '../../types'
 import { IconChevronLeft, IconChevronRight } from '../icons'
 import { LayoutDrawerContext } from './layout-drawer-context'
 
-export type DrawerProps = {
+export type LayoutDrawerProps = {
   children?: ReactNode
   logo?: ReactNode
   storage?: StorageOptions
@@ -19,7 +19,7 @@ export const LayoutDrawer = ({
   logo,
   homeHref,
   navigateFn,
-}: DrawerProps) => {
+}: LayoutDrawerProps) => {
   const [isCollapsed, setIsCollapsed] = useState<boolean | undefined>(undefined)
   const [isTouched, setIsTouched] = useState(false)
   const localStorageCollapsedKey = useMemo(

@@ -8,7 +8,6 @@ export type DrawerItemProps = {
   href: string
   primaryText: string
   secondaryText: string
-  isActive?: boolean
   pathnameFn: () => string
   navigateFn: (href: string) => void
 }
