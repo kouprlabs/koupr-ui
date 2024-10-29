@@ -12,11 +12,13 @@ export const NotificationBadge = ({
   children,
 }: NotificationBadgeProps) => {
   return (
-    <div className={cx('flex', 'items-center', 'justify-center', 'relative')}>
-      {children}
-      {hasBadge ? (
-        <Circle size="10px" bg="red" position="absolute" top={0} right={0} />
-      ) : null}
+    <div className={cx('inline-block')}>
+      <div className={cx('flex', 'items-center', 'justify-center', 'relative')}>
+        {children}
+        {hasBadge ? (
+          <Circle size="10px" bg="red" position="absolute" top={0} right={0} />
+        ) : null}
+      </div>
     </div>
   )
 }
