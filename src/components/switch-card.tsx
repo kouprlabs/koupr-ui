@@ -71,57 +71,61 @@ export const SwitchCard = ({
 
   if (isCollapsed) {
     return (
-      <Popover>
-        <PopoverTrigger>
-          <div>
-            <Tooltip label={label}>
-              <IconButton
-                icon={icon}
-                variant="outline"
-                className={cx('w-[50px]', 'h-[50px]', 'p-1.5', 'rounded-md')}
-                aria-label={label}
-                title={label}
-              />
-            </Tooltip>
-          </div>
-        </PopoverTrigger>
-        <PopoverContent>
-          <PopoverBody>{children}</PopoverBody>
-        </PopoverContent>
-      </Popover>
+      <div className={cx('inline-block')}>
+        <Popover>
+          <PopoverTrigger>
+            <div>
+              <Tooltip label={label}>
+                <IconButton
+                  icon={icon}
+                  variant="outline"
+                  className={cx('w-[50px]', 'h-[50px]', 'p-1.5', 'rounded-md')}
+                  aria-label={label}
+                  title={label}
+                />
+              </Tooltip>
+            </div>
+          </PopoverTrigger>
+          <PopoverContent>
+            <PopoverBody>{children}</PopoverBody>
+          </PopoverContent>
+        </Popover>
+      </div>
     )
   } else {
     return (
-      <div
-        className={cx(
-          'flex',
-          'flex-col',
-          'gap-0',
-          'border',
-          'border-gray-200',
-          'dark:border-gray-600',
-          'rounded-md',
-        )}
-        style={{ minWidth: expandedMinWidth }}
-      >
+      <div className={cx('inline-block')}>
         <div
           className={cx(
             'flex',
-            'flex-row',
-            'items-center',
-            'gap-1',
-            'h-[50px]',
-            'px-1',
-            'shrink-0',
+            'flex-col',
+            'gap-0',
+            'border',
+            'border-gray-200',
+            'dark:border-gray-600',
+            'rounded-md',
           )}
+          style={{ minWidth: expandedMinWidth }}
         >
-          {icon}
-          <span className={cx('grow')}>{label}</span>
-          <Switch isChecked={isActive} onChange={handleChange} />
+          <div
+            className={cx(
+              'flex',
+              'flex-row',
+              'items-center',
+              'gap-1',
+              'h-[50px]',
+              'px-1',
+              'shrink-0',
+            )}
+          >
+            {icon}
+            <span className={cx('grow')}>{label}</span>
+            <Switch isChecked={isActive} onChange={handleChange} />
+          </div>
+          {isActive ? (
+            <div className={cx('pt-0', 'pr-1', 'pb-1', 'pl-1')}>{children}</div>
+          ) : null}
         </div>
-        {isActive ? (
-          <div className={cx('pt-0', 'pr-1', 'pb-1', 'pl-1')}>{children}</div>
-        ) : null}
       </div>
     )
   }

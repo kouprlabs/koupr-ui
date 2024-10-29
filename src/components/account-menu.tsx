@@ -123,7 +123,7 @@ type AvatarButtonProps = {
 const AvatarButton = forwardRef<AvatarButtonProps, 'div'>(
   ({ name, picture, isActive, hasBadge, ...props }, ref) => (
     <div ref={ref} {...props} className={cx('cursor-pointer')}>
-      <ActiveCircle>
+      <ActiveCircle isActive={isActive}>
         <NotificationBadge hasBadge={hasBadge}>
           <Avatar
             name={name}

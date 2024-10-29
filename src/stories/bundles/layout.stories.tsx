@@ -19,10 +19,10 @@ import {
   NumberTag,
   SearchBar,
   Shell,
-} from '../components'
+} from '../../components'
 
 const meta: Meta<typeof Shell> = {
-  title: 'Components/Shell',
+  title: 'Bundles/Layout',
   component: Shell,
   parameters: {
     layout: 'fullscreen',
@@ -32,7 +32,7 @@ const meta: Meta<typeof Shell> = {
 export default meta
 type Story = StoryObj<typeof Shell>
 
-export const Default: Story = {
+export const ShellWithAppBar: Story = {
   render: () => {
     const location = useLocation()
     const navigate = useNavigate()
@@ -42,7 +42,7 @@ export const Default: Story = {
 
     return (
       <Shell
-        storage={{ prefix: 'lorem-ipsum', namespace: 'main' }}
+        storage={{ prefix: 'layout', namespace: 'main' }}
         logo={<Logo type="voltaserve" size="sm" />}
         topBar={
           <AppBar
@@ -124,7 +124,7 @@ export const Default: Story = {
         }
         items={[
           {
-            href: '/workspace',
+            href: '/',
             icon: <IconWorkspaces />,
             primaryText: 'Workspaces',
             secondaryText: 'Isolated containers for files and folders.',
@@ -143,7 +143,7 @@ export const Default: Story = {
           },
         ]}
         pathnameFn={() => location.pathname}
-        navigateFn={(href: string) => navigate(href)}
+        navigateFn={navigate}
       ></Shell>
     )
   },

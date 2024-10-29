@@ -46,7 +46,7 @@ export const PagePagination = ({
   )
 
   return (
-    <>
+    <div className={cx('inline-block')}>
       {!hasPageSwitcher && !hasSizeSelector ? null : (
         <div
           className={cx('flex', 'flex-row', 'items-center', 'gap-1.5')}
@@ -73,6 +73,6 @@ export const PagePagination = ({
           ) : null}
         </div>
       )}
-    </>
+    </div>
   )
 }

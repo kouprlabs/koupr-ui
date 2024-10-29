@@ -3,9 +3,9 @@ import { Link } from '@chakra-ui/react'
 import cx from 'classnames'
 import { StorageOptions } from '../../types'
 import { IconChevronLeft, IconChevronRight } from '../icons'
-import { LayoutDrawerContext } from './layout-drawer-context'
+import { SidenavContext } from './sidenav-context'
 
-export type DrawerProps = {
+export type SidenavProps = {
   children?: ReactNode
   logo?: ReactNode
   storage?: StorageOptions
@@ -13,13 +13,13 @@ export type DrawerProps = {
   navigateFn: (href: string) => void
 }
 
-export const LayoutDrawer = ({
+export const Sidenav = ({
   children,
   storage,
   logo,
   homeHref,
   navigateFn,
-}: DrawerProps) => {
+}: SidenavProps) => {
   const [isCollapsed, setIsCollapsed] = useState<boolean | undefined>(undefined)
   const [isTouched, setIsTouched] = useState(false)
   const localStorageCollapsedKey = useMemo(
@@ -48,7 +48,7 @@ export const LayoutDrawer = ({
   }
 
   return (
-    <LayoutDrawerContext.Provider
+    <SidenavContext.Provider
       value={{
         isCollapsed,
         isTouched,
@@ -128,6 +128,6 @@ export const LayoutDrawer = ({
           {isCollapsed ? <IconChevronRight /> : <IconChevronLeft />}
         </div>
       </div>
-    </LayoutDrawerContext.Provider>
+    </SidenavContext.Provider>
   )
 }
