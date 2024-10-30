@@ -10,7 +10,7 @@ export type SidenavProps = {
   logo?: ReactNode
   storage?: StorageOptions
   homeHref?: string
-  navigateFn: (href: string) => void
+  navigateFn?: (href: string) => void
 }
 
 export const Sidenav = ({
@@ -66,25 +66,27 @@ export const Sidenav = ({
           'gap-0',
         )}
       >
-        <div
-          className={cx('flex', 'items-center', 'justify-center', 'h-[80px]')}
-        >
-          <Link onClick={() => navigateFn(homeHref ?? '/')}>
-            <div className={cx('flex', 'h-[40px]')}>
-              <div
-                className={cx(
-                  'flex',
-                  'items-center',
-                  'justify-center',
-                  'w-[40px]',
-                  'h-[40px]',
-                )}
-              >
-                {logo}
+        {logo ? (
+          <div
+            className={cx('flex', 'items-center', 'justify-center', 'h-[80px]')}
+          >
+            <Link onClick={() => navigateFn?.(homeHref ?? '/')}>
+              <div className={cx('flex', 'h-[40px]')}>
+                <div
+                  className={cx(
+                    'flex',
+                    'items-center',
+                    'justify-center',
+                    'w-[40px]',
+                    'h-[40px]',
+                  )}
+                >
+                  {logo}
+                </div>
               </div>
-            </div>
-          </Link>
-        </div>
+            </Link>
+          </div>
+        ) : null}
         <div
           className={cx(
             'flex',

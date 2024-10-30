@@ -8,8 +8,8 @@ export type SidenavItemProps = {
   href: string
   primaryText: string
   secondaryText: string
-  pathnameFn: () => string
-  navigateFn: (href: string) => void
+  pathnameFn?: () => string
+  navigateFn?: (href: string) => void
 }
 
 export const SidenavItem = ({
@@ -20,7 +20,7 @@ export const SidenavItem = ({
   pathnameFn,
   navigateFn,
 }: SidenavItemProps) => {
-  const pathname = pathnameFn()
+  const pathname = pathnameFn?.() ?? ''
   const [isActive, setIsActive] = useState<boolean>()
   const { isCollapsed } = useContext(SidenavContext)
 
@@ -39,7 +39,7 @@ export const SidenavItem = ({
     <Link
       title={isCollapsed ? `${primaryText}: ${secondaryText}` : secondaryText}
       className={cx('w-full', 'no-underline')}
-      onClick={() => navigateFn(href)}
+      onClick={() => navigateFn?.(href)}
     >
       <Tooltip label={primaryText} isDisabled={!isCollapsed}>
         <div

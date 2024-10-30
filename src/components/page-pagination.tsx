@@ -64,7 +64,7 @@ export const PagePagination = ({
           ) : null}
           {hasSizeSelector ? (
             <Select defaultValue={size} onChange={handleSizeChange}>
-              {steps.map((step, index) => (
+              {steps?.map((step, index) => (
                 <option key={index} value={step.toString()}>
                   {step} items
                 </option>

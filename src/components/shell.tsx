@@ -5,13 +5,13 @@ import { Sidenav, SidenavItem } from './sidenav'
 
 export type ShellProps = {
   storage?: StorageOptions
-  logo: ReactElement
-  topBar: ReactElement
+  logo?: ReactElement
+  topBar?: ReactElement
   items?: ShellItem[]
   children?: ReactElement
   onContentClick?: (event: MouseEvent) => void
-  pathnameFn: () => string
-  navigateFn: (href: string) => void
+  pathnameFn?: () => string
+  navigateFn?: (href: string) => void
 }
 
 export type ShellItem = {
@@ -33,19 +33,17 @@ export const Shell = ({
 }: ShellProps) => (
   <div className={cx('flex', 'flex-row', 'items-center', 'gap-0', 'h-full')}>
     <Sidenav storage={storage} logo={logo} navigateFn={navigateFn}>
-      {items
-        ? items.map((item, index) => (
-            <SidenavItem
-              key={index}
-              href={item.href}
-              icon={item.icon}
-              primaryText={item.primaryText}
-              secondaryText={item.secondaryText}
-              pathnameFn={pathnameFn}
-              navigateFn={navigateFn}
-            />
-          ))
-        : null}
+      {items?.map((item, index) => (
+        <SidenavItem
+          key={index}
+          href={item.href}
+          icon={item.icon}
+          primaryText={item.primaryText}
+          secondaryText={item.secondaryText}
+          pathnameFn={pathnameFn}
+          navigateFn={navigateFn}
+        />
+      ))}
     </Sidenav>
     <div
       className={cx('flex', 'flex-col', 'items-center', 'h-full', 'w-full')}
