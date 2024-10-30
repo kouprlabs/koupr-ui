@@ -8,10 +8,6 @@ npm i @koupr/ui
 
 ## Usage
 
-```shell
-npm i @koupr/ui
-```
-
 ```tsx
 import { createRoot } from 'react-dom/client'
 import { theme } from '@koupr/ui'
