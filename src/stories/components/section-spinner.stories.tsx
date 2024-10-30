@@ -1,5 +1,5 @@
+import { SectionSpinner } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
-import { SectionSpinner } from '../../components'
 
 const meta: Meta<typeof SectionSpinner> = {
   title: 'Components/Section Spinner',

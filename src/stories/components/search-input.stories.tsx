@@ -1,6 +1,6 @@
 import { useState } from 'react'
+import { SearchInput } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
-import { SearchInput } from '../../components'
 
 const meta: Meta<typeof SearchInput> = {
   title: 'Components/Search Input',

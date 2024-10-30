@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { IconButton } from '@chakra-ui/react'
+import { IconTune, SearchBar } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
-import { IconTune, SearchBar } from '../../components'
 
 const meta: Meta<typeof SearchBar> = {
   title: 'Components/Search Bar',

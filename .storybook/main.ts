@@ -1,5 +1,6 @@
 import type { StorybookConfig } from '@storybook/react-vite'
 import autoprefixer from 'autoprefixer'
+import path from 'path'
 import tailwindcss from 'tailwindcss'
 import { mergeConfig } from 'vite'
 import svgr from 'vite-plugin-svgr'
@@ -12,7 +13,7 @@ const config: StorybookConfig = {
     'options': {},
   },
   async viteFinal(config) {
-    return mergeConfig(config, {
+    const newConfig = mergeConfig(config, {
       plugins: [svgr()],
       css: {
         postcss: {
@@ -20,6 +21,11 @@ const config: StorybookConfig = {
         },
       },
     })
+    newConfig.resolve.alias['@koupr/ui'] = path.resolve(
+      __dirname,
+      '../dist/module.js',
+    )
+    return newConfig
   },
 }
 export default config

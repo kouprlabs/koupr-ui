@@ -1,5 +1,3 @@
-import { Meta, StoryObj } from '@storybook/react'
-import cx from 'classnames'
 import {
   IconAdd,
   IconAdmin,
@@ -62,7 +60,9 @@ import {
   IconVisibility,
   IconWarning,
   IconWorkspaces,
-} from '../../components'
+} from '@koupr/ui'
+import { Meta, StoryObj } from '@storybook/react'
+import cx from 'classnames'
 
 const meta: Meta = {
   title: 'Components/Icon',

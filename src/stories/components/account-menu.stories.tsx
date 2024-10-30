@@ -1,8 +1,8 @@
 import { MenuItem } from '@chakra-ui/react'
+import { AccountMenu, NumberTag } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import cx from 'classnames'
 import { Link } from 'react-router-dom'
-import { AccountMenu, NumberTag } from '../../components'
 
 const meta: Meta<typeof AccountMenu> = {
   title: 'Components/Account Menu',

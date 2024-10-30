@@ -1,5 +1,5 @@
+import { Spinner } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
-import { Spinner } from '../../components'
 
 const meta: Meta<typeof Spinner> = {
   title: 'Components/Spinner',

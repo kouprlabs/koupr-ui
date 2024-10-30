@@ -1,12 +1,6 @@
+import { IconFlag, IconGroup, IconWorkspaces, Logo, Shell } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import {
-  IconFlag,
-  IconGroup,
-  IconWorkspaces,
-  Logo,
-  Shell,
-} from '../../components'
 
 const meta: Meta<typeof Shell> = {
   title: 'Components/Shell',

@@ -1,6 +1,6 @@
+import { IconInfo, SwitchCard } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import cx from 'classnames'
-import { IconInfo, SwitchCard } from '../../components'
 
 const meta: Meta<typeof SwitchCard> = {
   title: 'Components/Switch Card',

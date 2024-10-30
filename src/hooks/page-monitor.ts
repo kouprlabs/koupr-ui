@@ -4,7 +4,7 @@ export type UsePageMonitorMonitorOptions = {
   steps: number[]
 }
 
-const usePageMonitor = ({
+export const usePageMonitor = ({
   totalPages,
   totalElements,
   steps,
@@ -14,5 +14,3 @@ const usePageMonitor = ({
 
   return { hasPageSwitcher, hasSizeSelector }
 }
-
-export default usePageMonitor

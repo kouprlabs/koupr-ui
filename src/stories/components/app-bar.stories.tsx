@@ -1,7 +1,5 @@
 import { useState } from 'react'
 import { IconButton } from '@chakra-ui/react'
-import { Meta, StoryObj } from '@storybook/react'
-import { useLocation, useNavigate } from 'react-router-dom'
 import {
   AppBar,
   IconAdmin,
@@ -10,7 +8,9 @@ import {
   IconUpload,
   NavBar,
   SearchBar,
-} from '../../components'
+} from '@koupr/ui'
+import { Meta, StoryObj } from '@storybook/react'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const meta: Meta<typeof AppBar> = {
   title: 'Components/App Bar',
