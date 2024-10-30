@@ -1,14 +1,14 @@
-import { Meta, StoryObj } from '@storybook/react'
-import cx from 'classnames'
-import { useLocation, useNavigate } from 'react-router-dom'
 import {
   IconFlag,
   IconGroup,
   IconWorkspaces,
   Sidenav,
   SidenavItem,
-  Logo,
-} from '../../components'
+  Logo, // @ts-expect-error ignored
+} from '@koupr/ui'
+import { Meta, StoryObj } from '@storybook/react'
+import cx from 'classnames'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const meta: Meta<typeof Sidenav> = {
   title: 'Components/Sidenav',

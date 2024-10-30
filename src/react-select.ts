@@ -4,7 +4,7 @@ export type ReactSelectStylesOptions = {
   colorMode?: ColorMode
 }
 
-export function reactSelectStyles(options?: ReactSelectStylesOptions) {
+export function reactSelectStyles(options?: ReactSelectStylesOptions): any {
   let bg = 'transparent'
   if (options?.colorMode === 'light') {
     bg = 'white'
@@ -41,5 +41,3 @@ export function reactSelectStyles(options?: ReactSelectStylesOptions) {
     }),
   }
 }
-
-export default reactSelectStyles

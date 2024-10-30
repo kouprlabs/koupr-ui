@@ -1,7 +1,5 @@
 import { useState } from 'react'
 import { IconButton } from '@chakra-ui/react'
-import { Meta, StoryObj } from '@storybook/react'
-import { useLocation, useNavigate } from 'react-router-dom'
 import {
   AppBar,
   IconAdmin,
@@ -9,8 +7,10 @@ import {
   IconTune,
   IconUpload,
   NavBar,
-  SearchBar,
-} from '../../components'
+  SearchBar, // @ts-expect-error ignored
+} from '@koupr/ui'
+import { Meta, StoryObj } from '@storybook/react'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const meta: Meta<typeof AppBar> = {
   title: 'Components/App Bar',
@@ -74,7 +74,7 @@ export const WithSearchBar: Story = {
             query={query}
             placeholder="Search"
             buttons={<IconButton icon={<IconTune />} aria-label="Filters" />}
-            onSearch={(value) => setQuery(value)}
+            onSearch={setQuery}
             onClear={() => setQuery('')}
           />
         }
@@ -123,7 +123,7 @@ export const WithBoth: Story = {
               query={query}
               placeholder="Search"
               buttons={<IconButton icon={<IconTune />} aria-label="Filters" />}
-              onSearch={(value) => setQuery(value)}
+              onSearch={setQuery}
               onClear={() => setQuery('')}
             />
           </>

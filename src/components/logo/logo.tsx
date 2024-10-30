@@ -1,11 +1,16 @@
 import { useCallback } from 'react'
 import { CenterProps, useColorMode } from '@chakra-ui/react'
+// @ts-expect-error ignored
+import kouprLogoSvg from 'bundle-text:./assets/koupr-logo.svg'
+// @ts-expect-error ignored
+import voltaserveLogoDarkGlossySvg from 'bundle-text:./assets/voltaserve-logo-dark-glossy.svg'
+// @ts-expect-error ignored
+import voltaserveLogoDarkSvg from 'bundle-text:./assets/voltaserve-logo-dark.svg'
+// @ts-expect-error ignored
+import voltaserveLogoGlossySvg from 'bundle-text:./assets/voltaserve-logo-glossy.svg'
+// @ts-expect-error ignored
+import voltaserveLogoSvg from 'bundle-text:./assets/voltaserve-logo.svg'
 import cx from 'classnames'
-import KouprLogoSvg from './assets/koupr-logo.svg?react'
-import VoltaserveLogoDarkGlossySvg from './assets/voltaserve-logo-dark-glossy.svg?react'
-import VoltaserveLogoDarkSvg from './assets/voltaserve-logo-dark.svg?react'
-import VoltaserveLogoGlossySvg from './assets/voltaserve-logo-glossy.svg?react'
-import VoltaserveLogoSvg from './assets/voltaserve-logo.svg?react'
 
 export type LogoProps = CenterProps & {
   isGlossy?: boolean
@@ -15,23 +20,17 @@ export type LogoProps = CenterProps & {
 
 export const Logo = ({ type, size, isGlossy = false }: LogoProps) => {
   const { colorMode } = useColorMode()
-  const renderSvg = useCallback(() => {
+  const getSvg = useCallback(() => {
     if (type == 'voltaserve') {
       if (isGlossy) {
-        return colorMode === 'dark' ? (
-          <VoltaserveLogoDarkGlossySvg />
-        ) : (
-          <VoltaserveLogoGlossySvg />
-        )
+        return colorMode === 'dark'
+          ? voltaserveLogoDarkGlossySvg
+          : voltaserveLogoGlossySvg
       } else {
-        return colorMode === 'dark' ? (
-          <VoltaserveLogoDarkSvg />
-        ) : (
-          <VoltaserveLogoSvg />
-        )
+        return colorMode === 'dark' ? voltaserveLogoDarkSvg : voltaserveLogoSvg
       }
     } else if (type == 'koupr') {
-      return <KouprLogoSvg />
+      return kouprLogoSvg
     }
   }, [type, colorMode, isGlossy])
 
@@ -47,8 +46,7 @@ export const Logo = ({ type, size, isGlossy = false }: LogoProps) => {
         'w-[128px]': type == 'koupr' && size === 'md',
         'h-[110px]': type == 'koupr' && size === 'md',
       })}
-    >
-      {renderSvg()}
-    </div>
+      dangerouslySetInnerHTML={{ __html: getSvg() }}
+    ></div>
   )
 }

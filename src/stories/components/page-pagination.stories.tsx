@@ -1,7 +1,7 @@
+// @ts-expect-error ignored
+import { PagePagination, usePagePagination } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { PagePagination } from '../../components'
-import usePagePagination from '../../hooks/page-pagination'
 
 const meta: Meta<typeof PagePagination> = {
   title: 'Components/Page Pagination',

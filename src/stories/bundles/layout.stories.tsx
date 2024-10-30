@@ -1,8 +1,5 @@
 import { useState } from 'react'
 import { Button, IconButton, MenuItem, useDisclosure } from '@chakra-ui/react'
-import type { Meta, StoryObj } from '@storybook/react'
-import cx from 'classnames'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
 import {
   AccountMenu,
   AppBar,
@@ -18,8 +15,11 @@ import {
   Logo,
   NumberTag,
   SearchBar,
-  Shell,
-} from '../../components'
+  Shell, // @ts-expect-error ignored
+} from '@koupr/ui'
+import type { Meta, StoryObj } from '@storybook/react'
+import cx from 'classnames'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 const meta: Meta<typeof Shell> = {
   title: 'Bundles/Layout',
@@ -53,7 +53,7 @@ export const ShellWithAppBar: Story = {
                 buttons={
                   <IconButton icon={<IconTune />} aria-label="Filters" />
                 }
-                onSearch={(value) => setQuery(value)}
+                onSearch={setQuery}
                 onClear={() => setQuery('')}
               />
             }

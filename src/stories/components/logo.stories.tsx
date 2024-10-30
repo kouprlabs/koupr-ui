@@ -1,5 +1,6 @@
+// @ts-expect-error ignored
+import { Logo } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
-import { Logo } from '../../components'
 
 const meta: Meta<typeof Logo> = {
   title: 'Components/Logo',

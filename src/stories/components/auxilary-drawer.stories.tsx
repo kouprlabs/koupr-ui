@@ -1,6 +1,7 @@
 import { useDisclosure } from '@chakra-ui/react'
+// @ts-expect-error ignored
+import { AuxiliaryDrawer, IconStacks } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
-import { AuxiliaryDrawer, IconStacks } from '../../components'
 
 const meta: Meta<typeof AuxiliaryDrawer> = {
   title: 'Components/Auxiliary Drawer',

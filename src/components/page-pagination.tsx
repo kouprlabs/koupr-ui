@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useCallback } from 'react'
 import { Select } from '@chakra-ui/react'
 import cx from 'classnames'
-import usePageMonitor from '../hooks/page-monitor'
+import { usePageMonitor } from '../hooks'
 import { Pagination } from './pagination'
 
 export type PagePaginationProps = {

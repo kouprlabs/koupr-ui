@@ -1,5 +1,6 @@
+// @ts-expect-error ignored
+import { NumberTag } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
-import { NumberTag } from '../../components'
 
 const meta: Meta<typeof NumberTag> = {
   title: 'Components/Number Tag',

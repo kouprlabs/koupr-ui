@@ -1,6 +1,7 @@
+// @ts-expect-error ignored
+import { NavBar } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { NavBar } from '../../components'
 
 const meta: Meta<typeof NavBar> = {
   title: 'Components/Nav Bar',

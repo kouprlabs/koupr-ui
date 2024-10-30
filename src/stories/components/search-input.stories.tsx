@@ -1,6 +1,7 @@
 import { useState } from 'react'
+// @ts-expect-error ignored
+import { SearchInput } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
-import { SearchInput } from '../../components'
 
 const meta: Meta<typeof SearchInput> = {
   title: 'Components/Search Input',
