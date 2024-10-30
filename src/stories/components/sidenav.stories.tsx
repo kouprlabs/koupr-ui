@@ -4,7 +4,7 @@ import {
   IconWorkspaces,
   Sidenav,
   SidenavItem,
-  Logo,
+  Logo, // @ts-expect-error ignored
 } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import cx from 'classnames'

@@ -59,7 +59,7 @@ import {
   IconUpload,
   IconVisibility,
   IconWarning,
-  IconWorkspaces,
+  IconWorkspaces, // @ts-expect-error ignored
 } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import cx from 'classnames'

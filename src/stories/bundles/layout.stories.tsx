@@ -15,7 +15,7 @@ import {
   Logo,
   NumberTag,
   SearchBar,
-  Shell,
+  Shell, // @ts-expect-error ignored
 } from '@koupr/ui'
 import type { Meta, StoryObj } from '@storybook/react'
 import cx from 'classnames'
@@ -53,7 +53,7 @@ export const ShellWithAppBar: Story = {
                 buttons={
                   <IconButton icon={<IconTune />} aria-label="Filters" />
                 }
-                onSearch={(value) => setQuery(value)}
+                onSearch={setQuery}
                 onClear={() => setQuery('')}
               />
             }

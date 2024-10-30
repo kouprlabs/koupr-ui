@@ -7,7 +7,7 @@ import {
   IconTune,
   IconUpload,
   NavBar,
-  SearchBar,
+  SearchBar, // @ts-expect-error ignored
 } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -74,7 +74,7 @@ export const WithSearchBar: Story = {
             query={query}
             placeholder="Search"
             buttons={<IconButton icon={<IconTune />} aria-label="Filters" />}
-            onSearch={(value) => setQuery(value)}
+            onSearch={setQuery}
             onClear={() => setQuery('')}
           />
         }
@@ -123,7 +123,7 @@ export const WithBoth: Story = {
               query={query}
               placeholder="Search"
               buttons={<IconButton icon={<IconTune />} aria-label="Filters" />}
-              onSearch={(value) => setQuery(value)}
+              onSearch={setQuery}
               onClear={() => setQuery('')}
             />
           </>

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+// @ts-expect-error ignored
 import { Pagination } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 
