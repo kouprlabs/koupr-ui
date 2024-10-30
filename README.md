@@ -6,6 +6,8 @@
 npm i @koupr/ui
 ```
 
+Koupr UI is meant to work on top of Chakra UI: https://v2.chakra-ui.com/getting-started 
+
 ## Usage
 
 ```tsx
