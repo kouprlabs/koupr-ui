@@ -24,16 +24,12 @@ export const NotCollapsed: Story = {
         magnis morbi laoreet; montes porta. Pulvinar nunc per accumsan sed
         suspendisse sit sapien. Venenatis maximus inceptos taciti vestibulum
         porta sagittis quisque ipsum erat. Risus sodales conubia leo facilisi
-        dignissim potenti senectus. Lectus feugiat ornare amet iaculis metus
-        inceptos adipiscing placerat. Vestibulum faucibus facilisis viverra
-        magna litora. Molestie lorem leo malesuada dictumst porta erat sagittis
-        ullamcorper sollicitudin. Hendrerit ante maximus tincidunt, venenatis
-        mauris molestie.
+        dignissim potenti senectus.
       </p>
     ),
   },
   render: (args) => (
-    <div className={cx('w-[300px]')}>
+    <div className={cx('w-[200px]')}>
       <SwitchCard {...args} />
     </div>
   ),
