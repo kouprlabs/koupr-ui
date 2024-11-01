@@ -1,5 +1,4 @@
 import { MenuItem } from '@chakra-ui/react'
-// @ts-expect-error ignored
 import { AccountMenu, NumberTag } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import cx from 'classnames'

@@ -1,5 +1,4 @@
 import { Button } from '@chakra-ui/react'
-// @ts-expect-error ignored
 import { SectionPlaceholder, IconPersonAdd } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 

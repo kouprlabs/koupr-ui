@@ -1,4 +1,3 @@
-// @ts-expect-error ignored
 import { SectionError } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 

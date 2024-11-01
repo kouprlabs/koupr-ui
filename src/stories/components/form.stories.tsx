@@ -1,5 +1,4 @@
 import { IconButton, Switch } from '@chakra-ui/react'
-// @ts-expect-error ignored
 import { Form, IconEdit, IconDelete } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import cx from 'classnames'

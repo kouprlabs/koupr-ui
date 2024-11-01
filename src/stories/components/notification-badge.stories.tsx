@@ -1,5 +1,4 @@
 import { IconButton } from '@chakra-ui/react'
-// @ts-expect-error ignored
 import { IconStacks, NotificationBadge } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 

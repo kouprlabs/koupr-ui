@@ -1,4 +1,3 @@
-// @ts-expect-error ignored
 import { IconInfo, SwitchCard } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import cx from 'classnames'

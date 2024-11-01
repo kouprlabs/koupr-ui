@@ -1,4 +1,3 @@
-// @ts-expect-error ignored
 import { SectionSpinner } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 

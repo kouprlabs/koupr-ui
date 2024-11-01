@@ -7,7 +7,7 @@ import {
   IconTune,
   IconUpload,
   NavBar,
-  SearchBar, // @ts-expect-error ignored
+  SearchBar,
 } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import { useLocation, useNavigate } from 'react-router-dom'
