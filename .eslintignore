@@ -3,4 +3,3 @@ dist
 .parcel-cache
 tailwind.config.js
 postcss.config.js
-src/stories/
