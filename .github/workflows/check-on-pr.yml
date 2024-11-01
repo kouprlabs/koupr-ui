@@ -15,12 +15,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Set Up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Install packages
+      - name: Install Packages
         run: npm i
 
       - name: Build
@@ -37,12 +37,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Set Up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Install packages
+      - name: Install Packages
         run: npm i
 
       - name: Build
@@ -64,7 +64,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Set Up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
