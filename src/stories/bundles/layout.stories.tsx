@@ -15,7 +15,7 @@ import {
   Logo,
   NumberTag,
   SearchBar,
-  Shell, // @ts-expect-error ignored
+  Shell,
 } from '@koupr/ui'
 import type { Meta, StoryObj } from '@storybook/react'
 import cx from 'classnames'
