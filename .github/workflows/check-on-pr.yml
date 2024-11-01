@@ -42,9 +42,6 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install packages
-        run: npm i
-
       - name: Run TypeScript Compiler
         run: npm run tsc
 
@@ -66,9 +63,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-
-      - name: Install packages
-        run: npm i
 
       - name: Build Storybook
         run: npm run build-storybook
