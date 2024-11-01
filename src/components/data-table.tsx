@@ -1,5 +1,4 @@
 import { ReactElement } from 'react'
-import { Sidenav } from '@koupr/ui'
 
 export interface DataTableProps<T> {
   items: T[]
@@ -8,10 +7,10 @@ export interface DataTableProps<T> {
 
 export function DataTable<T>({ items, cellFn }: DataTableProps<T>) {
   return (
-    <Sidenav>
+    <div>
       {items.map((item) => (
         <div>{cellFn(item)}</div>
       ))}
-    </Sidenav>
+    </div>
   )
 }
