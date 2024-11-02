@@ -1,5 +1,6 @@
 import { ReactElement } from 'react'
 import { Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react'
+import cx from 'classnames'
 
 export interface DataTableProps<T> {
   items: T[]

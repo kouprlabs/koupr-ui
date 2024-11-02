@@ -1,5 +1,8 @@
-import { DataTable } from '@koupr/ui'
+import { Avatar, Link } from '@chakra-ui/react'
+import { DataTable, PagePagination, usePagePagination } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
+import cx from 'classnames'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const meta: Meta<typeof DataTable> = {
   title: 'Components/Data Table',
@@ -35,12 +38,43 @@ export const Default: Story = {
     columns: [
       {
         title: 'Name',
-        cellFn: (item) => <span>{item.name}</span>,
+        cellFn: (item) => (
+          <div className={cx('flex', 'flex-row', 'gap-1.5', 'items-center')}>
+            <Avatar
+              name={item.name}
+              size="sm"
+              className={cx('w-[40px]', 'h-[40px]')}
+            />
+            <Link className={cx('no-underline')}>{item.name}</Link>
+          </div>
+        ),
       },
       {
         title: 'Symbol',
         cellFn: (item) => <span>{item.symbol}</span>,
       },
     ],
+  },
+  render: (args) => {
+    const navigate = useNavigate()
+    const location = useLocation()
+    const { page, size, steps, setPage, setSize } = usePagePagination({
+      navigate,
+      location,
+    })
+    return (
+      <div className={cx('flex', 'flex-col', 'items-end', 'gap-3.5')}>
+        <DataTable {...args} />
+        <PagePagination
+          totalElements={100}
+          totalPages={25}
+          page={page}
+          size={size}
+          steps={steps}
+          setPage={setPage}
+          setSize={setSize}
+        />
+      </div>
+    )
   },
 }

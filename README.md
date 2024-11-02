@@ -6,18 +6,18 @@
 npm i @koupr/ui
 ```
 
-Koupr UI is meant to work on top of Chakra UI: https://v2.chakra-ui.com/getting-started 
+Koupr UI is meant to work on top of Chakra UI: https://v2.chakra-ui.com/getting-started
 
 ## Usage
 
 ```tsx
-import { createRoot } from 'react-dom/client'
 import { theme } from '@koupr/ui'
-import App from "./App"
+import { createRoot } from 'react-dom/client'
+import App from './App'
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <ChakraProvider theme={theme}>
-    <App/>
+    <App />
   </ChakraProvider>,
 )
 ```
