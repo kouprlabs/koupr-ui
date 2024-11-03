@@ -59,7 +59,7 @@ export const Default: Story = {
     columns: [
       {
         title: 'Name',
-        cellFn: (item) => (
+        renderCell: (item) => (
           <div className={cx('flex', 'flex-row', 'gap-1.5', 'items-center')}>
             <Avatar
               name={item.name}
@@ -72,11 +72,11 @@ export const Default: Story = {
       },
       {
         title: 'Symbol',
-        cellFn: (item) => <span>{item.symbol}</span>,
+        renderCell: (item) => <span>{item.symbol}</span>,
       },
       {
         title: 'Date of Birth',
-        cellFn: (item) => (
+        renderCell: (item) => (
           <span>{new Date(item.dateOfBirth).toLocaleString()}</span>
         ),
       },

@@ -24,7 +24,7 @@ export interface DataTableProps<T> {
 
 export interface DataTableColumn<T> {
   title: string
-  cellFn: (item: T) => ReactElement
+  renderCell: (item: T) => ReactElement
 }
 
 export interface DataTableAction<T> {
@@ -40,8 +40,8 @@ export function DataTable<T>({ items, columns, actions }: DataTableProps<T>) {
     <Table variant="simple">
       <Thead>
         <Tr>
-          {columns.map((column) => (
-            <Th>{column.title}</Th>
+          {columns.map((column, columnIndex) => (
+            <Th key={columnIndex}>{column.title}</Th>
           ))}
         </Tr>
       </Thead>
@@ -49,8 +49,8 @@ export function DataTable<T>({ items, columns, actions }: DataTableProps<T>) {
         {items.map((item, itemIndex) => (
           <Tr key={`row-${itemIndex}`}>
             {columns.map((column, colIndex) => (
-              <Td id={`row-${itemIndex}-col-${colIndex}`}>
-                {column.cellFn(item)}
+              <Td key={`row-${itemIndex}-col-${colIndex}`}>
+                {column.renderCell(item)}
               </Td>
             ))}
             {actions ? (
@@ -64,17 +64,17 @@ export function DataTable<T>({ items, columns, actions }: DataTableProps<T>) {
                   />
                   <Portal>
                     <MenuList>
-                      {actions?.map((menuItem, menuItemIndex) => (
+                      {actions?.map((action, actionIndex) => (
                         <MenuItem
-                          key={menuItemIndex}
-                          icon={menuItem.icon}
+                          key={`row-${itemIndex}-action-${actionIndex}`}
+                          icon={action.icon}
                           className={cx({
-                            'text-red-500': menuItem.isDestructive,
+                            'text-red-500': action.isDestructive,
                           })}
-                          isDisabled={menuItem.isDisabled}
-                          onClick={() => menuItem.onClick?.(item)}
+                          isDisabled={action.isDisabled}
+                          onClick={() => action.onClick?.(item)}
                         >
-                          {menuItem.label}
+                          {action.label}
                         </MenuItem>
                       ))}
                     </MenuList>
