@@ -85,16 +85,21 @@ export const Default: Story = {
       {
         label: 'Mark As Favorite',
         icon: <IconFavorite />,
+        onClick: (item) => console.log(`Marking ${item.name} as favorite!`),
       },
       {
         label: 'Start Conversation',
         icon: <IconChat />,
         isDisabled: true,
+        onClick: (item) =>
+          console.log(`Starting a conversation with ${item.name}.`),
       },
       {
         label: 'Remove From Organization',
         icon: <IconLogout />,
         isDestructive: true,
+        onClick: (item) =>
+          console.log(`Removing ${item.name} from organization...`),
       },
     ],
   },
