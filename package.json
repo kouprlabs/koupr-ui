@@ -12,12 +12,12 @@
   },
   "scripts": {
     "watch": "parcel watch",
-    "build": "parcel build",
+    "build": "parcel build && node replace-exports.js",
     "tsc": "tsc",
     "format": "prettier --write .",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
-    "storybook": "storybook dev -p 6006 --ci",
-    "build-storybook": "storybook build"
+    "storybook": "parcel build && node replace-exports.js && storybook dev -p 6006 --ci",
+    "build-storybook": "parcel build && node replace-exports.js && storybook build"
   },
   "dependencies": {
     "@chakra-ui/react": "2.10.3",
