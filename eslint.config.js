@@ -34,6 +34,7 @@ export default [
       '.parcel-cache',
       'tailwind.config.js',
       'postcss.config.js',
+      'eslint.config.js',
       'replace-exports.js',
     ],
   },
