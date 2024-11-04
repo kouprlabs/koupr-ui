@@ -1,49 +1,31 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-
-export type NavigateArgs = {
-  search: string
-}
-
-export type NavigateFunction = (args: NavigateArgs) => void
-
-export type LocationObject = {
-  search: string
-}
-
-export type StorageOptions = {
-  enabled?: boolean
-  prefix?: string
-  namespace?: string
-}
+import { StorageOptions } from '../types'
 
 export type UsePagePaginationOptions = {
-  navigate: NavigateFunction
-  location: LocationObject
+  navigateFn?: (href: string) => void
+  searchFn: () => string
   storage?: StorageOptions
   steps?: number[]
 }
 
 export const usePagePagination = ({
-  navigate,
-  location,
+  navigateFn,
+  searchFn,
   storage = {
-    enabled: false,
     prefix: 'app',
     namespace: 'main',
   },
   steps = [5, 10, 20, 40, 80, 100],
 }: UsePagePaginationOptions) => {
-  const queryParams = useMemo(
-    () => new URLSearchParams(location.search),
-    [location.search],
-  )
+  const search = searchFn()
+  const queryParams = useMemo(() => new URLSearchParams(search), [search])
   const page = Number(queryParams.get('page')) || 1
   const storageSizeKey = useMemo(
     () => `${storage.prefix}_${storage.namespace}_pagination_size`,
     [storage],
   )
   const [size, setSize] = useState(
-    localStorage.getItem(storageSizeKey) && storage.enabled
+    localStorage.getItem(storageSizeKey) && storage
       ? parseInt(localStorage.getItem(storageSizeKey) as string)
       : steps[0],
   )
@@ -51,7 +33,7 @@ export const usePagePagination = ({
   const _setSize = useCallback(
     (size: number) => {
       setSize(size)
-      if (size && storage.enabled) {
+      if (size && storage) {
         localStorage.setItem(storageSizeKey, JSON.stringify(size))
       }
     },
@@ -61,16 +43,16 @@ export const usePagePagination = ({
   useEffect(() => {
     if (!queryParams.has('page')) {
       queryParams.set('page', '1')
-      navigate({ search: `?${queryParams.toString()}` })
+      navigateFn?.(`?${queryParams.toString()}`)
     }
-  }, [queryParams, navigate])
+  }, [queryParams, navigateFn])
 
   const setPage = useCallback(
     (page: number) => {
       queryParams.set('page', String(page))
-      navigate({ search: `?${queryParams.toString()}` })
+      navigateFn?.(`?${queryParams.toString()}`)
     },
-    [queryParams, navigate],
+    [queryParams, navigateFn],
   )
 
   return { page, size, steps, setPage, setSize: _setSize }

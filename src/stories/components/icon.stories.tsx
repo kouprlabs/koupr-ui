@@ -5,6 +5,7 @@ import {
   IconArrowTopRight,
   IconArrowUpward,
   IconBolt,
+  IconChat,
   IconCheck,
   IconCheckBoxOutlineBlank,
   IconCheckCircle,
@@ -21,6 +22,7 @@ import {
   IconEdit,
   IconError,
   IconExpandMore,
+  IconFavorite,
   IconFileCopy,
   IconFirstPage,
   IconFlag,
@@ -135,6 +137,8 @@ export const Default: Story = {
       <IconStacks />
       <IconCloudUpload />
       <IconBolt />
+      <IconChat />
+      <IconFavorite />
     </div>
   ),
 }

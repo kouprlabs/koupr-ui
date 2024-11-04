@@ -24,6 +24,7 @@ export default meta
 type Story = StoryObj<typeof AppBar>
 
 export const WithNavBar: Story = {
+  name: 'Nav Bar',
   render: (args) => {
     const location = useLocation()
     const navigate = useNavigate()
@@ -64,6 +65,7 @@ export const WithNavBar: Story = {
 }
 
 export const WithSearchBar: Story = {
+  name: 'Search Bar',
   render: (args) => {
     const [query, setQuery] = useState('')
     return (
@@ -91,6 +93,7 @@ export const WithSearchBar: Story = {
 }
 
 export const WithBoth: Story = {
+  name: 'Nav Bar + Search Bar',
   render: (args) => {
     const location = useLocation()
     const navigate = useNavigate()

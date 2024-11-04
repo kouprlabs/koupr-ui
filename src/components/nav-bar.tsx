@@ -11,12 +11,11 @@ export type NavBarProps = {
 export type NavItem = {
   title: string
   href: string
-  isActive?: boolean
 }
 
 export const NavBar = ({ items, pathnameFn, navigateFn }: NavBarProps) => {
   return (
-    <div className={cx('flex', 'flex-row', 'gap-1.5')}>
+    <div className={cx('flex', 'flex-row', 'gap-0')}>
       {items?.map((item, index) => (
         <Item
           key={index}

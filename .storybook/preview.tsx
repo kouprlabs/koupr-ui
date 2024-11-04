@@ -1,5 +1,4 @@
 import { ChakraProvider } from '@chakra-ui/react'
-// @ts-expect-error ignored
 import { theme } from '@koupr/ui'
 import type { Preview } from '@storybook/react'
 import { MemoryRouter } from 'react-router-dom'

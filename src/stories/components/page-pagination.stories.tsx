@@ -19,8 +19,8 @@ export const Default: Story = {
     const location = useLocation()
     const navigate = useNavigate()
     const { page, size, steps, setPage, setSize } = usePagePagination({
-      navigate,
-      location,
+      navigateFn: navigate,
+      searchFn: () => location.search,
       storage: {
         prefix: 'page-pagination',
         namespace: 'main',
