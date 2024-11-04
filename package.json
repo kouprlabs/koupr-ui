@@ -11,7 +11,7 @@
     "url": "https://github.com/kouprlabs/koupr-ui.git"
   },
   "engines": {
-    "node": "22.x"
+    "node": ">=20.x"
   },
   "scripts": {
     "watch": "parcel watch",
