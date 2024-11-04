@@ -431,6 +431,22 @@ export const IconFavorite = ({ className, filled, ...props }: IconProps) => (
   </span>
 )
 
+export const IconWhatshot = ({ className, filled, ...props }: IconProps) => (
+  <span className={getClassName({ filled, className })} {...props}>
+    whatshot
+  </span>
+)
+
+export const IconSwapVerticalCircle = ({
+  className,
+  filled,
+  ...props
+}: IconProps) => (
+  <span className={getClassName({ filled, className })} {...props}>
+    swap_vertical_circle
+  </span>
+)
+
 type GetClassNameOptions = {
   filled?: boolean
   className?: string

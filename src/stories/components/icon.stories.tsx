@@ -56,11 +56,13 @@ import {
   IconSelectCheckBox,
   IconSend,
   IconStacks,
+  IconSwapVerticalCircle,
   IconSync,
   IconTune,
   IconUpload,
   IconVisibility,
   IconWarning,
+  IconWhatshot,
   IconWorkspaces,
 } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
@@ -139,6 +141,8 @@ export const Default: Story = {
       <IconBolt />
       <IconChat />
       <IconFavorite />
+      <IconWhatshot />
+      <IconSwapVerticalCircle />
     </div>
   ),
 }
