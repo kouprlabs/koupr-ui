@@ -5,6 +5,7 @@ import {
   IconArrowTopRight,
   IconArrowUpward,
   IconBolt,
+  IconChat,
   IconCheck,
   IconCheckBoxOutlineBlank,
   IconCheckCircle,
@@ -21,6 +22,7 @@ import {
   IconEdit,
   IconError,
   IconExpandMore,
+  IconFavorite,
   IconFileCopy,
   IconFirstPage,
   IconFlag,
@@ -54,12 +56,14 @@ import {
   IconSelectCheckBox,
   IconSend,
   IconStacks,
+  IconSwapVerticalCircle,
   IconSync,
   IconTune,
   IconUpload,
   IconVisibility,
   IconWarning,
-  IconWorkspaces, // @ts-expect-error ignored
+  IconWhatshot,
+  IconWorkspaces,
 } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import cx from 'classnames'
@@ -135,6 +139,10 @@ export const Default: Story = {
       <IconStacks />
       <IconCloudUpload />
       <IconBolt />
+      <IconChat />
+      <IconFavorite />
+      <IconWhatshot />
+      <IconSwapVerticalCircle />
     </div>
   ),
 }

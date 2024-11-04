@@ -2,17 +2,13 @@ import cx from 'classnames'
 import { Spinner } from './spinner'
 
 export type SectionSpinnerProps = {
-  width?: string
   height?: string
 }
 
-const DEFAULT_WIDTH = '100%'
-const DEFAULT_HEIGHT = '300px'
-
-export const SectionSpinner = ({ width, height }: SectionSpinnerProps) => (
+export const SectionSpinner = ({ height = '300px' }: SectionSpinnerProps) => (
   <div
-    className={cx('flex', 'items-center', 'justify-center')}
-    style={{ width: width || DEFAULT_WIDTH, height: height || DEFAULT_HEIGHT }}
+    className={cx('flex', 'items-center', 'justify-center', 'w-full', 'grow')}
+    style={{ height }}
   >
     <Spinner />
   </div>

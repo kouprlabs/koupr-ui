@@ -3,31 +3,28 @@ import { Link as ChakraLink } from '@chakra-ui/react'
 import cx from 'classnames'
 
 export type NavBarProps = {
-  items: NavItem[]
-  pathnameFn: () => string
-  navigateFn: (href: string) => void
+  items?: NavItem[]
+  pathnameFn?: () => string
+  navigateFn?: (href: string) => void
 }
 
 export type NavItem = {
   title: string
   href: string
-  isActive?: boolean
 }
 
 export const NavBar = ({ items, pathnameFn, navigateFn }: NavBarProps) => {
   return (
-    <div className={cx('flex', 'flex-row', 'gap-1.5')}>
-      {items
-        ? items.map((item, index) => (
-            <Item
-              key={index}
-              title={item.title}
-              href={item.href}
-              pathnameFn={pathnameFn}
-              navigateFn={navigateFn}
-            />
-          ))
-        : null}
+    <div className={cx('flex', 'flex-row', 'gap-0')}>
+      {items?.map((item, index) => (
+        <Item
+          key={index}
+          title={item.title}
+          href={item.href}
+          pathnameFn={pathnameFn}
+          navigateFn={navigateFn}
+        />
+      ))}
     </div>
   )
 }
@@ -35,12 +32,12 @@ export const NavBar = ({ items, pathnameFn, navigateFn }: NavBarProps) => {
 type ItemProps = {
   title: string
   href: string
-  pathnameFn: () => string
-  navigateFn: (href: string) => void
+  pathnameFn?: () => string
+  navigateFn?: (href: string) => void
 }
 
 const Item = ({ title, href, pathnameFn, navigateFn }: ItemProps) => {
-  const pathname = pathnameFn()
+  const pathname = pathnameFn?.() ?? ''
   const [isActive, setIsActive] = useState(false)
 
   useEffect(() => {
@@ -77,7 +74,7 @@ const Item = ({ title, href, pathnameFn, navigateFn }: ItemProps) => {
           'bg-transparent': !isActive,
         },
       )}
-      onClick={() => navigateFn(href)}
+      onClick={() => navigateFn?.(href)}
     >
       {title}
     </ChakraLink>

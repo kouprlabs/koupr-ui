@@ -1,4 +1,3 @@
-// @ts-expect-error ignored
 import { PagePagination, usePagePagination } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -20,8 +19,8 @@ export const Default: Story = {
     const location = useLocation()
     const navigate = useNavigate()
     const { page, size, steps, setPage, setSize } = usePagePagination({
-      navigate,
-      location,
+      navigateFn: navigate,
+      searchFn: () => location.search,
       storage: {
         prefix: 'page-pagination',
         namespace: 'main',

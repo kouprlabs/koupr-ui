@@ -4,6 +4,7 @@ export type ReactSelectStylesOptions = {
   colorMode?: ColorMode
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function reactSelectStyles(options?: ReactSelectStylesOptions): any {
   let bg = 'transparent'
   if (options?.colorMode === 'light') {

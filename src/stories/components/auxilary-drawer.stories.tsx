@@ -1,5 +1,4 @@
 import { useDisclosure } from '@chakra-ui/react'
-// @ts-expect-error ignored
 import { AuxiliaryDrawer, IconStacks } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 
