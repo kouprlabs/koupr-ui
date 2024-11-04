@@ -20,6 +20,18 @@ const config: StorybookConfig = {
           plugins: [tailwindcss(), autoprefixer()],
         },
       },
+      build: {
+        rollupOptions: {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          onwarn(warning: any, warn: any) {
+            // Suppress: Module level directives cause errors when bundled, "use client"
+            if (warning.code === 'MODULE_LEVEL_DIRECTIVE') {
+              return
+            }
+            warn(warning)
+          },
+        },
+      },
     })
     newConfig.resolve.alias['@koupr/ui'] = path.resolve(
       __dirname,
