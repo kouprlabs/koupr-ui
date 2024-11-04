@@ -10,6 +10,9 @@
     "type": "git",
     "url": "https://github.com/kouprlabs/koupr-ui.git"
   },
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "watch": "parcel watch",
     "build": "parcel build && node replace-exports.js",
