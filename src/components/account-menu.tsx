@@ -16,8 +16,8 @@ import { variables } from '../variables'
 import { NotificationBadge } from './notification-badge'
 
 export type AccountMenuProps = {
-  name: string
-  email: string
+  name?: string
+  email?: string
   picture?: string
   isActive?: boolean
   isLoading?: boolean
@@ -68,20 +68,24 @@ export const AccountMenu = ({
                 )}
               />
               <div className={cx('flex', 'flex-col', 'gap-0')}>
-                <span
-                  className={cx(
-                    'font-semibold',
-                    'grow',
-                    'text-ellipsis',
-                    'overflow-hidden',
-                    'whitespace-nowrap',
-                  )}
-                >
-                  {truncateEnd(name, 50)}
-                </span>
-                <span className={cx('text-gray-500')}>
-                  {truncateMiddle(email, 50)}
-                </span>
+                {name ? (
+                  <span
+                    className={cx(
+                      'font-semibold',
+                      'grow',
+                      'text-ellipsis',
+                      'overflow-hidden',
+                      'whitespace-nowrap',
+                    )}
+                  >
+                    {truncateEnd(name, 50)}
+                  </span>
+                ) : null}
+                {email ? (
+                  <span className={cx('text-gray-500')}>
+                    {truncateMiddle(email, 50)}
+                  </span>
+                ) : null}
               </div>
             </div>
             <MenuDivider />
