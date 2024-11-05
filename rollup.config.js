@@ -1,5 +1,7 @@
 import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
+import strip from '@rollup/plugin-strip'
+import terser from '@rollup/plugin-terser'
 import typescript from '@rollup/plugin-typescript'
 import { createFilter } from '@rollup/pluginutils'
 import { createRequire } from 'module'
@@ -66,8 +68,11 @@ export default [
       svg(),
       postcss({
         extract: true,
+        minimize: true,
       }),
       injectCssImportPlugin(),
+      strip(),
+      terser(),
     ],
   },
   {
