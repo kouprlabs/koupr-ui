@@ -17,6 +17,7 @@ export const Default: Story = {
     name: 'Bruce Wayne',
     email: 'bruce.wayne@koupr.com',
     hasBadge: true,
+    isLoading: false,
     menuItems: (
       <>
         <MenuItem as={Link} to="/account/settings">
