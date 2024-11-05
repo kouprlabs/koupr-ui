@@ -10,7 +10,7 @@ import {
   IconButton,
 } from '@chakra-ui/react'
 import cx from 'classnames'
-import { NotificationBadge } from '../components'
+import { NotificationBadge } from '../components/notification-badge'
 
 export type AuxiliaryDrawerProps = {
   icon: ReactElement

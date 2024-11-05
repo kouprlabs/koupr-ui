@@ -1,6 +1,6 @@
-const { variables } = require('./src/variables.cjs')
+import { variables } from './src/variables'
 
-module.exports = {
+export default {
   important: true,
   darkMode: 'class',
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
