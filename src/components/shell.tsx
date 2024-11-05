@@ -1,6 +1,6 @@
 import { MouseEvent, ReactElement } from 'react'
 import cx from 'classnames'
-import { StorageOptions } from '../types'
+import { StorageOptions } from '../common-types'
 import { Sidenav, SidenavItem } from './sidenav'
 
 export type ShellProps = {

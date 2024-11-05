@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { StorageOptions } from '../types'
+import { StorageOptions } from '../common-types'
 
 export type UsePagePaginationOptions = {
   navigateFn?: (href: string) => void

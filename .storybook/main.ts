@@ -3,7 +3,6 @@ import autoprefixer from 'autoprefixer'
 import path from 'path'
 import tailwindcss from 'tailwindcss'
 import { mergeConfig } from 'vite'
-import svgr from 'vite-plugin-svgr'
 
 const config: StorybookConfig = {
   'stories': ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -14,7 +13,6 @@ const config: StorybookConfig = {
   },
   async viteFinal(config) {
     const newConfig = mergeConfig(config, {
-      plugins: [svgr()],
       css: {
         postcss: {
           plugins: [tailwindcss(), autoprefixer()],

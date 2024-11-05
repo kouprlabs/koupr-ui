@@ -1,9 +1,4 @@
-declare module '*.svg?react' {
-  import * as React from 'react'
-  const ReactComponent: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
-  export default ReactComponent
-}
-
+// eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference path="../dist/types.d.ts" />
 declare module '@koupr/ui' {
   export * from 'dist/types.d.ts'

@@ -1,16 +1,16 @@
 import { useCallback } from 'react'
 import { CenterProps, useColorMode } from '@chakra-ui/react'
-// @ts-expect-error ignored
-import kouprLogoSvg from 'bundle-text:./assets/koupr-logo.svg'
-// @ts-expect-error ignored
-import voltaserveLogoDarkGlossySvg from 'bundle-text:./assets/voltaserve-logo-dark-glossy.svg'
-// @ts-expect-error ignored
-import voltaserveLogoDarkSvg from 'bundle-text:./assets/voltaserve-logo-dark.svg'
-// @ts-expect-error ignored
-import voltaserveLogoGlossySvg from 'bundle-text:./assets/voltaserve-logo-glossy.svg'
-// @ts-expect-error ignored
-import voltaserveLogoSvg from 'bundle-text:./assets/voltaserve-logo.svg'
 import cx from 'classnames'
+// @ts-expect-error ignored
+import kouprLogoSvg from './assets/koupr-logo.svg'
+// @ts-expect-error ignored
+import voltaserveLogoDarkGlossySvg from './assets/voltaserve-logo-dark-glossy.svg'
+// @ts-expect-error ignored
+import voltaserveLogoDarkSvg from './assets/voltaserve-logo-dark.svg'
+// @ts-expect-error ignored
+import voltaserveLogoGlossySvg from './assets/voltaserve-logo-glossy.svg'
+// @ts-expect-error ignored
+import voltaserveLogoSvg from './assets/voltaserve-logo.svg'
 
 export type LogoProps = CenterProps & {
   isGlossy?: boolean
