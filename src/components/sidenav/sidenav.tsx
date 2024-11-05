@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useMemo, useState } from 'react'
 import { Link } from '@chakra-ui/react'
 import cx from 'classnames'
-import { StorageOptions } from '../../types'
+import { StorageOptions } from '../../common-types'
 import { IconChevronLeft, IconChevronRight } from '../icons'
 import { SidenavContext } from './sidenav-context'
 

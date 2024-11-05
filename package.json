@@ -1,7 +1,8 @@
 {
   "name": "@koupr/ui",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "license": "MIT",
+  "type": "module",
   "source": "src/index.ts",
   "main": "dist/main.js",
   "module": "dist/module.js",
@@ -14,13 +15,12 @@
     "node": ">=20.x"
   },
   "scripts": {
-    "watch": "parcel watch",
-    "build": "parcel build && node replace-exports.js",
+    "build": "rollup -c && node ./scripts/cleanup.js",
     "tsc": "tsc",
     "format": "prettier --write .",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
-    "storybook": "parcel build && node replace-exports.js && storybook dev -p 6006 --ci",
-    "build-storybook": "parcel build && node replace-exports.js && storybook build"
+    "storybook": "rollup -c && node ./scripts/cleanup.js && storybook dev -p 6006 --ci",
+    "build-storybook": "rollup -c && node ./scripts/cleanup.js && storybook build"
   },
   "dependencies": {
     "@chakra-ui/react": "2.10.3",
@@ -36,11 +36,12 @@
     "react-router-dom": "6.27.0"
   },
   "devDependencies": {
-    "@parcel/packager-ts": "2.12.0",
-    "@parcel/transformer-inline-string": "2.12.0",
-    "@parcel/transformer-postcss": "2.12.0",
-    "@parcel/transformer-svg-react": "2.12.0",
-    "@parcel/transformer-typescript-types": "2.12.0",
+    "@rollup/plugin-commonjs": "28.0.1",
+    "@rollup/plugin-node-resolve": "15.3.0",
+    "@rollup/plugin-strip": "3.0.4",
+    "@rollup/plugin-terser": "0.4.4",
+    "@rollup/plugin-typescript": "12.1.1",
+    "@rollup/pluginutils": "5.1.3",
     "@storybook/addon-controls": "8.4.1",
     "@storybook/addon-essentials": "8.4.1",
     "@storybook/react": "8.4.1",
@@ -56,16 +57,20 @@
     "eslint-plugin-react": "7.37.2",
     "eslint-plugin-storybook": "0.11.0",
     "globals": "15.12.0",
-    "parcel": "2.12.0",
     "postcss": "8.4.47",
     "postcss-import": "16.1.0",
     "postcss-import-url": "7.2.0",
     "prettier": "3.3.3",
+    "rimraf": "6.0.1",
+    "rollup": "4.24.4",
+    "rollup-plugin-dts": "6.1.1",
+    "rollup-plugin-peer-deps-external": "2.2.4",
+    "rollup-plugin-postcss": "4.0.2",
+    "rollup-plugin-svg": "2.0.0",
     "storybook": "8.4.1",
     "tailwindcss": "3.4.14",
     "typescript": "5.6.3",
     "typescript-eslint": "8.13.0",
-    "vite": "5.4.10",
-    "vite-plugin-svgr": "4.3.0"
+    "vite": "5.4.10"
   }
 }
