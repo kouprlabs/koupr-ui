@@ -1,27 +1,17 @@
-import { NavBar } from '@koupr/ui'
+import { Tabs, TabList, Tab } from '@chakra-ui/react'
 import cx from 'classnames'
-import { Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 
 export const Page = () => {
-  const location = useLocation()
   const navigate = useNavigate()
-
   return (
     <div className={cx('flex', 'flex-col', 'gap-2')}>
-      <NavBar
-        items={[
-          {
-            title: 'List',
-            href: '/workspace/list',
-          },
-          {
-            title: 'Settings',
-            href: '/workspace/settings',
-          },
-        ]}
-        navigateFn={navigate}
-        pathnameFn={() => location.pathname}
-      />
+      <Tabs variant="solid-rounded" colorScheme="gray">
+        <TabList>
+          <Tab onClick={() => navigate('/workspace/list')}>List</Tab>
+          <Tab onClick={() => navigate('/workspace/settings')}>Settings</Tab>
+        </TabList>
+      </Tabs>
       <Outlet />
     </div>
   )

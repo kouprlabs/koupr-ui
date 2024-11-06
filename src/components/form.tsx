@@ -9,6 +9,7 @@ export type FormProps = {
 export type FormSection = {
   title: string
   rows?: FormRow[]
+  content?: ReactElement
 }
 
 export type FormRow = {
@@ -29,6 +30,7 @@ export const Form = ({ sections }: FormProps) => (
           )}
         >
           <span className={cx('koupr-font-bold')}>{section.title}</span>
+          {section.content}
           {section.rows?.map((row, rowIndex) => (
             <div
               key={`row-${rowIndex}`}

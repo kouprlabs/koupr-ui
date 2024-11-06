@@ -1,14 +1,20 @@
 import { Select } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
+import { OptionBase } from 'chakra-react-select'
 import cx from 'classnames'
 
-const meta: Meta<typeof Select> = {
+const meta: Meta<typeof Select<DemoOption, false>> = {
   title: 'Components/Select',
-  component: Select,
+  component: Select<DemoOption, false>,
 }
 
 export default meta
-type Story = StoryObj<typeof Select>
+type Story = StoryObj<typeof Select<DemoOption, false>>
+
+interface DemoOption extends OptionBase {
+  value: string
+  label: string
+}
 
 export const Default: Story = {
   args: {
@@ -22,7 +28,14 @@ export const Default: Story = {
   },
   render: (args) => (
     <div className={cx('inline-block', 'w-[250px]')}>
-      <Select {...args} />
+      <Select<DemoOption, false>
+        {...args}
+        onChange={(newValue) => {
+          if (newValue) {
+            console.log(`Selected "${newValue.value}".`)
+          }
+        }}
+      />
     </div>
   ),
 }
