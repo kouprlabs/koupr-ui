@@ -54,7 +54,7 @@ export function DataTable<T>({ items, columns, actions }: DataTableProps<T>) {
               </Td>
             ))}
             {actions ? (
-              <Td className={cx('text-right')}>
+              <Td className={cx('koupr-text-right')}>
                 <Menu>
                   <MenuButton
                     as={IconButton}
@@ -69,7 +69,7 @@ export function DataTable<T>({ items, columns, actions }: DataTableProps<T>) {
                           key={`row-${itemIndex}-action-${actionIndex}`}
                           icon={action.icon}
                           className={cx({
-                            'text-red-500': action.isDestructive,
+                            'koupr-text-red-500': action.isDestructive,
                           })}
                           isDisabled={action.isDisabled}
                           onClick={() => action.onClick?.(item)}

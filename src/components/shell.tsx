@@ -6,6 +6,7 @@ import { Sidenav, SidenavItem } from './sidenav'
 export type ShellProps = {
   storage?: StorageOptions
   logo?: ReactElement
+  homeHref?: string
   topBar?: ReactElement
   items?: ShellItem[]
   children?: ReactElement
@@ -23,6 +24,7 @@ export type ShellItem = {
 
 export const Shell = ({
   logo,
+  homeHref,
   topBar,
   items,
   storage,
@@ -31,8 +33,21 @@ export const Shell = ({
   pathnameFn,
   navigateFn,
 }: ShellProps) => (
-  <div className={cx('flex', 'flex-row', 'items-center', 'gap-0', 'h-full')}>
-    <Sidenav storage={storage} logo={logo} navigateFn={navigateFn}>
+  <div
+    className={cx(
+      'koupr-flex',
+      'koupr-flex-row',
+      'koupr-items-center',
+      'koupr-gap-0',
+      'koupr-h-full',
+    )}
+  >
+    <Sidenav
+      storage={storage}
+      logo={logo}
+      homeHref={homeHref}
+      navigateFn={navigateFn}
+    >
       {items?.map((item, index) => (
         <SidenavItem
           key={index}
@@ -46,21 +61,27 @@ export const Shell = ({
       ))}
     </Sidenav>
     <div
-      className={cx('flex', 'flex-col', 'items-center', 'h-full', 'w-full')}
+      className={cx(
+        'koupr-flex',
+        'koupr-flex-col',
+        'koupr-items-center',
+        'koupr-h-full',
+        'koupr-w-full',
+      )}
       onClick={onContentClick}
     >
       {topBar}
       <div
         className={cx(
-          'flex',
-          'flex-col',
-          'w-full',
-          'lg:w-[1250px]',
-          'px-2',
-          'pt-2',
-          'overflow-y-auto',
-          'overflow-x-hidden',
-          'grow',
+          'koupr-flex',
+          'koupr-flex-col',
+          'koupr-w-full',
+          'lg:koupr-w-[1250px]',
+          'koupr-px-2',
+          'koupr-pt-2',
+          'koupr-overflow-y-auto',
+          'koupr-overflow-x-hidden',
+          'koupr-grow',
         )}
       >
         {children}

@@ -56,29 +56,34 @@ export const Sidenav = ({
     >
       <div
         className={cx(
-          'flex',
-          'flex-col',
-          'h-full',
-          'border-r',
-          'border-r-gray-200',
-          'dark:border-r-gray-700',
-          'shrink-0',
-          'gap-0',
+          'koupr-flex',
+          'koupr-flex-col',
+          'koupr-h-full',
+          'koupr-border-r',
+          'koupr-border-r-gray-200',
+          'dark:koupr-border-r-gray-700',
+          'koupr-shrink-0',
+          'koupr-gap-0',
         )}
       >
         {logo ? (
           <div
-            className={cx('flex', 'items-center', 'justify-center', 'h-[80px]')}
+            className={cx(
+              'koupr-flex',
+              'koupr-items-center',
+              'koupr-justify-center',
+              'koupr-h-[80px]',
+            )}
           >
             <Link onClick={() => navigateFn?.(homeHref ?? '/')}>
-              <div className={cx('flex', 'h-[40px]')}>
+              <div className={cx('koupr-flex', 'koupr-h-[40px]')}>
                 <div
                   className={cx(
-                    'flex',
-                    'items-center',
-                    'justify-center',
-                    'w-[40px]',
-                    'h-[40px]',
+                    'koupr-flex',
+                    'koupr-items-center',
+                    'koupr-justify-center',
+                    'koupr-w-[40px]',
+                    'koupr-h-[40px]',
                   )}
                 >
                   {logo}
@@ -89,34 +94,38 @@ export const Sidenav = ({
         ) : null}
         <div
           className={cx(
-            'flex',
-            'flex-col',
-            'items-center',
-            'gap-0.5',
-            'pt-0',
-            'pr-1.5',
-            'pb-1.5',
-            'pl-1.5',
+            'koupr-flex',
+            'koupr-flex-col',
+            'koupr-items-center',
+            'koupr-gap-0.5',
+            { 'koupr-pt-0': logo },
+            { 'koupr-pt-1.5': !logo },
+            'koupr-pr-1.5',
+            'koupr-pb-1.5',
+            'koupr-pl-1.5',
           )}
         >
           {children}
         </div>
-        <div className={cx('grow')} />
+        <div className={cx('koupr-grow')} />
         <div
           className={cx(
-            'flex',
-            'flex-row',
-            'items-center',
-            'gap-0',
-            { 'justify-center': isCollapsed, 'justify-end': !isCollapsed },
-            'h-[50px]',
-            'w-full',
-            { 'px-0': isCollapsed, 'px-1.5': !isCollapsed },
-            'cursor-pointer',
-            'hover:bg-gray-100',
-            'hover:dark:bg-gray-600',
-            'active:bg-gray-200',
-            'active:dark:bg-gray-700',
+            'koupr-flex',
+            'koupr-flex-row',
+            'koupr-items-center',
+            'koupr-gap-0',
+            {
+              'koupr-justify-center': isCollapsed,
+              'koupr-justify-end': !isCollapsed,
+            },
+            'koupr-h-[50px]',
+            'koupr-w-full',
+            { 'koupr-px-0': isCollapsed, 'koupr-px-1.5': !isCollapsed },
+            'koupr-cursor-pointer',
+            'hover:koupr-bg-gray-100',
+            'hover:dark:koupr-bg-gray-600',
+            'active:koupr-bg-gray-200',
+            'active:dark:koupr-bg-gray-700',
           )}
           onClick={() => {
             setIsCollapsed(!isCollapsed)

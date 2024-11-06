@@ -9,19 +9,34 @@ export type AppBarProps = {
 export const AppBar = ({ bar, buttons }: AppBarProps) => (
   <div
     className={cx(
-      'flex',
-      'flex-row',
-      'items-center',
-      'gap-2',
-      'shrink-0',
-      'p-1.5',
-      'w-full',
+      'koupr-flex',
+      'koupr-flex-row',
+      'koupr-items-center',
+      'koupr-gap-2',
+      'koupr-shrink-0',
+      'koupr-p-1.5',
+      'koupr-w-full',
     )}
   >
-    <div className={cx('flex', 'flex-row', 'items-center', 'gap-1.5', 'grow')}>
+    <div
+      className={cx(
+        'koupr-flex',
+        'koupr-flex-row',
+        'koupr-items-center',
+        'koupr-gap-1.5',
+        'koupr-grow',
+      )}
+    >
       {bar}
     </div>
-    <div className={cx('flex', 'flex-row', 'items-center', 'gap-1.5')}>
+    <div
+      className={cx(
+        'koupr-flex',
+        'koupr-flex-row',
+        'koupr-items-center',
+        'koupr-gap-1.5',
+      )}
+    >
       {buttons}
     </div>
   </div>

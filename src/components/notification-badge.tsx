@@ -12,8 +12,15 @@ export const NotificationBadge = ({
   children,
 }: NotificationBadgeProps) => {
   return (
-    <div className={cx('inline-block')}>
-      <div className={cx('flex', 'items-center', 'justify-center', 'relative')}>
+    <div className={cx('koupr-inline-block')}>
+      <div
+        className={cx(
+          'koupr-flex',
+          'koupr-items-center',
+          'koupr-justify-center',
+          'koupr-relative',
+        )}
+      >
         {children}
         {hasBadge ? (
           <Circle size="10px" bg="red" position="absolute" top={0} right={0} />

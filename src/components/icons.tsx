@@ -454,9 +454,9 @@ type GetClassNameOptions = {
 
 function getClassName({ filled, className }: GetClassNameOptions) {
   return cx(
-    'material-symbols-rounded',
-    { 'material-symbols-rounded__filled': filled },
-    'text-[16px]',
+    'koupr-material-symbols-rounded',
+    { 'koupr-material-symbols-rounded__filled': filled },
+    'koupr-text-[16px]',
     className,
   )
 }

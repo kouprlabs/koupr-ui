@@ -1,6 +1,5 @@
 {
-  "extends": "./tsconfig.json",
-  "exclude": [
-    "src/stories"
-  ]
+  "extends": "./tsconfig.common.json",
+  "include": ["src/**/*"],
+  "exclude": ["src/stories"]
 }

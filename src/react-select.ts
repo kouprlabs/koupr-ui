@@ -1,11 +1,13 @@
-import { ColorMode, SystemStyleObject } from '@chakra-ui/system'
+import { ColorMode, SystemStyleObject } from '@chakra-ui/react'
+import { ChakraStylesConfig } from 'chakra-react-select'
 
 export type ReactSelectStylesOptions = {
   colorMode?: ColorMode
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function reactSelectStyles(options?: ReactSelectStylesOptions): any {
+export function reactSelectStyles(
+  options?: ReactSelectStylesOptions,
+): ChakraStylesConfig {
   let bg = 'transparent'
   if (options?.colorMode === 'light') {
     bg = 'white'

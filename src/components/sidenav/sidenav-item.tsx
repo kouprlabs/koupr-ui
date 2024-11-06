@@ -38,43 +38,43 @@ export const SidenavItem = ({
   return (
     <Link
       title={isCollapsed ? `${primaryText}: ${secondaryText}` : secondaryText}
-      className={cx('w-full', 'no-underline')}
+      className={cx('koupr-w-full', 'koupr-no-underline')}
       onClick={() => navigateFn?.(href)}
     >
       <Tooltip label={primaryText} isDisabled={!isCollapsed}>
         <div
           className={cx(
-            'flex',
-            'flex-row',
-            'items-center',
-            'gap-1.5',
-            'p-1.5',
-            'rounded-md',
+            'koupr-flex',
+            'koupr-flex-row',
+            'koupr-items-center',
+            'koupr-gap-1.5',
+            'koupr-p-1.5',
+            'koupr-rounded-md',
             {
-              'bg-black': isActive,
-              'dark:bg-white': isActive,
+              'koupr-bg-black': isActive,
+              'dark:koupr-bg-white': isActive,
             },
             {
-              'hover:bg-gray-100': !isActive,
-              'dark:hover:bg-gray-600': !isActive,
+              'hover:koupr-bg-gray-100': !isActive,
+              'dark:hover:koupr-bg-gray-600': !isActive,
             },
             {
-              'hover:bg-gray-200': !isActive,
-              'dark:hover:bg-gray-700': !isActive,
+              'hover:koupr-bg-gray-200': !isActive,
+              'dark:hover:koupr-bg-gray-700': !isActive,
             },
           )}
         >
           <div
             className={cx(
-              'flex',
-              'items-center',
-              'justify-center',
-              'shrink-0',
-              'w-[21px]',
-              'h-[21px]',
+              'koupr-flex',
+              'koupr-items-center',
+              'koupr-justify-center',
+              'koupr-shrink-0',
+              'koupr-w-[21px]',
+              'koupr-h-[21px]',
               {
-                'text-white': isActive,
-                'dark:text-gray-800': isActive,
+                'koupr-text-white': isActive,
+                'dark:koupr-text-gray-800': isActive,
               },
             )}
           >
@@ -83,8 +83,8 @@ export const SidenavItem = ({
           {!isCollapsed ? (
             <span
               className={cx({
-                'text-white': isActive,
-                'dark:text-gray-800': isActive,
+                'koupr-text-white': isActive,
+                'dark:koupr-text-gray-800': isActive,
               })}
             >
               {primaryText}

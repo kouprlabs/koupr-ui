@@ -48,7 +48,6 @@ export default [
     ],
     external: [
       '@chakra-ui/react',
-      '@chakra-ui/system',
       '@chakra-ui/theme-tools',
       '@emotion/css',
       '@emotion/react',

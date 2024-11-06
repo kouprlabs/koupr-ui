@@ -42,7 +42,7 @@ export const NumberTag = ({ isActive, className, children }: TabTagProps) => {
   }, [isActive, colorMode])
 
   return (
-    <Tag className={cx('rounded-full', className)} color={color} bg={bg}>
+    <Tag className={cx('koupr-rounded-full', className)} color={color} bg={bg}>
       {children}
     </Tag>
   )

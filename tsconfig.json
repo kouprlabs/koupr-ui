@@ -1,28 +1,4 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@koupr/ui": ["dist/types.d.ts"]
-    },
-    "outDir": "./dist",
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "preserveSymlinks": true,
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
-    "skipLibCheck": true,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
-  },
-  "include": ["src", "custom.d.ts"]
+  "extends": "./tsconfig.common.json",
+  "include": [".storybook/**/*", "src/**/*"]
 }

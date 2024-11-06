@@ -2,7 +2,6 @@ import { Config } from 'tailwindcss'
 import { variables } from './src/variables'
 
 export default {
-  prefix: 'koupr-',
   important: true,
   darkMode: 'class',
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
