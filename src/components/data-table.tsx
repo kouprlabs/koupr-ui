@@ -31,7 +31,11 @@ export interface DataTableAction<T> {
   label: string
   icon?: ReactElement
   isDestructive?: boolean
+  isDestructiveFn?: (item: T) => boolean
   isDisabled?: boolean
+  isDisabledFn?: (item: T) => boolean
+  isHidden?: boolean
+  isHiddenFn?: (item: T) => boolean
   onClick?: (item: T) => void
 }
 
@@ -43,6 +47,7 @@ export function DataTable<T>({ items, columns, actions }: DataTableProps<T>) {
           {columns.map((column, columnIndex) => (
             <Th key={columnIndex}>{column.title}</Th>
           ))}
+          {actions ? <Th></Th> : null}
         </Tr>
       </Thead>
       <Tbody>
@@ -64,19 +69,31 @@ export function DataTable<T>({ items, columns, actions }: DataTableProps<T>) {
                   />
                   <Portal>
                     <MenuList>
-                      {actions?.map((action, actionIndex) => (
-                        <MenuItem
-                          key={`row-${itemIndex}-action-${actionIndex}`}
-                          icon={action.icon}
-                          className={cx({
-                            'koupr-text-red-500': action.isDestructive,
-                          })}
-                          isDisabled={action.isDisabled}
-                          onClick={() => action.onClick?.(item)}
-                        >
-                          {action.label}
-                        </MenuItem>
-                      ))}
+                      {actions
+                        ?.filter(
+                          (action) =>
+                            !!(!action.isHidden && !action.isHiddenFn?.(item)),
+                        )
+                        .map((action, actionIndex) => (
+                          <MenuItem
+                            key={`row-${itemIndex}-action-${actionIndex}`}
+                            icon={action.icon}
+                            className={cx({
+                              'koupr-text-red-500': !!(
+                                action.isDestructive ||
+                                action.isDestructiveFn?.(item)
+                              ),
+                            })}
+                            isDisabled={
+                              !!(
+                                action.isDisabled || action.isDisabledFn?.(item)
+                              )
+                            }
+                            onClick={() => action.onClick?.(item)}
+                          >
+                            {action.label}
+                          </MenuItem>
+                        ))}
                     </MenuList>
                   </Portal>
                 </Menu>
