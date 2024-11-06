@@ -1,5 +1,6 @@
 import { PagePagination, usePagePagination } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
+import cx from 'classnames'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 const meta: Meta<typeof PagePagination> = {
@@ -28,14 +29,16 @@ export const Default: Story = {
     })
 
     return (
-      <PagePagination
-        {...args}
-        page={page}
-        size={size}
-        steps={steps}
-        setPage={setPage}
-        setSize={setSize}
-      />
+      <div className={cx('inline-block')}>
+        <PagePagination
+          {...args}
+          page={page}
+          size={size}
+          steps={steps}
+          setPage={setPage}
+          setSize={setSize}
+        />
+      </div>
     )
   },
 }

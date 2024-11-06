@@ -48,36 +48,34 @@ export const PagePagination = ({
   return (
     <>
       {!hasPageSwitcher && !hasSizeSelector ? null : (
-        <div className={cx('koupr-inline-block')}>
-          <div
-            className={cx(
-              'koupr-flex',
-              'koupr-flex-row',
-              'koupr-items-center',
-              'koupr-gap-1.5',
-            )}
-            style={style}
-          >
-            {hasPageSwitcher ? (
-              <Pagination
-                uiSize={uiSize}
-                page={page}
-                totalPages={totalPages}
-                onPageChange={setPage}
-                disableMiddleNav={disableMiddleNav}
-                disableLastNav={disableLastNav}
-              />
-            ) : null}
-            {hasSizeSelector ? (
-              <Select defaultValue={size} onChange={handleSizeChange}>
-                {steps?.map((step, index) => (
-                  <option key={index} value={step.toString()}>
-                    {step} items
-                  </option>
-                ))}
-              </Select>
-            ) : null}
-          </div>
+        <div
+          className={cx(
+            'koupr-flex',
+            'koupr-flex-row',
+            'koupr-items-center',
+            'koupr-gap-1.5',
+          )}
+          style={style}
+        >
+          {hasPageSwitcher ? (
+            <Pagination
+              uiSize={uiSize}
+              page={page}
+              totalPages={totalPages}
+              onPageChange={setPage}
+              disableMiddleNav={disableMiddleNav}
+              disableLastNav={disableLastNav}
+            />
+          ) : null}
+          {hasSizeSelector ? (
+            <Select defaultValue={size} onChange={handleSizeChange}>
+              {steps?.map((step, index) => (
+                <option key={index} value={step.toString()}>
+                  {step} items
+                </option>
+              ))}
+            </Select>
+          ) : null}
         </div>
       )}
     </>

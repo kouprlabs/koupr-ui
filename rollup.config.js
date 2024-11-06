@@ -49,6 +49,7 @@ export default [
     external: [
       '@chakra-ui/react',
       '@chakra-ui/theme-tools',
+      'chakra-react-select',
       '@emotion/css',
       '@emotion/react',
       '@emotion/styled',
