@@ -131,7 +131,7 @@ export const Layout = ({ children }: LayoutProps) => {
           secondaryText: 'Allows assigning permissions to a group of users.',
         },
         {
-          href: '/organizations',
+          href: '/organization',
           icon: <IconFlag />,
           primaryText: 'Organizations',
           secondaryText: 'Umbrellas for workspaces and users.',

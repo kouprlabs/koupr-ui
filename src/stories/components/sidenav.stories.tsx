@@ -8,7 +8,12 @@ import {
 } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import cx from 'classnames'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import {
+  ParagraphGroups,
+  ParagraphOrganizations,
+  ParagraphWorkspaces,
+} from '../common/paragraphs'
 
 const meta: Meta<typeof Sidenav> = {
   title: 'Components/Sidenav',
@@ -31,9 +36,7 @@ export const Default: Story = {
     const navigateFn = useNavigate()
 
     return (
-      <div
-        className={cx('flex', 'flex-row', 'items-center', 'gap-0', 'h-full')}
-      >
+      <div className={cx('flex', 'flex-row', 'gap-0', 'h-full')}>
         <Sidenav {...args} navigateFn={navigateFn}>
           <SidenavItem
             href="/"
@@ -60,6 +63,13 @@ export const Default: Story = {
             navigateFn={navigateFn}
           />
         </Sidenav>
+        <div className={cx('px-2', 'pt-2')}>
+          <Routes>
+            <Route path="/" element={<ParagraphWorkspaces />} />
+            <Route path="/group" element={<ParagraphGroups />} />
+            <Route path="/organization" element={<ParagraphOrganizations />} />
+          </Routes>
+        </div>
       </div>
     )
   },

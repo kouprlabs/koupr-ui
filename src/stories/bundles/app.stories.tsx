@@ -4,6 +4,7 @@ import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { Layout } from '../common/layout'
 import { List } from '../common/list'
 import { Page } from '../common/page'
+import { ParagraphGroups, ParagraphOrganizations } from '../common/paragraphs'
 import { Settings } from '../common/settings'
 
 export const App = () => {
@@ -29,6 +30,8 @@ export const App = () => {
             </>
           }
         />
+        <Route path="/group" element={<ParagraphGroups />} />
+        <Route path="/organization" element={<ParagraphOrganizations />} />
       </Routes>
     </Layout>
   )
