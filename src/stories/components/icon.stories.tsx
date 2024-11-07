@@ -64,6 +64,12 @@ import {
   IconWarning,
   IconWhatshot,
   IconWorkspaces,
+  IconRemoveModerator,
+  IconFrontHand,
+  IconHandshake,
+  IconShield,
+  IconThumbUp,
+  IconThumbDown,
 } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import cx from 'classnames'
@@ -143,6 +149,12 @@ export const Default: Story = {
       <IconFavorite />
       <IconWhatshot />
       <IconSwapVerticalCircle />
+      <IconFrontHand />
+      <IconHandshake />
+      <IconRemoveModerator />
+      <IconShield />
+      <IconThumbUp />
+      <IconThumbDown />
     </div>
   ),
 }

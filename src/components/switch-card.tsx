@@ -71,61 +71,71 @@ export const SwitchCard = ({
 
   if (isCollapsed) {
     return (
-      <div className={cx('inline-block')}>
-        <Popover>
-          <PopoverTrigger>
-            <div>
-              <Tooltip label={label}>
-                <IconButton
-                  icon={icon}
-                  variant="outline"
-                  className={cx('w-[50px]', 'h-[50px]', 'p-1.5', 'rounded-md')}
-                  aria-label={label}
-                  title={label}
-                />
-              </Tooltip>
-            </div>
-          </PopoverTrigger>
-          <PopoverContent>
-            <PopoverBody>{children}</PopoverBody>
-          </PopoverContent>
-        </Popover>
-      </div>
+      <Popover>
+        <PopoverTrigger>
+          <div>
+            <Tooltip label={label}>
+              <IconButton
+                icon={icon}
+                variant="outline"
+                className={cx(
+                  'koupr-w-[50px]',
+                  'koupr-h-[50px]',
+                  'koupr-p-1.5',
+                  'koupr-rounded-md',
+                )}
+                aria-label={label}
+                title={label}
+              />
+            </Tooltip>
+          </div>
+        </PopoverTrigger>
+        <PopoverContent>
+          <PopoverBody>{children}</PopoverBody>
+        </PopoverContent>
+      </Popover>
     )
   } else {
     return (
-      <div className={cx('inline-block')}>
+      <div
+        className={cx(
+          'koupr-flex',
+          'koupr-flex-col',
+          'koupr-gap-0',
+          'koupr-border',
+          'koupr-border-gray-200',
+          'dark:koupr-border-gray-600',
+          'koupr-rounded-md',
+        )}
+        style={{ minWidth: expandedMinWidth }}
+      >
         <div
           className={cx(
-            'flex',
-            'flex-col',
-            'gap-0',
-            'border',
-            'border-gray-200',
-            'dark:border-gray-600',
-            'rounded-md',
+            'koupr-flex',
+            'koupr-flex-row',
+            'koupr-items-center',
+            'koupr-gap-1',
+            'koupr-h-[50px]',
+            'koupr-px-1',
+            'koupr-shrink-0',
           )}
-          style={{ minWidth: expandedMinWidth }}
         >
+          {icon}
+          <span className={cx('koupr-grow')}>{label}</span>
+          <Switch isChecked={isActive} onChange={handleChange} />
+        </div>
+        {isActive ? (
           <div
             className={cx(
-              'flex',
-              'flex-row',
-              'items-center',
-              'gap-1',
-              'h-[50px]',
-              'px-1',
-              'shrink-0',
+              'koupr-pt-0',
+              'koupr-pr-1',
+              'koupr-pb-1',
+              'koupr-pl-1',
             )}
           >
-            {icon}
-            <span className={cx('grow')}>{label}</span>
-            <Switch isChecked={isActive} onChange={handleChange} />
+            {children}
           </div>
-          {isActive ? (
-            <div className={cx('pt-0', 'pr-1', 'pb-1', 'pl-1')}>{children}</div>
-          ) : null}
-        </div>
+        ) : null}
       </div>
     )
   }

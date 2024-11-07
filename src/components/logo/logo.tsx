@@ -36,16 +36,21 @@ export const Logo = ({ type, size, isGlossy = false }: LogoProps) => {
 
   return (
     <div
-      className={cx('flex', 'items-center', 'justify-center', {
-        'w-[16px]': type == 'voltaserve' && size === 'sm',
-        'h-[32px]': type == 'voltaserve' && size === 'sm',
-        'w-[64px]': type == 'voltaserve' && size === 'md',
-        'h-[126px]': type == 'voltaserve' && size === 'md',
-        'w-[26px]': type == 'koupr' && size === 'sm',
-        'h-[23px]': type == 'koupr' && size === 'sm',
-        'w-[128px]': type == 'koupr' && size === 'md',
-        'h-[110px]': type == 'koupr' && size === 'md',
-      })}
+      className={cx(
+        'koupr-flex',
+        'koupr-items-center',
+        'koupr-justify-center',
+        {
+          'koupr-w-[16px]': type == 'voltaserve' && size === 'sm',
+          'koupr-h-[32px]': type == 'voltaserve' && size === 'sm',
+          'koupr-w-[64px]': type == 'voltaserve' && size === 'md',
+          'koupr-h-[126px]': type == 'voltaserve' && size === 'md',
+          'koupr-w-[26px]': type == 'koupr' && size === 'sm',
+          'koupr-h-[23px]': type == 'koupr' && size === 'sm',
+          'koupr-w-[128px]': type == 'koupr' && size === 'md',
+          'koupr-h-[110px]': type == 'koupr' && size === 'md',
+        },
+      )}
       dangerouslySetInnerHTML={{ __html: getSvg() }}
     ></div>
   )

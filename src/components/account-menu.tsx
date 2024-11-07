@@ -9,7 +9,7 @@ import {
   Portal,
   SkeletonCircle,
 } from '@chakra-ui/react'
-import { forwardRef } from '@chakra-ui/system'
+import { forwardRef } from '@chakra-ui/react'
 import cx from 'classnames'
 import { truncateEnd, truncateMiddle } from '../helpers'
 import { variables } from '../variables'
@@ -48,11 +48,11 @@ export const AccountMenu = ({
           <MenuList>
             <div
               className={cx(
-                'flex',
-                'flex-row',
-                'items-center',
-                'gap-0.5',
-                'px-1',
+                'koupr-flex',
+                'koupr-flex-row',
+                'koupr-items-center',
+                'koupr-gap-0.5',
+                'koupr-px-1',
               )}
             >
               <Avatar
@@ -60,29 +60,31 @@ export const AccountMenu = ({
                 src={picture}
                 size="sm"
                 className={cx(
-                  'w-[40px]',
-                  'h-[40px]',
-                  'border',
-                  'border-gray-300',
-                  'dark:border-gray-700',
+                  'koupr-w-[40px]',
+                  'koupr-h-[40px]',
+                  'koupr-border',
+                  'koupr-border-gray-300',
+                  'dark:koupr-border-gray-700',
                 )}
               />
-              <div className={cx('flex', 'flex-col', 'gap-0')}>
+              <div
+                className={cx('koupr-flex', 'koupr-flex-col', 'koupr-gap-0')}
+              >
                 {name ? (
                   <span
                     className={cx(
-                      'font-semibold',
-                      'grow',
-                      'text-ellipsis',
-                      'overflow-hidden',
-                      'whitespace-nowrap',
+                      'koupr-font-semibold',
+                      'koupr-grow',
+                      'koupr-text-ellipsis',
+                      'koupr-overflow-hidden',
+                      'koupr-whitespace-nowrap',
                     )}
                   >
                     {truncateEnd(name, 50)}
                   </span>
                 ) : null}
                 {email ? (
-                  <span className={cx('text-gray-500')}>
+                  <span className={cx('koupr-text-gray-500')}>
                     {truncateMiddle(email, 50)}
                   </span>
                 ) : null}
@@ -110,7 +112,7 @@ type ActiveCircleProps = {
 
 const ActiveCircle = ({ isActive, children }: ActiveCircleProps) => (
   <Circle
-    className={cx('w-[50px]', 'h-[50px]')}
+    className={cx('koupr-w-[50px]', 'koupr-h-[50px]')}
     bg={isActive ? variables.gradiant : 'transparent'}
   >
     {children}
@@ -126,16 +128,22 @@ type AvatarButtonProps = {
 
 const AvatarButton = forwardRef<AvatarButtonProps, 'div'>(
   ({ name, picture, isActive, hasBadge, ...props }, ref) => (
-    <div ref={ref} {...props} className={cx('cursor-pointer')}>
+    <div ref={ref} {...props} className={cx('koupr-cursor-pointer')}>
       <ActiveCircle isActive={isActive}>
         <NotificationBadge hasBadge={hasBadge}>
           <Avatar
             name={name}
             src={picture}
             size="sm"
-            className={cx('w-[40px]', 'h-[40px]', 'border', 'border-gray-300', {
-              'dark:border-gray-700': !isActive,
-            })}
+            className={cx(
+              'koupr-w-[40px]',
+              'koupr-h-[40px]',
+              'koupr-border',
+              'koupr-border-gray-300',
+              {
+                'dark:koupr-border-gray-700': !isActive,
+              },
+            )}
           />
         </NotificationBadge>
       </ActiveCircle>

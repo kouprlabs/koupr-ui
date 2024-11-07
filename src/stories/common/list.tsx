@@ -20,7 +20,7 @@ export const List = () => {
   })
 
   return (
-    <div className={cx('flex', 'flex-col', 'items-end', 'gap-3.5')}>
+    <div className={cx('flex', 'flex-col', 'gap-3.5')}>
       <DataTable
         items={items}
         columns={[
@@ -72,15 +72,17 @@ export const List = () => {
           },
         ]}
       />
-      <PagePagination
-        totalElements={100}
-        totalPages={25}
-        page={page}
-        size={size}
-        steps={steps}
-        setPage={setPage}
-        setSize={setSize}
-      />
+      <div className={cx('self-end')}>
+        <PagePagination
+          totalElements={100}
+          totalPages={25}
+          page={page}
+          size={size}
+          steps={steps}
+          setPage={setPage}
+          setSize={setSize}
+        />
+      </div>
     </div>
   )
 }

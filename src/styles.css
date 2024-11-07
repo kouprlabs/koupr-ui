@@ -6,13 +6,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body,
-#root {
-  height: 100%;
-}
-
-.material-symbols-rounded {
+.koupr-material-symbols-rounded {
   font-family: 'Material Symbols Rounded';
   font-variation-settings:
     'FILL' 0,
@@ -21,7 +15,7 @@ body,
     'opsz' 24;
 }
 
-.material-symbols-rounded__filled {
+.koupr-material-symbols-rounded__filled {
   font-family: 'Material Symbols Rounded';
   font-variation-settings:
     'FILL' 1,

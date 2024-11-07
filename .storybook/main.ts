@@ -15,7 +15,10 @@ const config: StorybookConfig = {
     const newConfig = mergeConfig(config, {
       css: {
         postcss: {
-          plugins: [tailwindcss(), autoprefixer()],
+          plugins: [
+            tailwindcss({ config: './tailwind.storybook.config.ts' }),
+            autoprefixer(),
+          ],
         },
       },
       build: {

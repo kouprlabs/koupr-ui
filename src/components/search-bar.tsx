@@ -75,10 +75,17 @@ export const SearchBar = ({
   }, [])
 
   return (
-    <div className={cx('flex', 'flex-row', 'gap-0.5', 'grow')}>
+    <div
+      className={cx(
+        'koupr-flex',
+        'koupr-flex-row',
+        'koupr-gap-0.5',
+        'koupr-grow',
+      )}
+    >
       <InputGroup>
         <InputLeftElement pointerEvents="none">
-          <Icon as={IconSearch} className={cx('text-gray-300')} />
+          <Icon as={IconSearch} className={cx('koupr-text-gray-300')} />
         </InputLeftElement>
         <Input
           value={buffer}

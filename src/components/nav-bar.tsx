@@ -15,7 +15,7 @@ export type NavItem = {
 
 export const NavBar = ({ items, pathnameFn, navigateFn }: NavBarProps) => {
   return (
-    <div className={cx('flex', 'flex-row', 'gap-0')}>
+    <div className={cx('koupr-flex', 'koupr-flex-row', 'koupr-gap-0')}>
       {items?.map((item, index) => (
         <Item
           key={index}
@@ -55,23 +55,23 @@ const Item = ({ title, href, pathnameFn, navigateFn }: ItemProps) => {
     <ChakraLink
       variant="no-underline"
       className={cx(
-        'flex',
-        'items-center',
-        'opacity-100',
-        'hover:opacity-80',
-        'h-[40px]',
-        'rounded-xl',
-        'pt-0',
-        'pr-[20px]',
-        'pb-0',
-        'pl-[20px]',
-        'font-semibold',
+        'koupr-flex',
+        'koupr-items-center',
+        'koupr-opacity-100',
+        'hover:koupr-opacity-80',
+        'koupr-h-[40px]',
+        'koupr-rounded-xl',
+        'koupr-pt-0',
+        'koupr-pr-[20px]',
+        'koupr-pb-0',
+        'koupr-pl-[20px]',
+        'koupr-font-semibold',
         {
-          'text-white': isActive,
-          'dark:text-gray-600': isActive,
-          'bg-black': isActive,
-          'dark:bg-white': isActive,
-          'bg-transparent': !isActive,
+          'koupr-text-white': isActive,
+          'dark:koupr-text-gray-600': isActive,
+          'koupr-bg-black': isActive,
+          'dark:koupr-bg-white': isActive,
+          'koupr-bg-transparent': !isActive,
         },
       )}
       onClick={() => navigateFn?.(href)}

@@ -10,7 +10,7 @@ import {
   IconButton,
 } from '@chakra-ui/react'
 import cx from 'classnames'
-import { NotificationBadge } from '../components'
+import { NotificationBadge } from '../components/notification-badge'
 
 export type AuxiliaryDrawerProps = {
   icon: ReactElement
@@ -55,7 +55,7 @@ export const AuxiliaryDrawer = ({
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>{header}</DrawerHeader>
-          <DrawerBody className={cx('p-2')}>{body}</DrawerBody>
+          <DrawerBody className={cx('koupr-p-2')}>{body}</DrawerBody>
           <DrawerFooter>{footer}</DrawerFooter>
         </DrawerContent>
       </Drawer>

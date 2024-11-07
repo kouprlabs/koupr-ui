@@ -76,8 +76,8 @@ export const SearchInput = ({
   return (
     <HStack>
       <InputGroup>
-        <InputLeftElement className={cx('pointer-events-none')}>
-          <IconSearch className={cx('text-gray-300')} />
+        <InputLeftElement className={cx('koupr-pointer-events-none')}>
+          <IconSearch className={cx('koupr-text-gray-300')} />
         </InputLeftElement>
         <Input
           ref={inputRef}

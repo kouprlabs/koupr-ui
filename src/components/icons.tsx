@@ -447,6 +447,46 @@ export const IconSwapVerticalCircle = ({
   </span>
 )
 
+export const IconFrontHand = ({ className, filled, ...props }: IconProps) => (
+  <span className={getClassName({ filled, className })} {...props}>
+    front_hand
+  </span>
+)
+
+export const IconHandshake = ({ className, filled, ...props }: IconProps) => (
+  <span className={getClassName({ filled, className })} {...props}>
+    handshake
+  </span>
+)
+
+export const IconRemoveModerator = ({
+  className,
+  filled,
+  ...props
+}: IconProps) => (
+  <span className={getClassName({ filled, className })} {...props}>
+    remove_moderator
+  </span>
+)
+
+export const IconShield = ({ className, filled, ...props }: IconProps) => (
+  <span className={getClassName({ filled, className })} {...props}>
+    shield
+  </span>
+)
+
+export const IconThumbUp = ({ className, filled, ...props }: IconProps) => (
+  <span className={getClassName({ filled, className })} {...props}>
+    thumb_up
+  </span>
+)
+
+export const IconThumbDown = ({ className, filled, ...props }: IconProps) => (
+  <span className={getClassName({ filled, className })} {...props}>
+    thumb_down
+  </span>
+)
+
 type GetClassNameOptions = {
   filled?: boolean
   className?: string
@@ -454,9 +494,9 @@ type GetClassNameOptions = {
 
 function getClassName({ filled, className }: GetClassNameOptions) {
   return cx(
-    'material-symbols-rounded',
-    { 'material-symbols-rounded__filled': filled },
-    'text-[16px]',
+    'koupr-material-symbols-rounded',
+    { 'koupr-material-symbols-rounded__filled': filled },
+    'koupr-text-[16px]',
     className,
   )
 }

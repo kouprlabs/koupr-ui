@@ -33,9 +33,9 @@ export const Text: React.FC<TextProps> = ({
         WebkitLineClamp: noOfLines,
       }}
       className={cx(
-        { 'whitespace-nowrap': maxCharacters !== undefined },
+        { 'koupr-whitespace-nowrap': maxCharacters !== undefined },
         {
-          'overflow-hidden':
+          'koupr-overflow-hidden':
             noOfLines !== undefined || maxCharacters !== undefined,
         },
         className,

@@ -1,10 +1,19 @@
-import { IconButton, Switch } from '@chakra-ui/react'
+import { IconButton, Progress, Switch } from '@chakra-ui/react'
 import { Form, IconDelete, IconEdit } from '@koupr/ui'
 import cx from 'classnames'
 
 export const Settings = () => (
   <Form
     sections={[
+      {
+        title: 'Storage',
+        content: (
+          <>
+            <span>5.67 GB of 38 GB used</span>
+            <Progress value={20} hasStripe />
+          </>
+        ),
+      },
       {
         title: 'Basics',
         rows: [

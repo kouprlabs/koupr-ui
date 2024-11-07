@@ -1,7 +1,6 @@
 import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 import strip from '@rollup/plugin-strip'
-import terser from '@rollup/plugin-terser'
 import typescript from '@rollup/plugin-typescript'
 import { createFilter } from '@rollup/pluginutils'
 import { createRequire } from 'module'
@@ -49,8 +48,8 @@ export default [
     ],
     external: [
       '@chakra-ui/react',
-      '@chakra-ui/system',
       '@chakra-ui/theme-tools',
+      'chakra-react-select',
       '@emotion/css',
       '@emotion/react',
       '@emotion/styled',
@@ -64,15 +63,15 @@ export default [
       peerDepsExternal(),
       resolve(),
       commonjs(),
-      typescript(),
+      typescript({
+        tsconfig: 'tsconfig.rollup.json',
+      }),
       svg(),
       postcss({
         extract: true,
-        minimize: true,
       }),
       injectCssImportPlugin(),
       strip(),
-      terser(),
     ],
   },
   {

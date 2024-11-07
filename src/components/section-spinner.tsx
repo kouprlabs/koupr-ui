@@ -7,7 +7,13 @@ export type SectionSpinnerProps = {
 
 export const SectionSpinner = ({ height = '300px' }: SectionSpinnerProps) => (
   <div
-    className={cx('flex', 'items-center', 'justify-center', 'w-full', 'grow')}
+    className={cx(
+      'koupr-flex',
+      'koupr-items-center',
+      'koupr-justify-center',
+      'koupr-w-full',
+      'koupr-grow',
+    )}
     style={{ height }}
   >
     <Spinner />
