@@ -154,7 +154,7 @@ export const Default: Story = {
       <IconRemoveModerator />
       <IconShield />
       <IconThumbUp />
-      <IconThumbUp />
+      <IconThumbDown />
     </div>
   ),
 }
