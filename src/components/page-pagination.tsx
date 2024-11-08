@@ -12,10 +12,12 @@ export type PagePaginationProps = {
   steps: number[]
   uiSize?: string
   style?: React.CSSProperties
+  isFirstDisabled?: boolean
+  isLastDisabled?: boolean
+  isFastForwardDisabled?: boolean
+  isRewindDisabled?: boolean
   setPage: (page: number) => void
   setSize: (size: number) => void
-  disableMiddleNav?: boolean
-  disableLastNav?: boolean
 }
 
 export const PagePagination = ({
@@ -28,8 +30,10 @@ export const PagePagination = ({
   style,
   setPage,
   setSize,
-  disableMiddleNav = false,
-  disableLastNav = false,
+  isFirstDisabled = false,
+  isLastDisabled = false,
+  isFastForwardDisabled = false,
+  isRewindDisabled = false,
 }: PagePaginationProps) => {
   const { hasPageSwitcher, hasSizeSelector } = usePageMonitor({
     totalElements,
@@ -62,9 +66,11 @@ export const PagePagination = ({
               uiSize={uiSize}
               page={page}
               totalPages={totalPages}
+              isFirstDisabled={isFirstDisabled}
+              isLastDisabled={isLastDisabled}
+              isFastForwardDisabled={isFastForwardDisabled}
+              isRewindDisabled={isRewindDisabled}
               onPageChange={setPage}
-              disableMiddleNav={disableMiddleNav}
-              disableLastNav={disableLastNav}
             />
           ) : null}
           {hasSizeSelector ? (

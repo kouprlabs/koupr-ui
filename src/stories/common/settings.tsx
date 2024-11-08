@@ -25,7 +25,8 @@ export const Settings = () => (
                 <IconButton
                   icon={<IconEdit />}
                   className={cx('h-[40px]', 'w-[40px]')}
-                  aria-label="Edit"
+                  title="Edit full name"
+                  aria-label="Edit full name"
                 />
               </>
             ),
@@ -43,7 +44,8 @@ export const Settings = () => (
                 <IconButton
                   icon={<IconEdit />}
                   className={cx('h-[40px]', 'w-[40px]')}
-                  aria-label="Edit"
+                  title="Edit email"
+                  aria-label="Edit email"
                 />
               </>
             ),
@@ -54,7 +56,8 @@ export const Settings = () => (
               <IconButton
                 icon={<IconEdit />}
                 className={cx('h-[40px]', 'w-[40px]')}
-                aria-label="Edit"
+                title="Change password"
+                aria-label="Change password"
               />
             ),
           },
@@ -79,6 +82,7 @@ export const Settings = () => (
                 icon={<IconDelete />}
                 variant="solid"
                 colorScheme="red"
+                title="Delete account"
                 aria-label="Delete account"
               />
             ),
