@@ -58,7 +58,8 @@ export const Pagination = ({
           size={uiSize}
           isDisabled={page === 1}
           icon={<IconFirstPage />}
-          aria-label="First"
+          title="First page"
+          aria-label="First page"
           onClick={() => handlePageChange(firstPage)}
         />
       ) : null}
@@ -68,6 +69,7 @@ export const Pagination = ({
           size={uiSize}
           isDisabled={rewindPage < 1}
           icon={<IconKeyboardDoubleArrowLeft />}
+          title="Rewind"
           aria-label="Rewind"
           onClick={() => handlePageChange(rewindPage)}
         />
@@ -77,7 +79,8 @@ export const Pagination = ({
         size={uiSize}
         isDisabled={page === 1}
         icon={<IconKeyboardArrowLeft />}
-        aria-label="Previous"
+        title="Previous page"
+        aria-label="Previous page"
         onClick={() => handlePageChange(previousPage)}
       />
       {pages.map((index) => (
@@ -96,7 +99,8 @@ export const Pagination = ({
         size={uiSize}
         isDisabled={page === lastPage}
         icon={<IconKeyboardArrowRight />}
-        aria-label="Next"
+        title="Next page"
+        aria-label="Next page"
         onClick={() => handlePageChange(nextPage)}
       />
       {!disableLastNav ? (
@@ -105,7 +109,8 @@ export const Pagination = ({
           size={uiSize}
           isDisabled={fastForwardPage > lastPage}
           icon={<IconKeyboardDoubleArrowRight />}
-          aria-label="Fast Forward"
+          title="Fast forward"
+          aria-label="Fast forward"
           onClick={() => handlePageChange(fastForwardPage)}
         />
       ) : null}
@@ -115,7 +120,8 @@ export const Pagination = ({
           size={uiSize}
           isDisabled={page === lastPage}
           icon={<IconLastPage />}
-          aria-label="Last"
+          title="Last page"
+          aria-label="Last page"
           onClick={() => handlePageChange(lastPage)}
         />
       ) : null}

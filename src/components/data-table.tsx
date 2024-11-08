@@ -65,7 +65,8 @@ export function DataTable<T>({ items, columns, actions }: DataTableProps<T>) {
                     as={IconButton}
                     icon={<IconMoreVert />}
                     variant="ghost"
-                    aria-label="Menu Items"
+                    title="Action menu"
+                    aria-label="Action menu"
                   />
                   <Portal>
                     <MenuList>

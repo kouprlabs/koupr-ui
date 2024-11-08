@@ -14,7 +14,13 @@ type Story = StoryObj<typeof SearchBar>
 export const Default: Story = {
   args: {
     placeholder: 'Search',
-    buttons: <IconButton icon={<IconTune />} aria-label="Filters" />,
+    buttons: (
+      <IconButton
+        icon={<IconTune />}
+        title="Search filters"
+        aria-label="Search filters"
+      />
+    ),
   },
   render: (args) => {
     const [query, setQuery] = useState('')

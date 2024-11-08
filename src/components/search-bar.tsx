@@ -102,7 +102,8 @@ export const SearchBar = ({
               icon={<IconClose />}
               onClick={handleClear}
               size="xs"
-              aria-label="Clear"
+              title="Clear search"
+              aria-label="Clear search"
             />
           </InputRightElement>
         ) : null}

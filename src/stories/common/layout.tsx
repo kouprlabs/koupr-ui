@@ -47,7 +47,13 @@ export const Layout = ({ children }: LayoutProps) => {
             <SearchBar
               query={query}
               placeholder="Search"
-              buttons={<IconButton icon={<IconTune />} aria-label="Filters" />}
+              buttons={
+                <IconButton
+                  icon={<IconTune />}
+                  title="Search filters"
+                  aria-label="Search filters"
+                />
+              }
               onSearch={setQuery}
               onClear={() => setQuery('')}
             />
@@ -63,7 +69,11 @@ export const Layout = ({ children }: LayoutProps) => {
               >
                 New Workspace
               </Button>
-              <IconButton icon={<IconAdmin />} aria-label="Cloud Console" />
+              <IconButton
+                icon={<IconAdmin />}
+                title="Open cloud console"
+                aria-label="Open cloud console"
+              />
               <AuxiliaryDrawer
                 icon={<IconUpload />}
                 header="Uploads"
