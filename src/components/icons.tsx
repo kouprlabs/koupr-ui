@@ -17,7 +17,11 @@ export const IconUpload = ({ className, filled, ...props }: IconProps) => (
   </span>
 )
 
-export const IconAdmin = ({ className, filled, ...props }: IconProps) => (
+export const IconAdminPanelSettings = ({
+  className,
+  filled,
+  ...props
+}: IconProps) => (
   <span className={getClassName({ filled, className })} {...props}>
     admin_panel_settings
   </span>
