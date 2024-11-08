@@ -22,6 +22,11 @@ createRoot(document.getElementById('root') as HTMLElement).render(
 )
 ```
 
+## Releases
+
+- Versions with _odd_ minor numbers like: `1.11` and `2.3` are LTS releases.
+- Versions with _even_ minor numbers like: `1.10` and `2.2` are not meant to be relied on in the long term.
+
 ## Development
 
 Build:
