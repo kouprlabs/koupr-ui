@@ -2,7 +2,7 @@ import React, { ChangeEvent, useCallback } from 'react'
 import { Select } from '@chakra-ui/react'
 import cx from 'classnames'
 import { usePageMonitor } from '../hooks'
-import { Pagination } from './pagination'
+import { Pagination, PaginationProps } from './pagination'
 
 export type PagePaginationProps = {
   totalPages: number
@@ -10,7 +10,7 @@ export type PagePaginationProps = {
   page: number
   size: number
   steps: number[]
-  uiSize?: string
+  paginationSize?: PaginationProps['size']
   style?: React.CSSProperties
   isFirstDisabled?: boolean
   isLastDisabled?: boolean
@@ -25,7 +25,7 @@ export const PagePagination = ({
   totalPages,
   page,
   size,
-  uiSize = 'md',
+  paginationSize,
   steps,
   style,
   setPage,
@@ -63,7 +63,7 @@ export const PagePagination = ({
         >
           {hasPageSwitcher ? (
             <Pagination
-              size={uiSize}
+              size={paginationSize}
               page={page}
               totalPages={totalPages}
               isFirstDisabled={isFirstDisabled}
