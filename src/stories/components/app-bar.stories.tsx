@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { IconButton } from '@chakra-ui/react'
 import {
   AppBar,
-  IconAdmin,
+  IconAdminPanelSettings,
   IconStacks,
   IconTune,
   IconUpload,
@@ -55,7 +55,7 @@ export const WithNavBar: Story = {
         buttons={
           <>
             <IconButton
-              icon={<IconAdmin />}
+              icon={<IconAdminPanelSettings />}
               title="Open cloud console"
               aria-label="Open cloud console"
             />
@@ -101,7 +101,7 @@ export const WithSearchBar: Story = {
         buttons={
           <>
             <IconButton
-              icon={<IconAdmin />}
+              icon={<IconAdminPanelSettings />}
               title="Open cloud Console"
               aria-label="Open cloud Console"
             />
@@ -170,7 +170,7 @@ export const WithBoth: Story = {
         buttons={
           <>
             <IconButton
-              icon={<IconAdmin />}
+              icon={<IconAdminPanelSettings />}
               title="Open cloud console"
               aria-label="Open cloud console"
             />
