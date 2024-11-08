@@ -1,6 +1,6 @@
 import {
   IconAdd,
-  IconAdmin,
+  IconAdminPanelSettings,
   IconArrowDownward,
   IconArrowTopRight,
   IconArrowUpward,
@@ -86,7 +86,7 @@ export const Default: Story = {
     <div className={cx('flex', 'flex-wrap', 'gap-1.5', 'w-[400px]')}>
       <IconPlayArrow />
       <IconUpload />
-      <IconAdmin />
+      <IconAdminPanelSettings />
       <IconDatabase />
       <IconRemoveOperator />
       <IconNotifications />
