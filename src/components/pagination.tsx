@@ -1,5 +1,10 @@
 import { useCallback, useMemo } from 'react'
-import { ButtonGroup, Button, IconButton } from '@chakra-ui/react'
+import {
+  ButtonGroup,
+  Button,
+  IconButton,
+  IconButtonProps,
+} from '@chakra-ui/react'
 import {
   IconKeyboardArrowLeft,
   IconKeyboardArrowRight,
@@ -13,7 +18,7 @@ export type PaginationProps = {
   totalPages: number
   page: number
   maxButtons?: number
-  uiSize?: string
+  size?: IconButtonProps['size']
   isFirstDisabled?: boolean
   isLastDisabled?: boolean
   isFastForwardDisabled?: boolean
@@ -25,7 +30,7 @@ export const Pagination = ({
   totalPages,
   page,
   maxButtons: maxButtonsProp = 5,
-  uiSize = 'md',
+  size = 'md',
   isFirstDisabled = false,
   isLastDisabled = false,
   isFastForwardDisabled = false,
@@ -59,7 +64,7 @@ export const Pagination = ({
       {!isFirstDisabled ? (
         <IconButton
           variant="outline"
-          size={uiSize}
+          size={size}
           isDisabled={page === 1}
           icon={<IconFirstPage />}
           title="First"
@@ -70,7 +75,7 @@ export const Pagination = ({
       {!isRewindDisabled ? (
         <IconButton
           variant="outline"
-          size={uiSize}
+          size={size}
           isDisabled={rewindPage < 1}
           icon={<IconKeyboardDoubleArrowLeft />}
           title="Rewind"
@@ -80,7 +85,7 @@ export const Pagination = ({
       ) : null}
       <IconButton
         variant="outline"
-        size={uiSize}
+        size={size}
         isDisabled={page === 1}
         icon={<IconKeyboardArrowLeft />}
         title="Previous"
@@ -89,7 +94,7 @@ export const Pagination = ({
       />
       {pages.map((index) => (
         <Button
-          size={uiSize}
+          size={size}
           key={index}
           isDisabled={index > totalPages}
           onClick={() => handlePageChange(index)}
@@ -100,7 +105,7 @@ export const Pagination = ({
       ))}
       <IconButton
         variant="outline"
-        size={uiSize}
+        size={size}
         isDisabled={page === lastPage}
         icon={<IconKeyboardArrowRight />}
         title="Next"
@@ -110,7 +115,7 @@ export const Pagination = ({
       {!isFastForwardDisabled ? (
         <IconButton
           variant="outline"
-          size={uiSize}
+          size={size}
           isDisabled={fastForwardPage > lastPage}
           icon={<IconKeyboardDoubleArrowRight />}
           title="Fast forward"
@@ -121,7 +126,7 @@ export const Pagination = ({
       {!isLastDisabled ? (
         <IconButton
           variant="outline"
-          size={uiSize}
+          size={size}
           isDisabled={page === lastPage}
           icon={<IconLastPage />}
           title="Last"

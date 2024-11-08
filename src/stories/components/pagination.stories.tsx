@@ -19,3 +19,36 @@ export const Default: Story = {
     return <Pagination {...args} page={page} onPageChange={setPage} />
   },
 }
+
+export const SizeSm: Story = {
+  args: {
+    totalPages: 20,
+    size: 'sm',
+  },
+  render: (args) => {
+    const [page, setPage] = useState(1)
+    return <Pagination {...args} page={page} onPageChange={setPage} />
+  },
+}
+
+export const SizeXs: Story = {
+  args: {
+    totalPages: 20,
+    size: 'xs',
+  },
+  render: (args) => {
+    const [page, setPage] = useState(1)
+    return <Pagination {...args} page={page} onPageChange={setPage} />
+  },
+}
+
+export const SizeLg: Story = {
+  args: {
+    totalPages: 20,
+    size: 'lg',
+  },
+  render: (args) => {
+    const [page, setPage] = useState(1)
+    return <Pagination {...args} page={page} onPageChange={setPage} />
+  },
+}
