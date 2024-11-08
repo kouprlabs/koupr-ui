@@ -5,7 +5,7 @@ import {
   AppBar,
   AuxiliaryDrawer,
   IconAdd,
-  IconAdmin,
+  IconAdminPanelSettings,
   IconFlag,
   IconGroup,
   IconStacks,
@@ -70,7 +70,7 @@ export const Layout = ({ children }: LayoutProps) => {
                 New Workspace
               </Button>
               <IconButton
-                icon={<IconAdmin />}
+                icon={<IconAdminPanelSettings />}
                 title="Open cloud console"
                 aria-label="Open cloud console"
               />
