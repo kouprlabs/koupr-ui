@@ -63,7 +63,7 @@ export const PagePagination = ({
         >
           {hasPageSwitcher ? (
             <Pagination
-              uiSize={uiSize}
+              size={uiSize}
               page={page}
               totalPages={totalPages}
               isFirstDisabled={isFirstDisabled}
