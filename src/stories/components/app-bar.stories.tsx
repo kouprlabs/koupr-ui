@@ -56,8 +56,8 @@ export const WithNavBar: Story = {
           <>
             <IconButton
               icon={<IconAdminPanelSettings />}
-              title="Open cloud console"
-              aria-label="Open cloud console"
+              title="Open console"
+              aria-label="Open console"
             />
             <IconButton
               icon={<IconUpload />}
@@ -102,8 +102,8 @@ export const WithSearchBar: Story = {
           <>
             <IconButton
               icon={<IconAdminPanelSettings />}
-              title="Open cloud Console"
-              aria-label="Open cloud Console"
+              title="Open Console"
+              aria-label="Open Console"
             />
             <IconButton
               icon={<IconUpload />}
@@ -171,8 +171,8 @@ export const WithBoth: Story = {
           <>
             <IconButton
               icon={<IconAdminPanelSettings />}
-              title="Open cloud console"
-              aria-label="Open cloud console"
+              title="Open console"
+              aria-label="Open console"
             />
             <IconButton
               icon={<IconUpload />}

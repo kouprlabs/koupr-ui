@@ -71,8 +71,8 @@ export const Layout = ({ children }: LayoutProps) => {
               </Button>
               <IconButton
                 icon={<IconAdminPanelSettings />}
-                title="Open cloud console"
-                aria-label="Open cloud console"
+                title="Open console"
+                aria-label="Open console"
               />
               <AuxiliaryDrawer
                 icon={<IconUpload />}

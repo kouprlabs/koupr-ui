@@ -1,5 +1,7 @@
 # Koupr UI
 
+Design System and React Components.
+
 ## Installation
 
 ```shell
