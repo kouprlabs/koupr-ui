@@ -20,6 +20,7 @@ export interface DataTableProps<T> {
   items: T[]
   columns: DataTableColumn<T>[]
   actions?: DataTableAction<T>[]
+  pagination?: ReactElement
 }
 
 export interface DataTableColumn<T> {
@@ -39,70 +40,81 @@ export interface DataTableAction<T> {
   onClick?: (item: T) => void
 }
 
-export function DataTable<T>({ items, columns, actions }: DataTableProps<T>) {
+export function DataTable<T>({
+  items,
+  columns,
+  actions,
+  pagination,
+}: DataTableProps<T>) {
   return (
-    <Table variant="simple">
-      <Thead>
-        <Tr>
-          {columns.map((column, columnIndex) => (
-            <Th key={columnIndex}>{column.title}</Th>
-          ))}
-          {actions ? <Th></Th> : null}
-        </Tr>
-      </Thead>
-      <Tbody>
-        {items.map((item, itemIndex) => (
-          <Tr key={`row-${itemIndex}`}>
-            {columns.map((column, colIndex) => (
-              <Td key={`row-${itemIndex}-col-${colIndex}`}>
-                {column.renderCell(item)}
-              </Td>
+    <div className={cx('flex', 'flex-col', 'gap-3.5')}>
+      <Table variant="simple">
+        <Thead>
+          <Tr>
+            {columns.map((column, columnIndex) => (
+              <Th key={columnIndex}>{column.title}</Th>
             ))}
-            {actions ? (
-              <Td className={cx('koupr-text-right')}>
-                <Menu>
-                  <MenuButton
-                    as={IconButton}
-                    icon={<IconMoreVert />}
-                    variant="ghost"
-                    title="Action menu"
-                    aria-label="Action menu"
-                  />
-                  <Portal>
-                    <MenuList>
-                      {actions
-                        ?.filter(
-                          (action) =>
-                            !!(!action.isHidden && !action.isHiddenFn?.(item)),
-                        )
-                        .map((action, actionIndex) => (
-                          <MenuItem
-                            key={`row-${itemIndex}-action-${actionIndex}`}
-                            icon={action.icon}
-                            className={cx({
-                              'koupr-text-red-500': !!(
-                                action.isDestructive ||
-                                action.isDestructiveFn?.(item)
-                              ),
-                            })}
-                            isDisabled={
-                              !!(
-                                action.isDisabled || action.isDisabledFn?.(item)
-                              )
-                            }
-                            onClick={() => action.onClick?.(item)}
-                          >
-                            {action.label}
-                          </MenuItem>
-                        ))}
-                    </MenuList>
-                  </Portal>
-                </Menu>
-              </Td>
-            ) : null}
+            {actions ? <Th></Th> : null}
           </Tr>
-        ))}
-      </Tbody>
-    </Table>
+        </Thead>
+        <Tbody>
+          {items.map((item, itemIndex) => (
+            <Tr key={`row-${itemIndex}`}>
+              {columns.map((column, colIndex) => (
+                <Td key={`row-${itemIndex}-col-${colIndex}`}>
+                  {column.renderCell(item)}
+                </Td>
+              ))}
+              {actions ? (
+                <Td className={cx('koupr-text-right')}>
+                  <Menu>
+                    <MenuButton
+                      as={IconButton}
+                      icon={<IconMoreVert />}
+                      variant="ghost"
+                      title="Action menu"
+                      aria-label="Action menu"
+                    />
+                    <Portal>
+                      <MenuList>
+                        {actions
+                          ?.filter(
+                            (action) =>
+                              !!(
+                                !action.isHidden && !action.isHiddenFn?.(item)
+                              ),
+                          )
+                          .map((action, actionIndex) => (
+                            <MenuItem
+                              key={`row-${itemIndex}-action-${actionIndex}`}
+                              icon={action.icon}
+                              className={cx({
+                                'koupr-text-red-500': !!(
+                                  action.isDestructive ||
+                                  action.isDestructiveFn?.(item)
+                                ),
+                              })}
+                              isDisabled={
+                                !!(
+                                  action.isDisabled ||
+                                  action.isDisabledFn?.(item)
+                                )
+                              }
+                              onClick={() => action.onClick?.(item)}
+                            >
+                              {action.label}
+                            </MenuItem>
+                          ))}
+                      </MenuList>
+                    </Portal>
+                  </Menu>
+                </Td>
+              ) : null}
+            </Tr>
+          ))}
+        </Tbody>
+      </Table>
+      {pagination ? <div className={cx('self-end')}>{pagination}</div> : null}
+    </div>
   )
 }
