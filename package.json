@@ -1,6 +1,6 @@
 {
   "name": "@koupr/ui",
-  "version": "1.10.8",
+  "version": "1.10.9",
   "license": "MIT",
   "type": "module",
   "source": "src/index.ts",
@@ -10,9 +10,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/kouprlabs/koupr-ui.git"
-  },
-  "engines": {
-    "node": ">=20.x"
   },
   "scripts": {
     "build": "rollup -c && node ./scripts/cleanup.js",
