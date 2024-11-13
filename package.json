@@ -1,6 +1,6 @@
 {
   "name": "@koupr/ui",
-  "version": "1.10.10",
+  "version": "1.10.11",
   "license": "MIT",
   "type": "module",
   "source": "src/index.ts",

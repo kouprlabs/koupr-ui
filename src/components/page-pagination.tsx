@@ -35,7 +35,7 @@ export const PagePagination = ({
   isFastForwardDisabled = false,
   isRewindDisabled = false,
 }: PagePaginationProps) => {
-  const { hasPageSwitcher, hasSizeSelector } = usePageMonitor({
+  const { hasPageSwitcher, hasSizeSelector, hasPagination } = usePageMonitor({
     totalElements,
     totalPages,
     steps,
@@ -51,7 +51,7 @@ export const PagePagination = ({
 
   return (
     <>
-      {!hasPageSwitcher && !hasSizeSelector ? null : (
+      {hasPagination ? (
         <div
           className={cx(
             'koupr-flex',
@@ -83,7 +83,7 @@ export const PagePagination = ({
             </Select>
           ) : null}
         </div>
-      )}
+      ) : null}
     </>
   )
 }

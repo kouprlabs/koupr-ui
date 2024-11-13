@@ -8,6 +8,14 @@ export type UsePagePaginationOptions = {
   steps?: number[]
 }
 
+export type UsePagePaginationResult = {
+  page: number
+  size: number
+  steps: number[]
+  setPage: (page: number) => void
+  setSize: (size: number) => void
+}
+
 export const usePagePagination = ({
   navigateFn,
   searchFn,
@@ -16,7 +24,7 @@ export const usePagePagination = ({
     namespace: 'main',
   },
   steps = [5, 10, 20, 40, 80, 100],
-}: UsePagePaginationOptions) => {
+}: UsePagePaginationOptions): UsePagePaginationResult => {
   const search = searchFn()
   const queryParams = useMemo(() => new URLSearchParams(search), [search])
   const page = Number(queryParams.get('page')) || 1
