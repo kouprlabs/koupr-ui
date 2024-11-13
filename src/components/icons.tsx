@@ -1,506 +1,288 @@
-import { HTMLAttributes } from 'react'
+import { CSSProperties, HTMLAttributes } from 'react'
 import { cx } from '@emotion/css'
 
 export type IconProps = {
   filled?: boolean
+  fontSize?: string
 } & HTMLAttributes<HTMLSpanElement>
 
-export const IconPlayArrow = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    play_arrow
-  </span>
+export const IconPlayArrow = (props: IconProps) => (
+  <Wrapper {...props}>play_arrow</Wrapper>
 )
 
-export const IconUpload = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    upload
-  </span>
+export const IconUpload = (props: IconProps) => (
+  <Wrapper {...props}>upload</Wrapper>
 )
 
-export const IconAdminPanelSettings = ({
-  className,
-  filled,
-  ...props
-}: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    admin_panel_settings
-  </span>
+export const IconAdminPanelSettings = (props: IconProps) => (
+  <Wrapper {...props}>admin_panel_settings</Wrapper>
 )
 
-export const IconDatabase = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    database
-  </span>
+export const IconDatabase = (props: IconProps) => (
+  <Wrapper {...props}>database</Wrapper>
 )
 
-export const IconRemoveOperator = ({
-  className,
-  filled,
-  ...props
-}: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    remove_moderator
-  </span>
+export const IconRemoveOperator = (props: IconProps) => (
+  <Wrapper {...props}>remove_moderator</Wrapper>
 )
 
-export const IconNotifications = ({
-  className,
-  filled,
-  ...props
-}: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    notifications
-  </span>
+export const IconNotifications = (props: IconProps) => (
+  <Wrapper {...props}>notifications</Wrapper>
 )
 
-export const IconMoreVert = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    more_vert
-  </span>
+export const IconMoreVert = (props: IconProps) => (
+  <Wrapper {...props}>more_vert</Wrapper>
 )
 
-export const IconLogout = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    logout
-  </span>
+export const IconLogout = (props: IconProps) => (
+  <Wrapper {...props}>logout</Wrapper>
 )
 
-export const IconChevronLeft = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    chevron_left
-  </span>
+export const IconChevronLeft = (props: IconProps) => (
+  <Wrapper {...props}>chevron_left</Wrapper>
 )
 
-export const IconChevronRight = ({
-  className,
-  filled,
-  ...props
-}: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    chevron_right
-  </span>
+export const IconChevronRight = (props: IconProps) => (
+  <Wrapper {...props}>chevron_right</Wrapper>
 )
 
-export const IconChevronDown = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    keyboard_arrow_down
-  </span>
+export const IconChevronDown = (props: IconProps) => (
+  <Wrapper {...props}>keyboard_arrow_down</Wrapper>
 )
 
-export const IconChevronUp = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    keyboard_arrow_up
-  </span>
+export const IconChevronUp = (props: IconProps) => (
+  <Wrapper {...props}>keyboard_arrow_up</Wrapper>
 )
 
-export const IconAdd = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    add
-  </span>
-)
+export const IconAdd = (props: IconProps) => <Wrapper {...props}>add</Wrapper>
 
-export const IconEdit = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    edit
-  </span>
-)
+export const IconEdit = (props: IconProps) => <Wrapper {...props}>edit</Wrapper>
 
-export const IconGroup = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    group
-  </span>
+export const IconGroup = (props: IconProps) => (
+  <Wrapper {...props}>group</Wrapper>
 )
 
-export const IconDownload = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    download
-  </span>
+export const IconDownload = (props: IconProps) => (
+  <Wrapper {...props}>download</Wrapper>
 )
 
-export const IconArrowTopRight = ({
-  className,
-  filled,
-  ...props
-}: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    arrow_top_right
-  </span>
+export const IconArrowTopRight = (props: IconProps) => (
+  <Wrapper {...props}>arrow_top_right</Wrapper>
 )
 
-export const IconFileCopy = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    file_copy
-  </span>
+export const IconFileCopy = (props: IconProps) => (
+  <Wrapper {...props}>file_copy</Wrapper>
 )
 
-export const IconDelete = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    delete
-  </span>
+export const IconDelete = (props: IconProps) => (
+  <Wrapper {...props}>delete</Wrapper>
 )
 
-export const IconSend = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    send
-  </span>
-)
+export const IconSend = (props: IconProps) => <Wrapper {...props}>send</Wrapper>
 
-export const IconPersonAdd = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    person_add
-  </span>
+export const IconPersonAdd = (props: IconProps) => (
+  <Wrapper {...props}>person_add</Wrapper>
 )
 
-export const IconPerson = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    person
-  </span>
+export const IconPerson = (props: IconProps) => (
+  <Wrapper {...props}>person</Wrapper>
 )
 
-export const IconCheck = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    check
-  </span>
+export const IconCheck = (props: IconProps) => (
+  <Wrapper {...props}>check</Wrapper>
 )
 
-export const IconLibraryAddCheck = ({
-  className,
-  filled,
-  ...props
-}: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    library_add_check
-  </span>
+export const IconLibraryAddCheck = (props: IconProps) => (
+  <Wrapper {...props}>library_add_check</Wrapper>
 )
 
-export const IconSelectCheckBox = ({
-  className,
-  filled,
-  ...props
-}: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    select_check_box
-  </span>
+export const IconSelectCheckBox = (props: IconProps) => (
+  <Wrapper {...props}>select_check_box</Wrapper>
 )
 
-export const IconCheckBoxOutlineBlank = ({
-  className,
-  filled,
-  ...props
-}: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    check_box_outline_blank
-  </span>
+export const IconCheckBoxOutlineBlank = (props: IconProps) => (
+  <Wrapper {...props}>check_box_outline_blank</Wrapper>
 )
 
-export const IconCheckCircle = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    check_circle
-  </span>
+export const IconCheckCircle = (props: IconProps) => (
+  <Wrapper {...props}>check_circle</Wrapper>
 )
 
-export const IconError = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    error
-  </span>
+export const IconError = (props: IconProps) => (
+  <Wrapper {...props}>error</Wrapper>
 )
 
-export const IconWarning = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    warning
-  </span>
+export const IconWarning = (props: IconProps) => (
+  <Wrapper {...props}>warning</Wrapper>
 )
 
-export const IconInvitations = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    forward_to_inbox
-  </span>
+export const IconInvitations = (props: IconProps) => (
+  <Wrapper {...props}>forward_to_inbox</Wrapper>
 )
 
-export const IconWorkspaces = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    workspaces
-  </span>
+export const IconWorkspaces = (props: IconProps) => (
+  <Wrapper {...props}>workspaces</Wrapper>
 )
 
-export const IconFlag = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    flag
-  </span>
-)
+export const IconFlag = (props: IconProps) => <Wrapper {...props}>flag</Wrapper>
 
-export const IconClose = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    close
-  </span>
+export const IconClose = (props: IconProps) => (
+  <Wrapper {...props}>close</Wrapper>
 )
 
-export const IconSchedule = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    schedule
-  </span>
+export const IconSchedule = (props: IconProps) => (
+  <Wrapper {...props}>schedule</Wrapper>
 )
 
-export const IconClearAll = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    clear_all
-  </span>
+export const IconClearAll = (props: IconProps) => (
+  <Wrapper {...props}>clear_all</Wrapper>
 )
 
-export const IconOpenInNew = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    open_in_new
-  </span>
+export const IconOpenInNew = (props: IconProps) => (
+  <Wrapper {...props}>open_in_new</Wrapper>
 )
 
-export const IconInfo = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    info
-  </span>
-)
+export const IconInfo = (props: IconProps) => <Wrapper {...props}>info</Wrapper>
 
-export const IconSearch = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    search
-  </span>
+export const IconSearch = (props: IconProps) => (
+  <Wrapper {...props}>search</Wrapper>
 )
 
-export const IconRefresh = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    refresh
-  </span>
+export const IconRefresh = (props: IconProps) => (
+  <Wrapper {...props}>refresh</Wrapper>
 )
 
-export const IconSync = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    sync
-  </span>
-)
+export const IconSync = (props: IconProps) => <Wrapper {...props}>sync</Wrapper>
 
-export const IconGridView = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    grid_view
-  </span>
+export const IconGridView = (props: IconProps) => (
+  <Wrapper {...props}>grid_view</Wrapper>
 )
 
-export const IconArrowUpward = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    arrow_upward
-  </span>
+export const IconArrowUpward = (props: IconProps) => (
+  <Wrapper {...props}>arrow_upward</Wrapper>
 )
 
-export const IconArrowDownward = ({
-  className,
-  filled,
-  ...props
-}: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    arrow_downward
-  </span>
+export const IconArrowDownward = (props: IconProps) => (
+  <Wrapper {...props}>arrow_downward</Wrapper>
 )
 
-export const IconExpandMore = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    expand_more
-  </span>
+export const IconExpandMore = (props: IconProps) => (
+  <Wrapper {...props}>expand_more</Wrapper>
 )
 
-export const IconList = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    list
-  </span>
-)
+export const IconList = (props: IconProps) => <Wrapper {...props}>list</Wrapper>
 
-export const IconHourglass = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    hourglass
-  </span>
+export const IconHourglass = (props: IconProps) => (
+  <Wrapper {...props}>hourglass</Wrapper>
 )
 
-export const IconKeyboardArrowLeft = ({
-  className,
-  filled,
-  ...props
-}: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    keyboard_arrow_left
-  </span>
+export const IconKeyboardArrowLeft = (props: IconProps) => (
+  <Wrapper {...props}>keyboard_arrow_left</Wrapper>
 )
 
-export const IconKeyboardArrowRight = ({
-  className,
-  filled,
-  ...props
-}: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    keyboard_arrow_right
-  </span>
+export const IconKeyboardArrowRight = (props: IconProps) => (
+  <Wrapper {...props}>keyboard_arrow_right</Wrapper>
 )
 
-export const IconKeyboardDoubleArrowRight = ({
-  className,
-  filled,
-  ...props
-}: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    keyboard_double_arrow_right
-  </span>
+export const IconKeyboardDoubleArrowRight = (props: IconProps) => (
+  <Wrapper {...props}>keyboard_double_arrow_right</Wrapper>
 )
 
-export const IconKeyboardDoubleArrowLeft = ({
-  className,
-  filled,
-  ...props
-}: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    keyboard_double_arrow_left
-  </span>
+export const IconKeyboardDoubleArrowLeft = (props: IconProps) => (
+  <Wrapper {...props}>keyboard_double_arrow_left</Wrapper>
 )
 
-export const IconFirstPage = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    first_page
-  </span>
+export const IconFirstPage = (props: IconProps) => (
+  <Wrapper {...props}>first_page</Wrapper>
 )
 
-export const IconLastPage = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    last_page
-  </span>
+export const IconLastPage = (props: IconProps) => (
+  <Wrapper {...props}>last_page</Wrapper>
 )
 
-export const IconHistory = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    history
-  </span>
+export const IconHistory = (props: IconProps) => (
+  <Wrapper {...props}>history</Wrapper>
 )
 
-export const IconModeHeat = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    mode_heat
-  </span>
+export const IconModeHeat = (props: IconProps) => (
+  <Wrapper {...props}>mode_heat</Wrapper>
 )
 
-export const IconSecurity = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    security
-  </span>
+export const IconSecurity = (props: IconProps) => (
+  <Wrapper {...props}>security</Wrapper>
 )
 
-export const IconVisibility = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    visibility
-  </span>
+export const IconVisibility = (props: IconProps) => (
+  <Wrapper {...props}>visibility</Wrapper>
 )
 
-export const IconTune = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    tune
-  </span>
-)
+export const IconTune = (props: IconProps) => <Wrapper {...props}>tune</Wrapper>
 
-export const IconHome = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    home
-  </span>
-)
+export const IconHome = (props: IconProps) => <Wrapper {...props}>home</Wrapper>
 
-export const IconStacks = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    stacks
-  </span>
+export const IconStacks = (props: IconProps) => (
+  <Wrapper {...props}>stacks</Wrapper>
 )
 
-export const IconCloudUpload = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    cloud_upload
-  </span>
+export const IconCloudUpload = (props: IconProps) => (
+  <Wrapper {...props}>cloud_upload</Wrapper>
 )
 
-export const IconBolt = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    bolt
-  </span>
-)
+export const IconBolt = (props: IconProps) => <Wrapper {...props}>bolt</Wrapper>
 
-export const IconChat = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    chat
-  </span>
+export const IconChat = (props: IconProps) => <Wrapper {...props}>chat</Wrapper>
+
+export const IconFavorite = (props: IconProps) => (
+  <Wrapper {...props}>favorite</Wrapper>
 )
 
-export const IconFavorite = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    favorite
-  </span>
+export const IconWhatshot = (props: IconProps) => (
+  <Wrapper {...props}>whatshot</Wrapper>
 )
 
-export const IconWhatshot = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    whatshot
-  </span>
+export const IconSwapVerticalCircle = (props: IconProps) => (
+  <Wrapper {...props}>swap_vertical_circle</Wrapper>
 )
 
-export const IconSwapVerticalCircle = ({
-  className,
-  filled,
-  ...props
-}: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    swap_vertical_circle
-  </span>
+export const IconFrontHand = (props: IconProps) => (
+  <Wrapper {...props}>front_hand</Wrapper>
 )
 
-export const IconFrontHand = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    front_hand
-  </span>
+export const IconHandshake = (props: IconProps) => (
+  <Wrapper {...props}>handshake</Wrapper>
 )
 
-export const IconHandshake = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    handshake
-  </span>
+export const IconRemoveModerator = (props: IconProps) => (
+  <Wrapper {...props}>remove_moderator</Wrapper>
 )
 
-export const IconRemoveModerator = ({
-  className,
-  filled,
-  ...props
-}: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    remove_moderator
-  </span>
+export const IconShield = (props: IconProps) => (
+  <Wrapper {...props}>shield</Wrapper>
 )
 
-export const IconShield = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    shield
-  </span>
+export const IconThumbUp = (props: IconProps) => (
+  <Wrapper {...props}>thumb_up</Wrapper>
 )
 
-export const IconThumbUp = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    thumb_up
-  </span>
+export const IconThumbDown = (props: IconProps) => (
+  <Wrapper {...props}>thumb_down</Wrapper>
 )
 
-export const IconThumbDown = ({ className, filled, ...props }: IconProps) => (
-  <span className={getClassName({ filled, className })} {...props}>
-    thumb_down
+type WrapperProps = {
+  children?: React.ReactNode
+  styles?: CSSProperties
+} & IconProps
+
+const Wrapper = ({ className, filled, children, ...props }: WrapperProps) => (
+  <span
+    className={cx(
+      'koupr-material-symbols-rounded',
+      { 'koupr-material-symbols-rounded__filled': filled },
+      className,
+    )}
+    style={{ fontSize: props.style?.fontSize ?? '16px' }}
+    {...props}
+  >
+    {children}
   </span>
 )
-
-type GetClassNameOptions = {
-  filled?: boolean
-  className?: string
-}
-
-function getClassName({ filled, className }: GetClassNameOptions) {
-  return cx(
-    'koupr-material-symbols-rounded',
-    { 'koupr-material-symbols-rounded__filled': filled },
-    'koupr-text-[16px]',
-    className,
-  )
-}
