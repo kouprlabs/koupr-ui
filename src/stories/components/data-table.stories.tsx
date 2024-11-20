@@ -2,19 +2,50 @@ import { Avatar, Link } from '@chakra-ui/react'
 import { DataTable, IconChat, IconFavorite, IconLogout } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import cx from 'classnames'
-import { Hero, items } from '../common/data'
 
 const meta: Meta<typeof DataTable> = {
   title: 'Components/Data Table',
   component: DataTable,
 }
 
+type SampleItem = {
+  name: string
+  symbol: string
+  dateOfBirth: string
+}
+
 export default meta
-type Story = StoryObj<typeof DataTable<Hero>>
+type Story = StoryObj<typeof DataTable<SampleItem>>
 
 export const Default: Story = {
   args: {
-    items: items,
+    items: [
+      {
+        name: 'Bruce Wayne',
+        symbol: 'Batman',
+        dateOfBirth: '1915-04-07',
+      },
+      {
+        name: 'Tony Stark',
+        symbol: 'Iron Man',
+        dateOfBirth: '1970-05-29',
+      },
+      {
+        name: 'Steven Rogers',
+        symbol: 'Captain America',
+        dateOfBirth: '1918-07-04',
+      },
+      {
+        name: 'Clinton Barton',
+        symbol: 'Hawkeye',
+        dateOfBirth: '1975-01-01',
+      },
+      {
+        name: 'Natasha Romanoff',
+        symbol: 'Black Widow',
+        dateOfBirth: '1984-12-03',
+      },
+    ],
     columns: [
       {
         title: 'Name',
