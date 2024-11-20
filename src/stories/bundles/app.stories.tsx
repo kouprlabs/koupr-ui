@@ -474,7 +474,7 @@ const SimulateLoadAndFail = () => {
   return (
     <>
       {!isError ? <SectionSpinner /> : null}
-      {isError ? <SectionError text="Failed to load data." /> : null}
+      {isError ? <SectionError text="Sample error message." /> : null}
     </>
   )
 }
