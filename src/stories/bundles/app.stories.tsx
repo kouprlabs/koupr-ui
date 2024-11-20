@@ -90,7 +90,7 @@ const App = () => {
             </>
           }
         />
-        <Route path="/group" element={<LoadAndFail />} />
+        <Route path="/group" element={<SimulateLoadAndFail />} />
         <Route
           path="/organization"
           element={
@@ -464,7 +464,7 @@ const SampleForm = () => (
   />
 )
 
-const LoadAndFail = () => {
+const SimulateLoadAndFail = () => {
   const [isError, setIsError] = useState(false)
 
   useEffect(() => {
