@@ -8,14 +8,14 @@ const meta: Meta<typeof DataTable> = {
   component: DataTable,
 }
 
-type SampleItem = {
+type DataItem = {
   name: string
   symbol: string
   dateOfBirth: string
 }
 
 export default meta
-type Story = StoryObj<typeof DataTable<SampleItem>>
+type Story = StoryObj<typeof DataTable<DataItem>>
 
 export const Default: Story = {
   args: {

@@ -19,7 +19,7 @@ import {
 } from '@koupr/ui'
 import type { Meta, StoryObj } from '@storybook/react'
 import cx from 'classnames'
-import { Link, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 
 type LayoutProps = {
   children?: ReactElement
@@ -61,13 +61,7 @@ const Layout = ({ children }: LayoutProps) => {
           }
           buttons={
             <>
-              <Button
-                as={Link}
-                to="/new/workspace"
-                leftIcon={<IconAdd />}
-                variant="solid"
-                colorScheme="blue"
-              >
+              <Button leftIcon={<IconAdd />} variant="solid" colorScheme="blue">
                 New Workspace
               </Button>
               <IconButton
@@ -98,10 +92,8 @@ const Layout = ({ children }: LayoutProps) => {
                 hasBadge={true}
                 menuItems={
                   <>
-                    <MenuItem as={Link} to="/account/settings">
-                      Settings
-                    </MenuItem>
-                    <MenuItem as={Link} to="/account/invitation">
+                    <MenuItem>Settings</MenuItem>
+                    <MenuItem>
                       <div
                         className={cx(
                           'flex',
@@ -114,13 +106,7 @@ const Layout = ({ children }: LayoutProps) => {
                         <NumberTag>5</NumberTag>
                       </div>
                     </MenuItem>
-                    <MenuItem
-                      as={Link}
-                      to="/sign-out"
-                      className={cx('text-red-500')}
-                    >
-                      Sign Out
-                    </MenuItem>
+                    <MenuItem className={cx('text-red-500')}>Sign Out</MenuItem>
                   </>
                 }
               />
