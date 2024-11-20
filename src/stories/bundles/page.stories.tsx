@@ -76,7 +76,7 @@ type Story = StoryObj<typeof Page>
 
 export const Default: Story = {}
 
-type SampleItem = {
+type DataItem = {
   name: string
   symbol: string
   dateOfBirth: string
@@ -91,7 +91,7 @@ const SampleDataTable = () => {
   })
 
   return (
-    <DataTable<SampleItem>
+    <DataTable<DataItem>
       items={[
         {
           name: 'Bruce Wayne',

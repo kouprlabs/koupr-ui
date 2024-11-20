@@ -6,11 +6,19 @@ import {
   MenuItem,
   Progress,
   Switch,
-  Link as ChakraLink,
+  Link,
   useDisclosure,
   Tabs,
   TabList,
   Tab,
+  Card,
+  CardBody,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionIcon,
+  AccordionPanel,
+  CircularProgress,
 } from '@chakra-ui/react'
 import {
   AccountMenu,
@@ -21,11 +29,14 @@ import {
   IconAdd,
   IconAdminPanelSettings,
   IconChat,
+  IconCheckCircle,
   IconDelete,
   IconEdit,
+  IconError,
   IconFavorite,
   IconFlag,
   IconGroup,
+  IconHourglass,
   IconLogout,
   IconStacks,
   IconTune,
@@ -34,14 +45,18 @@ import {
   Logo,
   NumberTag,
   PagePagination,
+  Pagination,
   SearchBar,
+  SectionError,
+  SectionPlaceholder,
+  SectionSpinner,
   Shell,
+  Text,
   usePagePagination,
 } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import cx from 'classnames'
 import {
-  Link,
   Outlet,
   Route,
   Routes,
@@ -75,30 +90,18 @@ const App = () => {
             </>
           }
         />
-        <Route
-          path="/group"
-          element={
-            <p>
-              Commodo volutpat facilisis habitant; mattis ultrices mauris ex
-              nisi. Consequat nascetur lacus sed fames convallis pretium sit
-              justo. Gravida curabitur condimentum hac mi, ridiculus montes.
-              Eros commodo porttitor erat amet primis imperdiet. Morbi at
-              potenti volutpat litora viverra dapibus sapien. Fermentum sodales
-              nullam aliquam fusce aliquam.
-            </p>
-          }
-        />
+        <Route path="/group" element={<SimulateLoadAndFail />} />
         <Route
           path="/organization"
           element={
-            <p>
-              Dis eros primis condimentum a porttitor orci curabitur. Aluctus
-              arcu blandit dui facilisi interdum pretium tristique. Cras nam
-              congue parturient posuere tempor lectus? Felis hendrerit penatibus
-              semper maximus convallis tortor. Et potenti quisque ex phasellus
-              magnis leo netus. Hac enim ante curae odio libero feugiat metus
-              conubia tincidunt.
-            </p>
+            <SectionPlaceholder
+              text="There are no organizations."
+              content={
+                <Button leftIcon={<IconAdd />} variant="solid">
+                  New Organization
+                </Button>
+              }
+            />
           }
         />
       </Routes>
@@ -146,13 +149,7 @@ const Layout = ({ children }: LayoutProps) => {
           }
           buttons={
             <>
-              <Button
-                as={Link}
-                to="/new/workspace"
-                leftIcon={<IconAdd />}
-                variant="solid"
-                colorScheme="blue"
-              >
+              <Button leftIcon={<IconAdd />} variant="solid" colorScheme="blue">
                 New Workspace
               </Button>
               <IconButton
@@ -163,7 +160,16 @@ const Layout = ({ children }: LayoutProps) => {
               <AuxiliaryDrawer
                 icon={<IconUpload />}
                 header="Uploads"
-                body={<></>}
+                body={
+                  <SectionPlaceholder
+                    text="There are no uploads."
+                    content={
+                      <Button leftIcon={<IconUpload />} variant="solid">
+                        Upload File
+                      </Button>
+                    }
+                  />
+                }
                 isOpen={uploads.isOpen}
                 onClose={uploads.onClose}
                 onOpen={uploads.onOpen}
@@ -171,7 +177,7 @@ const Layout = ({ children }: LayoutProps) => {
               <AuxiliaryDrawer
                 icon={<IconStacks />}
                 header="Tasks"
-                body={<></>}
+                body={<CardList />}
                 hasBadge={true}
                 isOpen={tasks.isOpen}
                 onOpen={tasks.onOpen}
@@ -183,10 +189,8 @@ const Layout = ({ children }: LayoutProps) => {
                 hasBadge={true}
                 menuItems={
                   <>
-                    <MenuItem as={Link} to="/account/settings">
-                      Settings
-                    </MenuItem>
-                    <MenuItem as={Link} to="/account/invitation">
+                    <MenuItem>Settings</MenuItem>
+                    <MenuItem>
                       <div
                         className={cx(
                           'flex',
@@ -199,13 +203,7 @@ const Layout = ({ children }: LayoutProps) => {
                         <NumberTag>5</NumberTag>
                       </div>
                     </MenuItem>
-                    <MenuItem
-                      as={Link}
-                      to="/sign-out"
-                      className={cx('text-red-500')}
-                    >
-                      Sign Out
-                    </MenuItem>
+                    <MenuItem className={cx('text-red-500')}>Sign Out</MenuItem>
                   </>
                 }
               />
@@ -271,7 +269,7 @@ type Story = StoryObj<typeof App>
 
 export const Default: Story = {}
 
-type SampleItem = {
+type DataItem = {
   name: string
   symbol: string
   dateOfBirth: string
@@ -286,7 +284,7 @@ const SampleDataTable = () => {
   })
 
   return (
-    <DataTable<SampleItem>
+    <DataTable<DataItem>
       items={[
         {
           name: 'Bruce Wayne',
@@ -324,9 +322,7 @@ const SampleDataTable = () => {
                 size="sm"
                 className={cx('w-[40px]', 'h-[40px]')}
               />
-              <ChakraLink className={cx('no-underline')}>
-                {item.name}
-              </ChakraLink>
+              <Link className={cx('no-underline')}>{item.name}</Link>
             </div>
           ),
         },
@@ -467,3 +463,129 @@ const SampleForm = () => (
     ]}
   />
 )
+
+const SimulateLoadAndFail = () => {
+  const [isError, setIsError] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => setIsError(true), 1000)
+  }, [])
+
+  return (
+    <>
+      {!isError ? <SectionSpinner /> : null}
+      {isError ? <SectionError text="Failed to load data." /> : null}
+    </>
+  )
+}
+
+type CardItem = {
+  title: string
+  icon: ReactElement
+  accordion?: {
+    title: string
+    content: string
+  }
+}
+
+const CardList = () => {
+  const [page, setPage] = useState(1)
+  const items: CardItem[] = [
+    {
+      title: 'Lorem ipsum dolor sit amet',
+      icon: (
+        <CircularProgress
+          isIndeterminate={true}
+          className={cx('text-black')}
+          size="20px"
+        />
+      ),
+    },
+    {
+      title: 'Lorem ipsum dolor sit amet',
+      icon: <IconHourglass />,
+    },
+    {
+      title: 'Lorem ipsum dolor sit amet',
+      icon: (
+        <IconCheckCircle
+          className={cx('shrink-0', 'text-green-500')}
+          filled={true}
+        />
+      ),
+    },
+    {
+      title: 'Lorem ipsum dolor sit amet',
+      icon: <IconError filled={true} className={cx('text-red-500')} />,
+      accordion: {
+        title: 'Expand to view details.',
+        content:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      },
+    },
+  ]
+
+  return (
+    <div
+      className={cx(
+        'flex',
+        'flex-col',
+        'gap-1.5',
+        'justify-between',
+        'items-center',
+        'h-full',
+      )}
+    >
+      <div
+        className={cx(
+          'flex',
+          'flex-col',
+          'gap-1.5',
+          'w-full',
+          'overflow-y-auto',
+        )}
+      >
+        {items.map((item) => (
+          <Card variant="outline">
+            <CardBody>
+              <div className={cx('flex', 'flex-col', 'gap-1')}>
+                <div
+                  className={cx('flex', 'flex-row', 'items-center', 'gap-1.5')}
+                >
+                  {item.icon}
+                  {item.title}
+                </div>
+                {item.accordion ? (
+                  <Accordion allowMultiple>
+                    <AccordionItem className={cx('border-none')}>
+                      <AccordionButton className={cx('p-0.5')}>
+                        <div className={cx('flex', 'flex-row', 'w-full')}>
+                          <span className={cx('text-left', 'grow')}>
+                            {item.accordion.title}
+                          </span>
+                          <AccordionIcon />
+                        </div>
+                      </AccordionButton>
+                      <AccordionPanel className={cx('p-0.5')}>
+                        <Text className={cx('text-red-500')} noOfLines={5}>
+                          {item.accordion.content}
+                        </Text>
+                      </AccordionPanel>
+                    </AccordionItem>
+                  </Accordion>
+                ) : null}
+              </div>
+            </CardBody>
+          </Card>
+        ))}
+      </div>
+      <Pagination
+        size="sm"
+        maxButtons={3}
+        page={page}
+        totalPages={3}
+        onPageChange={(value) => setPage(value)}
+      />
+    </div>
+  )
+}
