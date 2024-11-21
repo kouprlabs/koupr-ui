@@ -45,4 +45,4 @@ npm run watch
 
 ## Licensing
 
-Koupr UI is released under [The MIT License](./LICENSE.md).
+Koupr UI is released under the [MIT License](LICENSE).
