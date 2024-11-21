@@ -1,3 +1,9 @@
+// Copyright (c) 2023 Anass Bouassaba.
+//
+// This software is licensed under the MIT License.
+// You can find a copy of the license in the LICENSE file
+// included in the root of this repository or at
+// https://opensource.org/licenses/MIT.
 import { extendTheme } from '@chakra-ui/react'
 import breakpoints from './breakpoints'
 import colors from './colors'
