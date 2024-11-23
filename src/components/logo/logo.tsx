@@ -22,7 +22,7 @@ export type LogoProps = CenterProps & {
   size?: 'sm' | 'md'
 }
 
-export const Logo = ({ type, size, isGlossy = false }: LogoProps) => {
+export const Logo = ({ type, size = 'sm', isGlossy = false }: LogoProps) => {
   const { colorMode } = useColorMode()
   const getSvg = useCallback(() => {
     if (type == 'voltaserve') {
