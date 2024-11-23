@@ -18,7 +18,7 @@ import voltaserveLogoSvg from './assets/voltaserve-logo.svg'
 
 export type LogoProps = CenterProps & {
   isGlossy?: boolean
-  type?: 'voltaserve' | 'koupr'
+  type: 'voltaserve' | 'koupr'
   size?: 'sm' | 'md'
 }
 
