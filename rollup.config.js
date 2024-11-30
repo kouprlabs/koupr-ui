@@ -57,7 +57,6 @@ export default [
       'framer-motion',
       'react',
       'react-dom',
-      'react-router-dom',
     ],
     plugins: [
       peerDepsExternal(),
