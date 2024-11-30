@@ -6,7 +6,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { StorageOptions } from '../common-types'
 
 export type UsePagePaginationOptions = {
-  navigateFn?: (href: string) => void
+  navigateFn?: (to: string, options?: { replace?: boolean }) => void
   searchFn: () => string
   storage?: StorageOptions
   steps?: number[]
@@ -55,14 +55,14 @@ export const usePagePagination = ({
   useEffect(() => {
     if (!queryParams.has('page')) {
       queryParams.set('page', '1')
-      navigateFn?.(`?${queryParams.toString()}`)
+      navigateFn?.(`?${queryParams.toString()}`, { replace: true })
     }
   }, [queryParams, navigateFn])
 
   const setPage = useCallback(
     (page: number) => {
       queryParams.set('page', String(page))
-      navigateFn?.(`?${queryParams.toString()}`)
+      navigateFn?.(`?${queryParams.toString()}`, { replace: true })
     },
     [queryParams, navigateFn],
   )
