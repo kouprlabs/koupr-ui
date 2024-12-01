@@ -13,6 +13,36 @@ const meta: Meta<typeof RelativeDate> = {
 export default meta
 type Story = StoryObj<typeof RelativeDate>
 
+export const Now: Story = {
+  args: {
+    date: new Date(),
+  },
+}
+
+export const ThirtyMinutesAgo: Story = {
+  args: {
+    date: getThirtyMinutesAgo(),
+  },
+}
+
+export const OneHourAgo: Story = {
+  args: {
+    date: getOneHourAgo(),
+  },
+}
+
+export const TwoHoursAgo: Story = {
+  args: {
+    date: getTwoHoursAgo(),
+  },
+}
+
+export const TenHoursAgo: Story = {
+  args: {
+    date: getTenHoursAgo(),
+  },
+}
+
 export const Yesterday: Story = {
   args: {
     date: getYesterday(),
@@ -29,6 +59,30 @@ export const LastYear: Story = {
   args: {
     date: getLastYear(),
   },
+}
+
+function getThirtyMinutesAgo(): Date {
+  const currentDate = new Date()
+  const thirtyMinutesAgo = new Date(currentDate.getTime() - 30 * 60 * 1000)
+  return thirtyMinutesAgo
+}
+
+function getOneHourAgo(): Date {
+  const currentDate = new Date()
+  const oneHourAgo = new Date(currentDate.getTime() - 1 * 60 * 60 * 1000)
+  return oneHourAgo
+}
+
+function getTwoHoursAgo(): Date {
+  const currentDate = new Date()
+  const oneHourAgo = new Date(currentDate.getTime() - 2 * 60 * 60 * 1000)
+  return oneHourAgo
+}
+
+function getTenHoursAgo(): Date {
+  const currentDate = new Date()
+  const elevenHoursAgo = new Date(currentDate.getTime() - 10 * 60 * 60 * 1000)
+  return elevenHoursAgo
 }
 
 function getYesterday(): Date {
