@@ -21,11 +21,11 @@ export const Default: Story = {
     body: <></>,
   },
   render: (args) => {
-    const { isOpen, onOpen, onClose } = useDisclosure()
+    const { open, onOpen, onClose } = useDisclosure()
     return (
       <AuxiliaryDrawer
         {...args}
-        isOpen={isOpen}
+        isOpen={open}
         onOpen={onOpen}
         onClose={onClose}
       />

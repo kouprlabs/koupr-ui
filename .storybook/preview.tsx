@@ -2,8 +2,7 @@
 //
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
-import { ChakraProvider } from '@chakra-ui/react'
-import { system } from '@koupr/ui'
+import { Provider } from '@koupr/ui'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import type { Preview } from '@storybook/react'
 import { ThemeProvider } from 'next-themes'
@@ -22,11 +21,11 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <ThemeProvider>
-        <ChakraProvider value={system}>
+        <Provider>
           <MemoryRouter>
             <Story />
           </MemoryRouter>
-        </ChakraProvider>
+        </Provider>
       </ThemeProvider>
     ),
     withThemeByClassName({

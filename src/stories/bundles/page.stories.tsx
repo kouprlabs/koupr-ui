@@ -3,17 +3,9 @@
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
 import { useEffect } from 'react'
+import { IconButton, Link, Tabs } from '@chakra-ui/react'
 import {
   Avatar,
-  IconButton,
-  Link,
-  Progress,
-  Switch,
-  Tab,
-  TabList,
-  Tabs,
-} from '@chakra-ui/react'
-import {
   DataTable,
   Form,
   IconChat,
@@ -22,6 +14,9 @@ import {
   IconFavorite,
   IconLogout,
   PagePagination,
+  ProgressBar,
+  ProgressRoot,
+  Switch,
   usePagePagination,
 } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
@@ -38,14 +33,22 @@ const Page = () => {
   const navigate = useNavigate()
   return (
     <div className={cx('flex', 'flex-col', 'gap-2')}>
-      <Tabs variant="solid-rounded" colorScheme="gray">
-        <TabList>
-          <Tab onClick={() => navigate('/workspace/data-table')}>
+      <Tabs.Root variant="subtle" colorScheme="gray">
+        <Tabs.List>
+          <Tabs.Trigger
+            value="data-table"
+            onClick={() => navigate('/workspace/data-table')}
+          >
             Data Table
-          </Tab>
-          <Tab onClick={() => navigate('/workspace/form')}>Form</Tab>
-        </TabList>
-      </Tabs>
+          </Tabs.Trigger>
+          <Tabs.Trigger
+            value="form"
+            onClick={() => navigate('/workspace/form')}
+          >
+            Form
+          </Tabs.Trigger>
+        </Tabs.List>
+      </Tabs.Root>
       <Outlet />
     </div>
   )
@@ -192,7 +195,9 @@ const SampleForm = () => (
         content: (
           <>
             <span>5.67 GB of 38 GB used</span>
-            <Progress value={20} hasStripe />
+            <ProgressRoot value={20}>
+              <ProgressBar />
+            </ProgressRoot>
           </>
         ),
       },
@@ -205,11 +210,12 @@ const SampleForm = () => (
               <>
                 <span>Bruce Wayne</span>
                 <IconButton
-                  icon={<IconEdit />}
                   className={cx('h-[40px]', 'w-[40px]')}
                   title="Edit full name"
                   aria-label="Edit full name"
-                />
+                >
+                  <IconEdit />
+                </IconButton>
               </>
             ),
           },
@@ -224,11 +230,12 @@ const SampleForm = () => (
               <>
                 <span>bruce.wayne@koupr.com</span>
                 <IconButton
-                  icon={<IconEdit />}
                   className={cx('h-[40px]', 'w-[40px]')}
                   title="Edit email"
                   aria-label="Edit email"
-                />
+                >
+                  <IconEdit />
+                </IconButton>
               </>
             ),
           },
@@ -236,11 +243,12 @@ const SampleForm = () => (
             label: 'Password',
             content: (
               <IconButton
-                icon={<IconEdit />}
                 className={cx('h-[40px]', 'w-[40px]')}
                 title="Change password"
                 aria-label="Change password"
-              />
+              >
+                <IconEdit />
+              </IconButton>
             ),
           },
         ],
@@ -261,12 +269,13 @@ const SampleForm = () => (
             label: 'Delete account',
             content: (
               <IconButton
-                icon={<IconDelete />}
                 variant="solid"
                 colorScheme="red"
                 title="Delete account"
                 aria-label="Delete account"
-              />
+              >
+                <IconDelete />
+              </IconButton>
             ),
           },
         ],

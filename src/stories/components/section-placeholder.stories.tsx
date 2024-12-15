@@ -17,6 +17,10 @@ type Story = StoryObj<typeof SectionPlaceholder>
 export const Default: Story = {
   args: {
     text: 'This organization has no invitations.',
-    content: <Button leftIcon={<IconPersonAdd />}>Invite Members</Button>,
+    content: (
+      <Button>
+        <IconPersonAdd /> Invite Members
+      </Button>
+    ),
   },
 }

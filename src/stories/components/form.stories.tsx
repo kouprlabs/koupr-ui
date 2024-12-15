@@ -2,8 +2,8 @@
 //
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
-import { IconButton, Progress, Switch } from '@chakra-ui/react'
-import { Form, IconEdit, IconDelete } from '@koupr/ui'
+import { IconButton } from '@chakra-ui/react'
+import { Form, IconEdit, IconDelete, ProgressRoot, Switch } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import cx from 'classnames'
 
@@ -23,7 +23,7 @@ export const Default: Story = {
         content: (
           <>
             <span>5.67 GB of 38 GB used</span>
-            <Progress value={20} hasStripe />
+            <ProgressRoot value={20} />
           </>
         ),
       },
@@ -36,11 +36,12 @@ export const Default: Story = {
               <>
                 <span>Bruce Wayne</span>
                 <IconButton
-                  icon={<IconEdit />}
                   className={cx('h-[40px]', 'w-[40px]')}
                   title="Edit full name"
                   aria-label="Edit full name"
-                />
+                >
+                  <IconEdit />
+                </IconButton>
               </>
             ),
           },
@@ -55,11 +56,12 @@ export const Default: Story = {
               <>
                 <span>bruce.wayne@koupr.com</span>
                 <IconButton
-                  icon={<IconEdit />}
                   className={cx('h-[40px]', 'w-[40px]')}
                   title="Edit email"
                   aria-label="Edit email"
-                />
+                >
+                  <IconEdit />
+                </IconButton>
               </>
             ),
           },
@@ -67,11 +69,12 @@ export const Default: Story = {
             label: 'Password',
             content: (
               <IconButton
-                icon={<IconEdit />}
                 className={cx('h-[40px]', 'w-[40px]')}
                 title="Change password"
                 aria-label="Change password"
-              />
+              >
+                <IconEdit />
+              </IconButton>
             ),
           },
         ],
@@ -92,12 +95,13 @@ export const Default: Story = {
             label: 'Delete account',
             content: (
               <IconButton
-                icon={<IconDelete />}
                 variant="solid"
                 colorScheme="red"
                 title="Delete account"
                 aria-label="Delete account"
-              />
+              >
+                <IconDelete />
+              </IconButton>
             ),
           },
         ],

@@ -3,6 +3,7 @@
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
 
+export * from './ui'
 export * from './sidenav'
 export * from './icons'
 export * from './spinner'

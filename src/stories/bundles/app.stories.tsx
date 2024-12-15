@@ -3,31 +3,17 @@
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
 import { ReactElement, useEffect, useState } from 'react'
+import { IconButton, Link, useDisclosure, Tabs, Card } from '@chakra-ui/react'
 import {
-  Avatar,
-  Button,
-  IconButton,
-  MenuItem,
-  Progress,
-  Switch,
-  Link,
-  useDisclosure,
-  Tabs,
-  TabList,
-  Tab,
-  Card,
-  CardBody,
-  Accordion,
   AccordionItem,
-  AccordionButton,
-  AccordionIcon,
-  AccordionPanel,
-  CircularProgress,
-} from '@chakra-ui/react'
-import {
+  AccordionItemContent,
+  AccordionItemTrigger,
+  AccordionRoot,
   AccountMenu,
   AppBar,
   AuxiliaryDrawer,
+  Avatar,
+  Button,
   DataTable,
   Form,
   IconAdd,
@@ -47,14 +33,20 @@ import {
   IconUpload,
   IconWorkspaces,
   Logo,
+  MenuItem,
   NumberTag,
   PagePagination,
   Pagination,
+  ProgressBar,
+  ProgressCircleRing,
+  ProgressCircleRoot,
+  ProgressRoot,
   SearchBar,
   SectionError,
   SectionPlaceholder,
   SectionSpinner,
   Shell,
+  Switch,
   Text,
   usePagePagination,
 } from '@koupr/ui'
@@ -101,8 +93,8 @@ const App = () => {
             <SectionPlaceholder
               text="There are no organizations."
               content={
-                <Button leftIcon={<IconAdd />} variant="solid">
-                  New Organization
+                <Button variant="solid">
+                  <IconAdd /> New Organization
                 </Button>
               }
             />
@@ -141,11 +133,9 @@ const Layout = ({ children }: LayoutProps) => {
               query={query}
               placeholder="Search"
               buttons={
-                <IconButton
-                  icon={<IconTune />}
-                  title="Search filters"
-                  aria-label="Search filters"
-                />
+                <IconButton title="Search filters" aria-label="Search filters">
+                  <IconTune />
+                </IconButton>
               }
               onSearch={setQuery}
               onClear={() => setQuery('')}
@@ -153,14 +143,12 @@ const Layout = ({ children }: LayoutProps) => {
           }
           buttons={
             <>
-              <Button leftIcon={<IconAdd />} variant="solid" colorScheme="blue">
-                New Workspace
+              <Button variant="solid" colorScheme="blue">
+                <IconAdd /> New Workspace
               </Button>
-              <IconButton
-                icon={<IconAdminPanelSettings />}
-                title="Open console"
-                aria-label="Open console"
-              />
+              <IconButton title="Open console" aria-label="Open console">
+                <IconAdminPanelSettings />
+              </IconButton>
               <AuxiliaryDrawer
                 icon={<IconUpload />}
                 header="Uploads"
@@ -168,13 +156,13 @@ const Layout = ({ children }: LayoutProps) => {
                   <SectionPlaceholder
                     text="There are no uploads."
                     content={
-                      <Button leftIcon={<IconUpload />} variant="solid">
-                        Upload File
+                      <Button variant="solid">
+                        <IconUpload /> Upload File
                       </Button>
                     }
                   />
                 }
-                isOpen={uploads.isOpen}
+                isOpen={uploads.open}
                 onClose={uploads.onClose}
                 onOpen={uploads.onOpen}
               />
@@ -183,7 +171,7 @@ const Layout = ({ children }: LayoutProps) => {
                 header="Tasks"
                 body={<CardList />}
                 hasBadge={true}
-                isOpen={tasks.isOpen}
+                isOpen={tasks.open}
                 onOpen={tasks.onOpen}
                 onClose={tasks.onClose}
               />
@@ -193,8 +181,8 @@ const Layout = ({ children }: LayoutProps) => {
                 hasBadge={true}
                 menuItems={
                   <>
-                    <MenuItem>Settings</MenuItem>
-                    <MenuItem>
+                    <MenuItem value="settings">Settings</MenuItem>
+                    <MenuItem value="invitations">
                       <div
                         className={cx(
                           'flex',
@@ -207,7 +195,13 @@ const Layout = ({ children }: LayoutProps) => {
                         <NumberTag>5</NumberTag>
                       </div>
                     </MenuItem>
-                    <MenuItem className={cx('text-red-500')}>Sign Out</MenuItem>
+                    <MenuItem
+                      color="fg.error"
+                      _hover={{ bg: 'bg.error', color: 'fg.error' }}
+                      value="sign-out"
+                    >
+                      Sign Out
+                    </MenuItem>
                   </>
                 }
               />
@@ -247,14 +241,22 @@ const Page = () => {
   const navigate = useNavigate()
   return (
     <div className={cx('flex', 'flex-col', 'gap-2')}>
-      <Tabs variant="solid-rounded" colorScheme="gray">
-        <TabList>
-          <Tab onClick={() => navigate('/workspace/data-table')}>
+      <Tabs.Root variant="subtle" colorScheme="gray">
+        <Tabs.List>
+          <Tabs.Trigger
+            value="data-table"
+            onClick={() => navigate('/workspace/data-table')}
+          >
             Data Table
-          </Tab>
-          <Tab onClick={() => navigate('/workspace/form')}>Form</Tab>
-        </TabList>
-      </Tabs>
+          </Tabs.Trigger>
+          <Tabs.Trigger
+            value="form"
+            onClick={() => navigate('/workspace/form')}
+          >
+            Form
+          </Tabs.Trigger>
+        </Tabs.List>
+      </Tabs.Root>
       <Outlet />
     </div>
   )
@@ -385,7 +387,9 @@ const SampleForm = () => (
         content: (
           <>
             <span>5.67 GB of 38 GB used</span>
-            <Progress value={20} hasStripe />
+            <ProgressRoot value={20}>
+              <ProgressBar />
+            </ProgressRoot>
           </>
         ),
       },
@@ -398,11 +402,12 @@ const SampleForm = () => (
               <>
                 <span>Bruce Wayne</span>
                 <IconButton
-                  icon={<IconEdit />}
                   className={cx('h-[40px]', 'w-[40px]')}
                   title="Edit full name"
                   aria-label="Edit full name"
-                />
+                >
+                  <IconEdit />
+                </IconButton>
               </>
             ),
           },
@@ -417,11 +422,12 @@ const SampleForm = () => (
               <>
                 <span>bruce.wayne@koupr.com</span>
                 <IconButton
-                  icon={<IconEdit />}
                   className={cx('h-[40px]', 'w-[40px]')}
                   title="Edit email"
                   aria-label="Edit email"
-                />
+                >
+                  <IconEdit />
+                </IconButton>
               </>
             ),
           },
@@ -429,11 +435,12 @@ const SampleForm = () => (
             label: 'Password',
             content: (
               <IconButton
-                icon={<IconEdit />}
                 className={cx('h-[40px]', 'w-[40px]')}
                 title="Change password"
                 aria-label="Change password"
-              />
+              >
+                <IconEdit />
+              </IconButton>
             ),
           },
         ],
@@ -454,12 +461,13 @@ const SampleForm = () => (
             label: 'Delete account',
             content: (
               <IconButton
-                icon={<IconDelete />}
                 variant="solid"
                 colorScheme="red"
                 title="Delete account"
                 aria-label="Delete account"
-              />
+              >
+                <IconDelete />
+              </IconButton>
             ),
           },
         ],
@@ -498,11 +506,9 @@ const CardList = () => {
     {
       title: 'Lorem ipsum dolor sit amet',
       icon: (
-        <CircularProgress
-          isIndeterminate={true}
-          className={cx('text-black')}
-          size="20px"
-        />
+        <ProgressCircleRoot value={null} size="sm">
+          <ProgressCircleRing cap="round" />
+        </ProgressCircleRoot>
       ),
     },
     {
@@ -550,8 +556,8 @@ const CardList = () => {
         )}
       >
         {items.map((item) => (
-          <Card variant="outline">
-            <CardBody>
+          <Card.Root variant="outline">
+            <Card.Body>
               <div className={cx('flex', 'flex-col', 'gap-1')}>
                 <div
                   className={cx('flex', 'flex-row', 'items-center', 'gap-1.5')}
@@ -560,27 +566,26 @@ const CardList = () => {
                   {item.title}
                 </div>
                 {item.accordion ? (
-                  <Accordion allowMultiple>
-                    <AccordionItem className={cx('border-none')}>
-                      <AccordionButton className={cx('p-0.5')}>
+                  <AccordionRoot multiple>
+                    <AccordionItem value={item.title.toLocaleLowerCase()}>
+                      <AccordionItemTrigger className={cx('p-0.5')}>
                         <div className={cx('flex', 'flex-row', 'w-full')}>
                           <span className={cx('text-left', 'grow')}>
                             {item.accordion.title}
                           </span>
-                          <AccordionIcon />
                         </div>
-                      </AccordionButton>
-                      <AccordionPanel className={cx('p-0.5')}>
+                      </AccordionItemTrigger>
+                      <AccordionItemContent className={cx('p-0.5')}>
                         <Text className={cx('text-red-500')} noOfLines={5}>
                           {item.accordion.content}
                         </Text>
-                      </AccordionPanel>
+                      </AccordionItemContent>
                     </AccordionItem>
-                  </Accordion>
+                  </AccordionRoot>
                 ) : null}
               </div>
-            </CardBody>
-          </Card>
+            </Card.Body>
+          </Card.Root>
         ))}
       </div>
       <Pagination

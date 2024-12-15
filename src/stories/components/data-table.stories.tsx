@@ -2,8 +2,14 @@
 //
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
-import { Avatar, Link } from '@chakra-ui/react'
-import { DataTable, IconChat, IconFavorite, IconLogout } from '@koupr/ui'
+import { Link } from '@chakra-ui/react'
+import {
+  Avatar,
+  DataTable,
+  IconChat,
+  IconFavorite,
+  IconLogout,
+} from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import cx from 'classnames'
 

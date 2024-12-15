@@ -22,7 +22,9 @@ export const Default: Story = {
   render: (args) => (
     <div className={cx('inline-block')}>
       <NotificationBadge {...args}>
-        <IconButton icon={<IconStacks />} title="Tasks" aria-label="Tasks" />
+        <IconButton title="Tasks" aria-label="Tasks">
+          <IconStacks />
+        </IconButton>
       </NotificationBadge>
     </div>
   ),

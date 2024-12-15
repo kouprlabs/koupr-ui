@@ -2,8 +2,7 @@
 //
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
-import { MenuItem } from '@chakra-ui/react'
-import { AccountMenu, NumberTag } from '@koupr/ui'
+import { AccountMenu, MenuItem, NumberTag } from '@koupr/ui'
 import { Meta, StoryObj } from '@storybook/react'
 import cx from 'classnames'
 
@@ -23,14 +22,20 @@ export const Default: Story = {
     isLoading: false,
     menuItems: (
       <>
-        <MenuItem>Settings</MenuItem>
-        <MenuItem>
+        <MenuItem value="settings">Settings</MenuItem>
+        <MenuItem value="invitations">
           <div className={cx('flex', 'flex-row', 'items-center', 'gap-1')}>
             <span>Invitations</span>
             <NumberTag>5</NumberTag>
           </div>
         </MenuItem>
-        <MenuItem className={cx('text-red-500')}>Sign Out</MenuItem>
+        <MenuItem
+          color="fg.error"
+          _hover={{ bg: 'bg.error', color: 'fg.error' }}
+          value="sign-out"
+        >
+          Sign Out
+        </MenuItem>
       </>
     ),
   },

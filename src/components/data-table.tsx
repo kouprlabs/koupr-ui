@@ -62,14 +62,15 @@ export function DataTable<T>({
               {actions ? (
                 <Table.Cell className={cx('koupr-text-right')}>
                   <MenuRoot>
-                    <MenuTrigger asChild></MenuTrigger>
-                    <IconButton
-                      variant="ghost"
-                      title="Action menu"
-                      aria-label="Action menu"
-                    >
-                      <IconMoreVert />
-                    </IconButton>
+                    <MenuTrigger asChild>
+                      <IconButton
+                        variant="ghost"
+                        title="Action menu"
+                        aria-label="Action menu"
+                      >
+                        <IconMoreVert />
+                      </IconButton>
+                    </MenuTrigger>
                     <MenuContent>
                       {actions
                         ?.filter(

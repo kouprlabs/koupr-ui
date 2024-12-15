@@ -19,11 +19,9 @@ export const Default: Story = {
   args: {
     placeholder: 'Search',
     buttons: (
-      <IconButton
-        icon={<IconTune />}
-        title="Search filters"
-        aria-label="Search filters"
-      />
+      <IconButton title="Search filters" aria-label="Search filters">
+        <IconTune />
+      </IconButton>
     ),
   },
   render: (args) => {

@@ -3,11 +3,12 @@
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
 import { ReactElement, useEffect, useState } from 'react'
-import { Button, IconButton, MenuItem, useDisclosure } from '@chakra-ui/react'
+import { IconButton, useDisclosure } from '@chakra-ui/react'
 import {
   AccountMenu,
   AppBar,
   AuxiliaryDrawer,
+  Button,
   IconAdd,
   IconAdminPanelSettings,
   IconFlag,
@@ -17,6 +18,7 @@ import {
   IconUpload,
   IconWorkspaces,
   Logo,
+  MenuItem,
   NumberTag,
   SearchBar,
   Shell,
@@ -53,11 +55,9 @@ const Layout = ({ children }: LayoutProps) => {
               query={query}
               placeholder="Search"
               buttons={
-                <IconButton
-                  icon={<IconTune />}
-                  title="Search filters"
-                  aria-label="Search filters"
-                />
+                <IconButton title="Search filters" aria-label="Search filters">
+                  <IconTune />
+                </IconButton>
               }
               onSearch={setQuery}
               onClear={() => setQuery('')}
@@ -65,19 +65,17 @@ const Layout = ({ children }: LayoutProps) => {
           }
           buttons={
             <>
-              <Button leftIcon={<IconAdd />} variant="solid" colorScheme="blue">
-                New Workspace
+              <Button variant="solid" colorScheme="blue">
+                <IconAdd /> New Workspace
               </Button>
-              <IconButton
-                icon={<IconAdminPanelSettings />}
-                title="Open console"
-                aria-label="Open console"
-              />
+              <IconButton title="Open console" aria-label="Open console">
+                <IconAdminPanelSettings />
+              </IconButton>
               <AuxiliaryDrawer
                 icon={<IconUpload />}
                 header="Uploads"
                 body={<></>}
-                isOpen={uploads.isOpen}
+                isOpen={uploads.open}
                 onClose={uploads.onClose}
                 onOpen={uploads.onOpen}
               />
@@ -86,7 +84,7 @@ const Layout = ({ children }: LayoutProps) => {
                 header="Tasks"
                 body={<></>}
                 hasBadge={true}
-                isOpen={tasks.isOpen}
+                isOpen={tasks.open}
                 onOpen={tasks.onOpen}
                 onClose={tasks.onClose}
               />
@@ -96,8 +94,8 @@ const Layout = ({ children }: LayoutProps) => {
                 hasBadge={true}
                 menuItems={
                   <>
-                    <MenuItem>Settings</MenuItem>
-                    <MenuItem>
+                    <MenuItem value="settings">Settings</MenuItem>
+                    <MenuItem value="invitations">
                       <div
                         className={cx(
                           'flex',
@@ -110,7 +108,13 @@ const Layout = ({ children }: LayoutProps) => {
                         <NumberTag>5</NumberTag>
                       </div>
                     </MenuItem>
-                    <MenuItem className={cx('text-red-500')}>Sign Out</MenuItem>
+                    <MenuItem
+                      color="fg.error"
+                      _hover={{ bg: 'bg.error', color: 'fg.error' }}
+                      value="sign-out"
+                    >
+                      Sign Out
+                    </MenuItem>
                   </>
                 }
               />
