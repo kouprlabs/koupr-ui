@@ -12,8 +12,8 @@ import {
   MenuList,
   Portal,
   SkeletonCircle,
+  forwardRef,
 } from '@chakra-ui/react'
-import { forwardRef } from '@chakra-ui/react'
 import cx from 'classnames'
 import { truncateEnd, truncateMiddle } from '../helpers'
 import { variables } from '../variables'
