@@ -12,7 +12,7 @@
     "url": "https://github.com/kouprlabs/koupr-ui.git"
   },
   "scripts": {
-    "build": "rollup -c && node ./scripts/cleanup.js",
+    "build": "rollup -c && bun ./scripts/cleanup.js",
     "tsc": "tsc",
     "format": "prettier --write .",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
@@ -21,12 +21,11 @@
   },
   "dependencies": {
     "@chakra-ui/react": "3.2.3",
-    "@chakra-ui/theme-tools": "2.2.6",
     "@emotion/css": "11.13.5",
     "@emotion/react": "11.14.0",
     "chakra-react-select": "5.0.2",
     "classnames": "2.5.1",
-    "next-themes": "^0.4.4",
+    "next-themes": "0.4.4",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-icons": "^5.4.0",
@@ -34,7 +33,6 @@
   },
   "peerDependencies": {
     "@chakra-ui/react": ">= 3.2.3 < 4.0.0",
-    "@chakra-ui/theme-tools": ">= 2.2.6 < 3.0.0",
     "@emotion/css": ">= 11.13.5 < 12.0.0",
     "@emotion/react": ">= 11.14.0 < 12.0.0",
     "chakra-react-select": ">= 5.0.2 < 6.0.0",

@@ -2,11 +2,12 @@
 //
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
-import React, { ChangeEvent, useCallback } from 'react'
-import { Select } from '@chakra-ui/react'
+import React, { useCallback, useMemo } from 'react'
+import { createListCollection } from '@chakra-ui/react'
 import cx from 'classnames'
 import { usePageMonitor } from '../hooks'
 import { Pagination, PaginationProps } from './pagination'
+import { SelectContent, SelectItem, SelectRoot } from './ui/select'
 
 export type PagePaginationProps = {
   totalPages: number
@@ -44,10 +45,20 @@ export const PagePagination = ({
     totalPages,
     steps,
   })
+  const collection = useMemo(
+    () =>
+      createListCollection({
+        items: steps.map((step) => ({
+          label: `${step} items`,
+          value: step.toString(),
+        })),
+      }),
+    [steps],
+  )
 
   const handleSizeChange = useCallback(
-    (event: ChangeEvent<HTMLSelectElement>) => {
-      setSize(parseInt(event.target.value))
+    ({ value }: { value: string[] }) => {
+      setSize(parseInt(value[0]))
       setPage(1)
     },
     [setSize, setPage],
@@ -78,13 +89,19 @@ export const PagePagination = ({
             />
           ) : null}
           {hasSizeSelector ? (
-            <Select defaultValue={size} onChange={handleSizeChange}>
-              {steps?.map((step, index) => (
-                <option key={index} value={step.toString()}>
-                  {step} items
-                </option>
-              ))}
-            </Select>
+            <SelectRoot
+              collection={collection}
+              defaultValue={[size.toString()]}
+              onValueChange={handleSizeChange}
+            >
+              <SelectContent>
+                {collection.items.map((item) => (
+                  <SelectItem item={item} key={item.value}>
+                    {item.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </SelectRoot>
           ) : null}
         </div>
       ) : null}

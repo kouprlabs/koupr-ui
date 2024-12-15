@@ -3,13 +3,13 @@
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
 
-const typography = {
+const semanticTokens = {
   fontSizes: {
-    xl: '18px',
-    lg: '16px',
-    md: '14px',
-    sm: '12px',
+    xl: { value: '18px' },
+    lg: { value: '16px' },
+    md: { value: '14px' },
+    sm: { value: '12px' },
   },
 }
 
-export default typography
+export default semanticTokens

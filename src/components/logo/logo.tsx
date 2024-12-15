@@ -3,8 +3,9 @@
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
 import { useCallback } from 'react'
-import { CenterProps, useColorMode } from '@chakra-ui/react'
+import { CenterProps } from '@chakra-ui/react'
 import cx from 'classnames'
+import { useTheme } from 'next-themes'
 // @ts-expect-error ignored
 import kouprLogoSvg from './assets/koupr-logo.svg'
 // @ts-expect-error ignored
@@ -23,20 +24,20 @@ export type LogoProps = CenterProps & {
 }
 
 export const Logo = ({ type, size = 'sm', isGlossy = false }: LogoProps) => {
-  const { colorMode } = useColorMode()
+  const { theme } = useTheme()
   const getSvg = useCallback(() => {
     if (type == 'voltaserve') {
       if (isGlossy) {
-        return colorMode === 'dark'
+        return theme === 'dark'
           ? voltaserveLogoDarkGlossySvg
           : voltaserveLogoGlossySvg
       } else {
-        return colorMode === 'dark' ? voltaserveLogoDarkSvg : voltaserveLogoSvg
+        return theme === 'dark' ? voltaserveLogoDarkSvg : voltaserveLogoSvg
       }
     } else if (type == 'koupr') {
       return kouprLogoSvg
     }
-  }, [type, colorMode, isGlossy])
+  }, [type, theme, isGlossy])
 
   return (
     <div

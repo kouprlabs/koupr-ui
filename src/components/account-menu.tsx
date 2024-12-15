@@ -3,21 +3,14 @@
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
 import { ReactElement, ReactNode } from 'react'
-import {
-  Avatar,
-  Circle,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuList,
-  Portal,
-  SkeletonCircle,
-  forwardRef,
-} from '@chakra-ui/react'
+import { Circle } from '@chakra-ui/react'
 import cx from 'classnames'
 import { truncateEnd, truncateMiddle } from '../helpers'
 import { variables } from '../variables'
 import { NotificationBadge } from './notification-badge'
+import { Avatar } from './ui/avatar'
+import { MenuRoot, MenuTrigger, MenuContent, MenuItemGroup } from './ui/menu'
+import { SkeletonCircle } from './ui/skeleton'
 
 export type AccountMenuProps = {
   name?: string
@@ -40,16 +33,17 @@ export const AccountMenu = ({
 }: AccountMenuProps) => {
   if (!isLoading) {
     return (
-      <Menu>
-        <MenuButton
-          as={AvatarButton}
-          name={name}
-          picture={picture}
-          isActive={isActive}
-          hasBadge={hasBadge}
-        />
-        <Portal>
-          <MenuList>
+      <MenuRoot>
+        <MenuTrigger asChild>
+          <AvatarButton
+            name={name}
+            picture={picture}
+            isActive={isActive}
+            hasBadge={hasBadge}
+          />
+        </MenuTrigger>
+        <MenuContent>
+          <MenuItemGroup>
             <div
               className={cx(
                 'koupr-flex',
@@ -94,11 +88,10 @@ export const AccountMenu = ({
                 ) : null}
               </div>
             </div>
-            <MenuDivider />
-            {menuItems}
-          </MenuList>
-        </Portal>
-      </Menu>
+          </MenuItemGroup>
+          <MenuItemGroup>{menuItems}</MenuItemGroup>
+        </MenuContent>
+      </MenuRoot>
     )
   } else {
     return (
@@ -130,27 +123,31 @@ type AvatarButtonProps = {
   hasBadge?: boolean
 }
 
-const AvatarButton = forwardRef<AvatarButtonProps, 'div'>(
-  ({ name, picture, isActive, hasBadge, ...props }, ref) => (
-    <div ref={ref} {...props} className={cx('koupr-cursor-pointer')}>
-      <ActiveCircle isActive={isActive}>
-        <NotificationBadge hasBadge={hasBadge}>
-          <Avatar
-            name={name}
-            src={picture}
-            size="sm"
-            className={cx(
-              'koupr-w-[40px]',
-              'koupr-h-[40px]',
-              'koupr-border',
-              'koupr-border-gray-300',
-              {
-                'dark:koupr-border-gray-700': !isActive,
-              },
-            )}
-          />
-        </NotificationBadge>
-      </ActiveCircle>
-    </div>
-  ),
+const AvatarButton = ({
+  name,
+  picture,
+  isActive,
+  hasBadge,
+  ...props
+}: AvatarButtonProps) => (
+  <div {...props} className={cx('koupr-cursor-pointer')}>
+    <ActiveCircle isActive={isActive}>
+      <NotificationBadge hasBadge={hasBadge}>
+        <Avatar
+          name={name}
+          src={picture}
+          size="sm"
+          className={cx(
+            'koupr-w-[40px]',
+            'koupr-h-[40px]',
+            'koupr-border',
+            'koupr-border-gray-300',
+            {
+              'dark:koupr-border-gray-700': !isActive,
+            },
+          )}
+        />
+      </NotificationBadge>
+    </ActiveCircle>
+  </div>
 )

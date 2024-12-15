@@ -10,17 +10,11 @@ import {
   useState,
 } from 'react'
 import { useCallback } from 'react'
-import {
-  Button,
-  Icon,
-  IconButton,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  InputRightElement,
-} from '@chakra-ui/react'
+import { IconButton, Input } from '@chakra-ui/react'
 import cx from 'classnames'
 import { IconClose, IconSearch } from './icons'
+import { Button } from './ui/button'
+import { InputGroup } from './ui/input-group'
 
 export type SearchProps = {
   query?: string
@@ -87,38 +81,35 @@ export const SearchBar = ({
         'koupr-grow',
       )}
     >
-      <InputGroup>
-        <InputLeftElement pointerEvents="none">
-          <Icon as={IconSearch} className={cx('koupr-text-gray-300')} />
-        </InputLeftElement>
+      <InputGroup
+        startElement={<IconSearch className={cx('koupr-text-gray-300')} />}
+        endElement={
+          query ? (
+            <IconButton
+              onClick={handleClear}
+              size="xs"
+              title="Clear search"
+              aria-label="Clear search"
+            >
+              <IconClose />
+            </IconButton>
+          ) : null
+        }
+      >
         <Input
           value={buffer}
           placeholder={query || placeholder}
-          variant="filled"
+          variant="subtle"
           onKeyDown={handleKeyDown}
           onChange={handleChange}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
         />
-        {query ? (
-          <InputRightElement>
-            <IconButton
-              icon={<IconClose />}
-              onClick={handleClear}
-              size="xs"
-              title="Clear search"
-              aria-label="Clear search"
-            />
-          </InputRightElement>
-        ) : null}
       </InputGroup>
       {buttons}
       {buffer || (isFocused && buffer) ? (
-        <Button
-          leftIcon={<IconSearch />}
-          onClick={() => handleSearch(buffer)}
-          isDisabled={!buffer}
-        >
+        <Button onClick={() => handleSearch(buffer)} disabled={!buffer}>
+          <IconSearch />
           Search
         </Button>
       ) : null}

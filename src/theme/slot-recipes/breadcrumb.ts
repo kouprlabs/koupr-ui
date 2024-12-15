@@ -2,9 +2,11 @@
 //
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
+import { defineSlotRecipe } from '@chakra-ui/react'
 
-const breadcrumb = {
-  baseStyle: {
+export default defineSlotRecipe({
+  slots: ['link'],
+  base: {
     link: {
       _active: {
         boxShadow: 'none',
@@ -14,6 +16,4 @@ const breadcrumb = {
       },
     },
   },
-}
-
-export default breadcrumb
+})

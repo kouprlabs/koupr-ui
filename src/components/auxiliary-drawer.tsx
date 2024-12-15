@@ -2,19 +2,21 @@
 //
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
-import { ReactElement, useRef } from 'react'
+import { ReactElement } from 'react'
+import { IconButton } from '@chakra-ui/react'
+import cx from 'classnames'
+import { NotificationBadge } from '../components/notification-badge'
 import {
-  Drawer,
+  DrawerBackdrop,
   DrawerBody,
-  DrawerCloseButton,
+  DrawerCloseTrigger,
   DrawerContent,
   DrawerFooter,
   DrawerHeader,
-  DrawerOverlay,
-  IconButton,
-} from '@chakra-ui/react'
-import cx from 'classnames'
-import { NotificationBadge } from '../components/notification-badge'
+  DrawerRoot,
+  DrawerTitle,
+  DrawerTrigger,
+} from './ui/drawer'
 
 export type AuxiliaryDrawerProps = {
   icon: ReactElement
@@ -36,33 +38,34 @@ export const AuxiliaryDrawer = ({
   isOpen,
   onOpen,
   onClose,
-}: AuxiliaryDrawerProps) => {
-  const buttonRef = useRef<HTMLButtonElement>(null)
-  return (
-    <>
-      <NotificationBadge hasBadge={hasBadge}>
-        <IconButton
-          ref={buttonRef}
-          icon={icon}
-          aria-label={header}
-          onClick={onOpen}
-        />
-      </NotificationBadge>
-      <Drawer
-        isOpen={isOpen}
-        placement="right"
-        size="sm"
-        onClose={onClose}
-        finalFocusRef={buttonRef}
-      >
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>{header}</DrawerHeader>
-          <DrawerBody className={cx('koupr-p-2')}>{body}</DrawerBody>
-          <DrawerFooter>{footer}</DrawerFooter>
-        </DrawerContent>
-      </Drawer>
-    </>
-  )
-}
+}: AuxiliaryDrawerProps) => (
+  <>
+    <DrawerRoot
+      open={isOpen}
+      placement="end"
+      size="sm"
+      onOpenChange={({ open }) => {
+        if (!open) {
+          onClose()
+        }
+      }}
+    >
+      <DrawerBackdrop />
+      <DrawerTrigger asChild>
+        <NotificationBadge hasBadge={hasBadge}>
+          <IconButton aria-label={header} onClick={onOpen}>
+            {icon}
+          </IconButton>
+        </NotificationBadge>
+      </DrawerTrigger>
+      <DrawerContent>
+        <DrawerCloseTrigger />
+        <DrawerHeader>
+          <DrawerTitle>{header}</DrawerTitle>
+        </DrawerHeader>
+        <DrawerBody className={cx('koupr-p-2')}>{body}</DrawerBody>
+        <DrawerFooter>{footer}</DrawerFooter>
+      </DrawerContent>
+    </DrawerRoot>
+  </>
+)

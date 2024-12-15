@@ -3,8 +3,9 @@
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
 import { ReactElement, useContext, useEffect, useState } from 'react'
-import { Tooltip, Link } from '@chakra-ui/react'
+import { Link } from '@chakra-ui/react'
 import cx from 'classnames'
+import { Tooltip } from '../ui/tooltip'
 import { SidenavContext } from './sidenav-context'
 
 export type SidenavItemProps = {
@@ -45,7 +46,7 @@ export const SidenavItem = ({
       className={cx('koupr-w-full', 'koupr-no-underline')}
       onClick={() => navigateFn?.(href)}
     >
-      <Tooltip label={primaryText} isDisabled={!isCollapsed}>
+      <Tooltip content={primaryText} disabled={!isCollapsed}>
         <div
           className={cx(
             'koupr-flex',

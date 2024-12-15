@@ -2,17 +2,16 @@
 //
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
+import { defineRecipe } from '@chakra-ui/react'
 import { variables } from '../../variables'
 
-const select = {
-  sizes: {
-    md: {
-      field: {
+export default defineRecipe({
+  variants: {
+    size: {
+      md: {
         fontSize: variables.bodyFontSize,
-        borderRadius: variables.borderRadiusMd,
+        borderRadius: variables.borderRadiusSm,
       },
     },
   },
-}
-
-export default select
+})

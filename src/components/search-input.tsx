@@ -10,17 +10,11 @@ import {
   KeyboardEvent,
   useRef,
 } from 'react'
-import {
-  Button,
-  HStack,
-  InputGroup,
-  InputLeftElement,
-  InputRightElement,
-  IconButton,
-  Input,
-} from '@chakra-ui/react'
+import { IconButton, Input } from '@chakra-ui/react'
 import cx from 'classnames'
 import { IconClose, IconSearch } from './icons'
+import { Button } from './ui/button'
+import { InputGroup } from './ui/input-group'
 
 export type SearchInputProps = {
   placeholder?: string
@@ -78,39 +72,39 @@ export const SearchInput = ({
   )
 
   return (
-    <HStack>
-      <InputGroup>
-        <InputLeftElement className={cx('koupr-pointer-events-none')}>
-          <IconSearch className={cx('koupr-text-gray-300')} />
-        </InputLeftElement>
+    <div className={cx('koupr-flex', 'koupr-flex-row', 'koupr-gap-0.5')}>
+      <InputGroup
+        startElement={<IconSearch className={cx('koupr-text-gray-300')} />}
+        endElement={
+          draft ? (
+            <IconButton
+              onClick={handleClear}
+              size="xs"
+              title="Clear search"
+              aria-label="Clear search"
+            >
+              <IconClose />
+            </IconButton>
+          ) : null
+        }
+      >
         <Input
           ref={inputRef}
           value={draft}
           placeholder={draft || placeholder || 'Search'}
-          variant="filled"
+          variant="subtle"
           onKeyDown={(event) => handleKeyDown(event, draft)}
           onChange={handleChange}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           autoFocus
         />
-        {draft ? (
-          <InputRightElement>
-            <IconButton
-              icon={<IconClose />}
-              onClick={handleClear}
-              size="xs"
-              title="Clear search"
-              aria-label="Clear search"
-            />
-          </InputRightElement>
-        ) : null}
       </InputGroup>
       {draft || (isFocused && draft) ? (
-        <Button onClick={() => handleSearch(draft)} isDisabled={!draft}>
+        <Button onClick={() => handleSearch(draft)} disabled={!draft}>
           Search
         </Button>
       ) : null}
-    </HStack>
+    </div>
   )
 }

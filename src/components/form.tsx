@@ -3,7 +3,6 @@
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
 import { Fragment, ReactElement } from 'react'
-import { Divider, Spacer } from '@chakra-ui/react'
 import cx from 'classnames'
 
 export type FormProps = {
@@ -47,12 +46,14 @@ export const Form = ({ sections }: FormProps) => (
               )}
             >
               <span>{row.label}</span>
-              <Spacer />
+              <div className={cx('koupr-flex-grow')}></div>
               {row.content}
             </div>
           ))}
         </div>
-        {sectionIndex !== sections?.length - 1 ? <Divider /> : null}
+        {sectionIndex !== sections?.length - 1 ? (
+          <div className={cx('koupr-border-t', 'koupr-border-gray-300')}></div>
+        ) : null}
       </Fragment>
     ))}
   </div>

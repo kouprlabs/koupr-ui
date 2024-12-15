@@ -3,12 +3,8 @@
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
 import { useCallback, useMemo } from 'react'
-import {
-  ButtonGroup,
-  Button,
-  IconButton,
-  IconButtonProps,
-} from '@chakra-ui/react'
+import { IconButton, IconButtonProps } from '@chakra-ui/react'
+import cx from 'classnames'
 import {
   IconKeyboardArrowLeft,
   IconKeyboardArrowRight,
@@ -17,6 +13,7 @@ import {
   IconKeyboardDoubleArrowLeft,
   IconKeyboardDoubleArrowRight,
 } from './icons'
+import { Button } from './ui/button'
 
 export type PaginationProps = {
   totalPages: number
@@ -64,43 +61,46 @@ export const Pagination = ({
   )
 
   return (
-    <ButtonGroup>
+    <div className={cx('koupr-flex', 'koupr-gap-1')}>
       {!isFirstDisabled ? (
         <IconButton
           variant="outline"
           size={size}
-          isDisabled={page === 1}
-          icon={<IconFirstPage />}
+          disabled={page === 1}
           title="First"
           aria-label="First"
           onClick={() => handlePageChange(firstPage)}
-        />
+        >
+          <IconFirstPage />
+        </IconButton>
       ) : null}
       {!isRewindDisabled ? (
         <IconButton
           variant="outline"
           size={size}
-          isDisabled={rewindPage < 1}
-          icon={<IconKeyboardDoubleArrowLeft />}
+          disabled={rewindPage < 1}
           title="Rewind"
           aria-label="Rewind"
           onClick={() => handlePageChange(rewindPage)}
-        />
+        >
+          <IconKeyboardDoubleArrowLeft />
+        </IconButton>
       ) : null}
       <IconButton
         variant="outline"
         size={size}
-        isDisabled={page === 1}
-        icon={<IconKeyboardArrowLeft />}
+        disabled={page === 1}
         title="Previous"
         aria-label="Previous"
         onClick={() => handlePageChange(previousPage)}
-      />
+      >
+        <IconKeyboardArrowLeft />
+      </IconButton>
       {pages.map((index) => (
         <Button
           size={size}
           key={index}
-          isDisabled={index > totalPages}
+          disabled={index > totalPages}
           onClick={() => handlePageChange(index)}
           colorScheme={index === page ? 'blue' : undefined}
         >
@@ -110,34 +110,37 @@ export const Pagination = ({
       <IconButton
         variant="outline"
         size={size}
-        isDisabled={page === lastPage}
-        icon={<IconKeyboardArrowRight />}
+        disabled={page === lastPage}
         title="Next"
         aria-label="Next"
         onClick={() => handlePageChange(nextPage)}
-      />
+      >
+        <IconKeyboardArrowRight />
+      </IconButton>
       {!isFastForwardDisabled ? (
         <IconButton
           variant="outline"
           size={size}
-          isDisabled={fastForwardPage > lastPage}
-          icon={<IconKeyboardDoubleArrowRight />}
+          disabled={fastForwardPage > lastPage}
           title="Fast forward"
           aria-label="Fast forward"
           onClick={() => handlePageChange(fastForwardPage)}
-        />
+        >
+          <IconKeyboardDoubleArrowRight />
+        </IconButton>
       ) : null}
       {!isLastDisabled ? (
         <IconButton
           variant="outline"
           size={size}
-          isDisabled={page === lastPage}
-          icon={<IconLastPage />}
+          disabled={page === lastPage}
           title="Last"
           aria-label="Last"
           onClick={() => handlePageChange(lastPage)}
-        />
+        >
+          <IconLastPage />
+        </IconButton>
       ) : null}
-    </ButtonGroup>
+    </div>
   )
 }

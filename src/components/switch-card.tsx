@@ -3,7 +3,6 @@
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
 import {
-  ChangeEvent,
   ReactElement,
   ReactNode,
   useCallback,
@@ -11,16 +10,16 @@ import {
   useMemo,
   useState,
 } from 'react'
+import { IconButton } from '@chakra-ui/react'
+import cx from 'classnames'
 import {
-  IconButton,
-  Popover,
   PopoverBody,
   PopoverContent,
+  PopoverRoot,
   PopoverTrigger,
-  Switch,
-  Tooltip,
-} from '@chakra-ui/react'
-import cx from 'classnames'
+} from './ui/popover'
+import { Switch } from './ui/switch'
+import { Tooltip } from './ui/tooltip'
 
 export type SwitchCardProps = {
   children?: ReactNode
@@ -63,41 +62,37 @@ export const SwitchCard = ({
   }, [localStorageActiveKey, setIsActive])
 
   const handleChange = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
-      setIsActive(event.target.checked)
-      localStorage.setItem(
-        localStorageActiveKey,
-        JSON.stringify(event.target.checked),
-      )
+    ({ checked }: { checked: boolean }) => {
+      setIsActive(checked)
+      localStorage.setItem(localStorageActiveKey, JSON.stringify(checked))
     },
     [localStorageActiveKey],
   )
 
   if (isCollapsed) {
     return (
-      <Popover>
-        <PopoverTrigger>
-          <div>
-            <Tooltip label={label}>
-              <IconButton
-                icon={icon}
-                variant="outline"
-                className={cx(
-                  'koupr-w-[50px]',
-                  'koupr-h-[50px]',
-                  'koupr-p-1.5',
-                  'koupr-rounded-md',
-                )}
-                aria-label={label}
-                title={label}
-              />
-            </Tooltip>
-          </div>
+      <PopoverRoot>
+        <PopoverTrigger asChild>
+          <Tooltip content={label}>
+            <IconButton
+              variant="outline"
+              className={cx(
+                'koupr-w-[50px]',
+                'koupr-h-[50px]',
+                'koupr-p-1.5',
+                'koupr-rounded-md',
+              )}
+              aria-label={label}
+              title={label}
+            >
+              {icon}
+            </IconButton>
+          </Tooltip>
         </PopoverTrigger>
         <PopoverContent>
           <PopoverBody>{children}</PopoverBody>
         </PopoverContent>
-      </Popover>
+      </PopoverRoot>
     )
   } else {
     return (
@@ -126,7 +121,7 @@ export const SwitchCard = ({
         >
           {icon}
           <span className={cx('koupr-grow')}>{label}</span>
-          <Switch isChecked={isActive} onChange={handleChange} />
+          <Switch checked={isActive} onCheckedChange={handleChange} />
         </div>
         {isActive ? (
           <div

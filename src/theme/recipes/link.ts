@@ -2,9 +2,10 @@
 //
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
+import { defineRecipe } from '@chakra-ui/react'
 
-const link = {
-  baseStyle: {
+export default defineRecipe({
+  base: {
     textDecoration: 'underline',
     _active: {
       boxShadow: 'none',
@@ -14,13 +15,13 @@ const link = {
     },
   },
   variants: {
-    'no-underline': {
-      textDecoration: 'none',
-      _hover: {
+    visual: {
+      'no-underline': {
         textDecoration: 'none',
+        _hover: {
+          textDecoration: 'none',
+        },
       },
     },
   },
-}
-
-export default link
+})

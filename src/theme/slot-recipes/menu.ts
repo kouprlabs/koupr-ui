@@ -2,9 +2,11 @@
 //
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
+import { defineSlotRecipe } from '@chakra-ui/react'
 
-const menu = {
-  baseStyle: {
+export default defineSlotRecipe({
+  slots: ['list', 'item'],
+  base: {
     list: {
       borderRadius: '15px',
       py: '12px',
@@ -13,6 +15,4 @@ const menu = {
       px: '12px',
     },
   },
-}
-
-export default menu
+})

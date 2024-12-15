@@ -57,7 +57,7 @@ const Item = ({ title, href, pathnameFn, navigateFn }: ItemProps) => {
 
   return (
     <ChakraLink
-      variant="no-underline"
+      variant="plain"
       className={cx(
         'koupr-flex',
         'koupr-items-center',

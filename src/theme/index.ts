@@ -2,49 +2,50 @@
 //
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
-import { extendTheme } from '@chakra-ui/react'
+import { createSystem, defaultConfig, defineConfig } from '@chakra-ui/react'
 import breakpoints from './breakpoints'
-import colors from './colors'
-import Breadcrumb from './components/breadcrumb'
-import Button from './components/button'
-import Card from './components/card'
-import Checkbox from './components/checkbox'
-import Heading from './components/heading'
-import Input from './components/input'
-import Link from './components/link'
-import Menu from './components/menu'
-import Modal from './components/modal'
-import Popover from './components/popover'
-import Progress from './components/progress'
-import Select from './components/select'
-import Tabs from './components/tabs'
-import Textarea from './components/textarea'
-import Tooltip from './components/tooltip'
-import styles from './styles'
-import typography from './typography'
+import globalCss from './global-css'
+import { button, heading, link, tabs, textarea, tooltip } from './recipes'
+import semanticTokens from './semantic-tokens'
+import {
+  breadcrumb,
+  card,
+  checkbox,
+  input,
+  menu,
+  modal,
+  popover,
+  progress,
+  select,
+} from './slot-recipes'
+import tokens from './tokens'
 
-const overrides = {
-  breakpoints,
-  styles,
-  colors,
-  ...typography,
-  components: {
-    Button,
-    Heading,
-    Checkbox,
-    Select,
-    Input,
-    Textarea,
-    Modal,
-    Link,
-    Progress,
-    Tabs,
-    Tooltip,
-    Popover,
-    Breadcrumb,
-    Menu,
-    Card,
+const config = defineConfig({
+  globalCss,
+  theme: {
+    breakpoints,
+    tokens,
+    semanticTokens,
+    slotRecipes: {
+      breadcrumb,
+      card,
+      checkbox,
+      input,
+      menu,
+      modal,
+      popover,
+      progress,
+      select,
+    },
+    recipes: {
+      button,
+      heading,
+      textarea,
+      link,
+      tabs,
+      tooltip,
+    },
   },
-}
+})
 
-export const theme = extendTheme(overrides)
+export const system = createSystem(defaultConfig, config)

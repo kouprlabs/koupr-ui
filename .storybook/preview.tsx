@@ -2,9 +2,11 @@
 //
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
-import { ChakraProvider, defaultSystem } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react'
+import { system } from '@koupr/ui'
 import { withThemeByClassName } from '@storybook/addon-themes'
 import type { Preview } from '@storybook/react'
+import { ThemeProvider } from 'next-themes'
 import { MemoryRouter } from 'react-router-dom'
 import './storybook.css'
 
@@ -19,11 +21,13 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <ChakraProvider value={defaultSystem}>
-        <MemoryRouter>
-          <Story />
-        </MemoryRouter>
-      </ChakraProvider>
+      <ThemeProvider>
+        <ChakraProvider value={system}>
+          <MemoryRouter>
+            <Story />
+          </MemoryRouter>
+        </ChakraProvider>
+      </ThemeProvider>
     ),
     withThemeByClassName({
       defaultTheme: 'light',
