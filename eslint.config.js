@@ -35,6 +35,7 @@ export default [
       'tailwind.config.js',
       'postcss.config.js',
       'replace-exports.js',
+      'src/components/ui',
     ],
   },
 ]
