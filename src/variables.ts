@@ -4,7 +4,7 @@
 // included in the file LICENSE in the root of this repository.
 
 export const variables = {
-  headingFontFamily: "'Unbounded'",
+  headingFontFamily: "'Unbounded Variable'",
   headingFontSize: '24px',
   headingFontWeight: '500',
   bodyFontFamily: 'IBM Plex Sans',
