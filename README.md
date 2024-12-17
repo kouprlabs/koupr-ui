@@ -31,16 +31,22 @@ createRoot(document.getElementById('root') as HTMLElement).render(
 
 ## Development
 
-Build:
+Build library:
 
 ```shell
-npm run build
+bun run build
 ```
 
-Watch:
+Run Storybook:
 
 ```shell
-npm run watch
+bun run storybook
+```
+
+Build Storybook:
+
+```shell
+bun run build-storybook
 ```
 
 ## Licensing
