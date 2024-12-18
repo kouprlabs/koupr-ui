@@ -549,8 +549,8 @@ const CardList = () => {
           'overflow-y-auto',
         )}
       >
-        {items.map((item) => (
-          <Card variant="outline">
+        {items.map((item, index) => (
+          <Card key={index} variant="outline">
             <CardBody>
               <div className={cx('flex', 'flex-col', 'gap-1')}>
                 <div
