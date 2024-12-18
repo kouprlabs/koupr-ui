@@ -55,6 +55,7 @@ export const SidenavItem = ({
             'koupr-gap-1.5',
             'koupr-p-1.5',
             'koupr-rounded-md',
+            'koupr-w-full',
             {
               'koupr-bg-black': isActive,
               'dark:koupr-bg-white': isActive,

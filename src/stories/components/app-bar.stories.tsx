@@ -58,13 +58,17 @@ export const WithNavBar: Story = {
         }
         buttons={
           <>
-            <IconButton title="Open console" aria-label="Open console">
+            <IconButton
+              title="Open console"
+              variant="subtle"
+              aria-label="Open console"
+            >
               <IconAdminPanelSettings />
             </IconButton>
-            <IconButton title="Uploads" aria-label="Uploads">
+            <IconButton title="Uploads" variant="subtle" aria-label="Uploads">
               <IconUpload />
             </IconButton>
-            <IconButton title="Tasks" aria-label="Tasks">
+            <IconButton title="Tasks" variant="subtle" aria-label="Tasks">
               <IconStacks />
             </IconButton>
           </>
@@ -86,7 +90,11 @@ export const WithSearchBar: Story = {
             query={query}
             placeholder="Search"
             buttons={
-              <IconButton title="Search filters" aria-label="Search filters">
+              <IconButton
+                title="Search filters"
+                variant="subtle"
+                aria-label="Search filters"
+              >
                 <IconTune />
               </IconButton>
             }
@@ -96,13 +104,17 @@ export const WithSearchBar: Story = {
         }
         buttons={
           <>
-            <IconButton title="Open Console" aria-label="Open Console">
+            <IconButton
+              title="Open Console"
+              variant="subtle"
+              aria-label="Open Console"
+            >
               <IconAdminPanelSettings />
             </IconButton>
-            <IconButton title="Uploads" aria-label="Uploads">
+            <IconButton title="Uploads" variant="subtle" aria-label="Uploads">
               <IconUpload />
             </IconButton>
-            <IconButton title="Tasks" aria-label="Tasks">
+            <IconButton title="Tasks" variant="subtle" aria-label="Tasks">
               <IconStacks />
             </IconButton>
           </>
@@ -146,7 +158,11 @@ export const WithBoth: Story = {
               query={query}
               placeholder="Search"
               buttons={
-                <IconButton title="Search filters" aria-label="Search filters">
+                <IconButton
+                  title="Search filters"
+                  variant="subtle"
+                  aria-label="Search filters"
+                >
                   <IconTune />
                 </IconButton>
               }
@@ -157,13 +173,17 @@ export const WithBoth: Story = {
         }
         buttons={
           <>
-            <IconButton title="Open console" aria-label="Open console">
+            <IconButton
+              title="Open console"
+              variant="subtle"
+              aria-label="Open console"
+            >
               <IconAdminPanelSettings />
             </IconButton>
-            <IconButton title="Uploads" aria-label="Uploads">
+            <IconButton title="Uploads" variant="subtle" aria-label="Uploads">
               <IconUpload />
             </IconButton>
-            <IconButton title="Tasks" aria-label="Tasks">
+            <IconButton title="Tasks" variant="subtle" aria-label="Tasks">
               <IconStacks />
             </IconButton>
           </>

@@ -98,11 +98,12 @@ export const Pagination = ({
       </IconButton>
       {pages.map((index) => (
         <Button
+          variant={index === page ? undefined : 'subtle'}
+          colorPalette={index === page ? 'blue' : undefined}
           size={size}
           key={index}
           disabled={index > totalPages}
           onClick={() => handlePageChange(index)}
-          colorScheme={index === page ? 'blue' : undefined}
         >
           {index}
         </Button>

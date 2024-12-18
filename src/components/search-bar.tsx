@@ -82,6 +82,7 @@ export const SearchBar = ({
       )}
     >
       <InputGroup
+        className={cx('koupr-grow')}
         startElement={<IconSearch className={cx('koupr-text-gray-300')} />}
         endElement={
           query ? (

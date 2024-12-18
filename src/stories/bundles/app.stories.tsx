@@ -93,7 +93,7 @@ const App = () => {
             <SectionPlaceholder
               text="There are no organizations."
               content={
-                <Button variant="solid">
+                <Button variant="subtle">
                   <IconAdd /> New Organization
                 </Button>
               }
@@ -133,7 +133,11 @@ const Layout = ({ children }: LayoutProps) => {
               query={query}
               placeholder="Search"
               buttons={
-                <IconButton title="Search filters" aria-label="Search filters">
+                <IconButton
+                  title="Search filters"
+                  variant="subtle"
+                  aria-label="Search filters"
+                >
                   <IconTune />
                 </IconButton>
               }
@@ -143,10 +147,14 @@ const Layout = ({ children }: LayoutProps) => {
           }
           buttons={
             <>
-              <Button variant="solid" colorScheme="blue">
+              <Button variant="solid" colorPalette="blue">
                 <IconAdd /> New Workspace
               </Button>
-              <IconButton title="Open console" aria-label="Open console">
+              <IconButton
+                variant="subtle"
+                title="Open console"
+                aria-label="Open console"
+              >
                 <IconAdminPanelSettings />
               </IconButton>
               <AuxiliaryDrawer
@@ -156,7 +164,7 @@ const Layout = ({ children }: LayoutProps) => {
                   <SectionPlaceholder
                     text="There are no uploads."
                     content={
-                      <Button variant="solid">
+                      <Button variant="subtle">
                         <IconUpload /> Upload File
                       </Button>
                     }
@@ -241,7 +249,7 @@ const Page = () => {
   const navigate = useNavigate()
   return (
     <div className={cx('flex', 'flex-col', 'gap-2')}>
-      <Tabs.Root variant="subtle" colorScheme="gray">
+      <Tabs.Root variant="subtle" defaultValue="data-table">
         <Tabs.List>
           <Tabs.Trigger
             value="data-table"
@@ -462,7 +470,7 @@ const SampleForm = () => (
             content: (
               <IconButton
                 variant="solid"
-                colorScheme="red"
+                colorPalette="red"
                 title="Delete account"
                 aria-label="Delete account"
               >
@@ -506,7 +514,7 @@ const CardList = () => {
     {
       title: 'Lorem ipsum dolor sit amet',
       icon: (
-        <ProgressCircleRoot value={null} size="sm">
+        <ProgressCircleRoot value={null} size="xs">
           <ProgressCircleRing cap="round" />
         </ProgressCircleRoot>
       ),
@@ -555,8 +563,8 @@ const CardList = () => {
           'overflow-y-auto',
         )}
       >
-        {items.map((item) => (
-          <Card.Root variant="outline">
+        {items.map((item, index) => (
+          <Card.Root key={index} variant="outline">
             <Card.Body>
               <div className={cx('flex', 'flex-col', 'gap-1')}>
                 <div

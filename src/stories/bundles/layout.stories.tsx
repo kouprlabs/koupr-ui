@@ -55,7 +55,11 @@ const Layout = ({ children }: LayoutProps) => {
               query={query}
               placeholder="Search"
               buttons={
-                <IconButton title="Search filters" aria-label="Search filters">
+                <IconButton
+                  title="Search filters"
+                  variant="subtle"
+                  aria-label="Search filters"
+                >
                   <IconTune />
                 </IconButton>
               }
@@ -65,10 +69,14 @@ const Layout = ({ children }: LayoutProps) => {
           }
           buttons={
             <>
-              <Button variant="solid" colorScheme="blue">
+              <Button variant="solid" colorPalette="blue">
                 <IconAdd /> New Workspace
               </Button>
-              <IconButton title="Open console" aria-label="Open console">
+              <IconButton
+                title="Open console"
+                variant="subtle"
+                aria-label="Open console"
+              >
                 <IconAdminPanelSettings />
               </IconButton>
               <AuxiliaryDrawer

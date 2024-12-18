@@ -36,4 +36,8 @@ export default {
     },
   },
   plugins: [],
+  corePlugins: {
+    // Disable Tailwind's base reset styles.
+    preflight: false,
+  },
 } as Config

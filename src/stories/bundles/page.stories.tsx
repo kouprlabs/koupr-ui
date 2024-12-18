@@ -33,7 +33,7 @@ const Page = () => {
   const navigate = useNavigate()
   return (
     <div className={cx('flex', 'flex-col', 'gap-2')}>
-      <Tabs.Root variant="subtle" colorScheme="gray">
+      <Tabs.Root variant="subtle" defaultValue="data-table">
         <Tabs.List>
           <Tabs.Trigger
             value="data-table"
@@ -270,7 +270,7 @@ const SampleForm = () => (
             content: (
               <IconButton
                 variant="solid"
-                colorScheme="red"
+                colorPalette="red"
                 title="Delete account"
                 aria-label="Delete account"
               >

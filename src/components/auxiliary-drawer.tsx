@@ -53,7 +53,7 @@ export const AuxiliaryDrawer = ({
       <DrawerBackdrop />
       <DrawerTrigger asChild>
         <NotificationBadge hasBadge={hasBadge}>
-          <IconButton aria-label={header} onClick={onOpen}>
+          <IconButton variant="subtle" aria-label={header} onClick={onOpen}>
             {icon}
           </IconButton>
         </NotificationBadge>

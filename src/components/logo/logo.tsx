@@ -2,7 +2,7 @@
 //
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
-import { useCallback } from 'react'
+import { useMemo } from 'react'
 import { CenterProps } from '@chakra-ui/react'
 import cx from 'classnames'
 import { useTheme } from 'next-themes'
@@ -25,7 +25,7 @@ export type LogoProps = CenterProps & {
 
 export const Logo = ({ type, size = 'sm', isGlossy = false }: LogoProps) => {
   const { theme } = useTheme()
-  const getSvg = useCallback(() => {
+  const svg = useMemo(() => {
     if (type == 'voltaserve') {
       if (isGlossy) {
         return theme === 'dark'
@@ -40,23 +40,27 @@ export const Logo = ({ type, size = 'sm', isGlossy = false }: LogoProps) => {
   }, [type, theme, isGlossy])
 
   return (
-    <div
-      className={cx(
-        'koupr-flex',
-        'koupr-items-center',
-        'koupr-justify-center',
-        {
-          'koupr-w-[16px]': type == 'voltaserve' && size === 'sm',
-          'koupr-h-[32px]': type == 'voltaserve' && size === 'sm',
-          'koupr-w-[64px]': type == 'voltaserve' && size === 'md',
-          'koupr-h-[126px]': type == 'voltaserve' && size === 'md',
-          'koupr-w-[26px]': type == 'koupr' && size === 'sm',
-          'koupr-h-[23px]': type == 'koupr' && size === 'sm',
-          'koupr-w-[128px]': type == 'koupr' && size === 'md',
-          'koupr-h-[110px]': type == 'koupr' && size === 'md',
-        },
-      )}
-      dangerouslySetInnerHTML={{ __html: getSvg() }}
-    ></div>
+    <>
+      {svg ? (
+        <div
+          className={cx(
+            'koupr-flex',
+            'koupr-items-center',
+            'koupr-justify-center',
+            {
+              'koupr-w-[16px]': type == 'voltaserve' && size === 'sm',
+              'koupr-h-[32px]': type == 'voltaserve' && size === 'sm',
+              'koupr-w-[64px]': type == 'voltaserve' && size === 'md',
+              'koupr-h-[126px]': type == 'voltaserve' && size === 'md',
+              'koupr-w-[26px]': type == 'koupr' && size === 'sm',
+              'koupr-h-[23px]': type == 'koupr' && size === 'sm',
+              'koupr-w-[128px]': type == 'koupr' && size === 'md',
+              'koupr-h-[110px]': type == 'koupr' && size === 'md',
+            },
+          )}
+          dangerouslySetInnerHTML={{ __html: svg }}
+        ></div>
+      ) : null}
+    </>
   )
 }

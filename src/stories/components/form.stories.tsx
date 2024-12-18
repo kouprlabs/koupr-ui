@@ -96,7 +96,7 @@ export const Default: Story = {
             content: (
               <IconButton
                 variant="solid"
-                colorScheme="red"
+                colorPalette="red"
                 title="Delete account"
                 aria-label="Delete account"
               >

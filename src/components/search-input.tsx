@@ -74,6 +74,7 @@ export const SearchInput = ({
   return (
     <div className={cx('koupr-flex', 'koupr-flex-row', 'koupr-gap-0.5')}>
       <InputGroup
+        className={cx('koupr-grow')}
         startElement={<IconSearch className={cx('koupr-text-gray-300')} />}
         endElement={
           draft ? (

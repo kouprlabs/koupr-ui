@@ -9,21 +9,21 @@ export default defineSlotRecipe({
   slots: ['root'],
   base: {
     root: {
-      borderRadius: variables.borderRadiusMd,
+      borderRadius: variables.borderRadiusSm,
     },
   },
   variants: {
     visual: {
       outline: {
         root: {
-          borderRadius: variables.borderRadiusMd,
+          borderRadius: variables.borderRadiusSm,
         },
       },
     },
     size: {
       md: {
         root: {
-          borderRadius: variables.borderRadiusMd,
+          borderRadius: variables.borderRadiusSm,
         },
       },
     },
