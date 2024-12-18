@@ -51,7 +51,7 @@ export function DataTable<T>({
   pagination,
 }: DataTableProps<T>) {
   return (
-    <div className={cx('flex', 'flex-col', 'gap-3.5')}>
+    <div className={cx('koupr-flex', 'koupr-flex-col', 'koupr-gap-3.5')}>
       <Table variant="simple">
         <Thead>
           <Tr>
@@ -118,7 +118,9 @@ export function DataTable<T>({
           ))}
         </Tbody>
       </Table>
-      {pagination ? <div className={cx('self-end')}>{pagination}</div> : null}
+      {pagination ? (
+        <div className={cx('koupr-self-end')}>{pagination}</div>
+      ) : null}
     </div>
   )
 }
