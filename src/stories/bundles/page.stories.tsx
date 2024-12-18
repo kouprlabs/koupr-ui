@@ -33,7 +33,7 @@ const Page = () => {
   const navigate = useNavigate()
   return (
     <div className={cx('flex', 'flex-col', 'gap-2')}>
-      <Tabs.Root variant="subtle" defaultValue="data-table">
+      <Tabs.Root variant="enclosed" defaultValue="data-table">
         <Tabs.List>
           <Tabs.Trigger
             value="data-table"

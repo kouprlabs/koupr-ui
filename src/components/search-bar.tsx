@@ -88,6 +88,7 @@ export const SearchBar = ({
           query ? (
             <IconButton
               onClick={handleClear}
+              variant="subtle"
               size="xs"
               title="Clear search"
               aria-label="Clear search"
@@ -109,7 +110,11 @@ export const SearchBar = ({
       </InputGroup>
       {buttons}
       {buffer || (isFocused && buffer) ? (
-        <Button onClick={() => handleSearch(buffer)} disabled={!buffer}>
+        <Button
+          variant="subtle"
+          onClick={() => handleSearch(buffer)}
+          disabled={!buffer}
+        >
           <IconSearch />
           Search
         </Button>

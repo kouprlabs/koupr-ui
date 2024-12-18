@@ -19,7 +19,11 @@ export const Default: Story = {
   args: {
     placeholder: 'Search',
     buttons: (
-      <IconButton title="Search filters" aria-label="Search filters">
+      <IconButton
+        title="Search filters"
+        variant="subtle"
+        aria-label="Search filters"
+      >
         <IconTune />
       </IconButton>
     ),

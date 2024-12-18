@@ -5,13 +5,12 @@
 import { createSystem, defaultConfig, defineConfig } from '@chakra-ui/react'
 import breakpoints from './breakpoints'
 import globalCss from './global-css'
-import { button, heading, link, tabs, textarea, tooltip } from './recipes'
+import { button, heading, link, textarea, tooltip, input } from './recipes'
 import semanticTokens from './semantic-tokens'
 import {
   breadcrumb,
   card,
   checkbox,
-  input,
   menu,
   modal,
   popover,
@@ -30,7 +29,6 @@ const config = defineConfig({
       breadcrumb,
       card,
       checkbox,
-      input,
       menu,
       modal,
       popover,
@@ -42,8 +40,8 @@ const config = defineConfig({
       heading,
       textarea,
       link,
-      tabs,
       tooltip,
+      input,
     },
   },
 })

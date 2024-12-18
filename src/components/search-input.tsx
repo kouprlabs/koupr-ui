@@ -79,10 +79,11 @@ export const SearchInput = ({
         endElement={
           draft ? (
             <IconButton
-              onClick={handleClear}
+              variant="subtle"
               size="xs"
               title="Clear search"
               aria-label="Clear search"
+              onClick={handleClear}
             >
               <IconClose />
             </IconButton>
@@ -102,7 +103,11 @@ export const SearchInput = ({
         />
       </InputGroup>
       {draft || (isFocused && draft) ? (
-        <Button onClick={() => handleSearch(draft)} disabled={!draft}>
+        <Button
+          variant="subtle"
+          onClick={() => handleSearch(draft)}
+          disabled={!draft}
+        >
           Search
         </Button>
       ) : null}
