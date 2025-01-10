@@ -280,8 +280,8 @@ type WrapperProps = {
 const Wrapper = ({ className, filled, children, ...props }: WrapperProps) => (
   <span
     className={cx(
-      'koupr-material-symbols-rounded',
-      { 'koupr-material-symbols-rounded__filled': filled },
+      { 'koupr-material-symbols-rounded': !filled },
+      { 'koupr-material-symbols-rounded-filled': filled },
       className,
     )}
     style={{ fontSize: props.style?.fontSize ?? '16px' }}

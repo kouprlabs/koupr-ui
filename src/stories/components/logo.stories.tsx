@@ -18,4 +18,14 @@ export const Default: Story = {
     type: 'voltaserve',
     size: 'sm',
   },
+  argTypes: {
+    type: {
+      options: ['voltaserve', 'koupr'],
+      control: 'select',
+    },
+    size: {
+      options: ['sm', 'md'],
+      control: 'select',
+    },
+  },
 }

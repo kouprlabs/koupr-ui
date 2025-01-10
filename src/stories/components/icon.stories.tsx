@@ -86,79 +86,87 @@ export default meta
 type Story = StoryObj
 
 export const Default: Story = {
-  render: () => (
+  args: {
+    filled: false,
+  },
+  argTypes: {
+    filled: {
+      control: 'boolean',
+    },
+  },
+  render: (args) => (
     <div className={cx('flex', 'flex-wrap', 'gap-1.5', 'w-[400px]')}>
-      <IconPlayArrow />
-      <IconUpload />
-      <IconAdminPanelSettings />
-      <IconDatabase />
-      <IconRemoveOperator />
-      <IconNotifications />
-      <IconMoreVert />
-      <IconLogout />
-      <IconChevronLeft />
-      <IconChevronRight />
-      <IconChevronDown />
-      <IconChevronUp />
-      <IconAdd />
-      <IconEdit />
-      <IconGroup />
-      <IconDownload />
-      <IconArrowTopRight />
-      <IconFileCopy />
-      <IconDelete />
-      <IconSend />
-      <IconPersonAdd />
-      <IconPerson />
-      <IconCheck />
-      <IconLibraryAddCheck />
-      <IconSelectCheckBox />
-      <IconCheckBoxOutlineBlank />
-      <IconCheckCircle />
-      <IconError />
-      <IconWarning />
-      <IconInvitations />
-      <IconWorkspaces />
-      <IconFlag />
-      <IconClose />
-      <IconSchedule />
-      <IconClearAll />
-      <IconOpenInNew />
-      <IconInfo />
-      <IconSearch />
-      <IconRefresh />
-      <IconSync />
-      <IconGridView />
-      <IconArrowUpward />
-      <IconArrowDownward />
-      <IconExpandMore />
-      <IconList />
-      <IconHourglass />
-      <IconKeyboardArrowLeft />
-      <IconKeyboardArrowRight />
-      <IconKeyboardDoubleArrowRight />
-      <IconKeyboardDoubleArrowLeft />
-      <IconFirstPage />
-      <IconLastPage />
-      <IconHistory />
-      <IconModeHeat />
-      <IconSecurity />
-      <IconVisibility />
-      <IconTune />
-      <IconHome />
-      <IconStacks />
-      <IconCloudUpload />
-      <IconBolt />
-      <IconChat />
-      <IconFavorite />
-      <IconWhatshot />
-      <IconSwapVerticalCircle />
-      <IconFrontHand />
-      <IconHandshake />
-      <IconRemoveModerator />
-      <IconShield />
-      <IconThumbUp />
-      <IconThumbDown />
+      <IconPlayArrow {...args} />
+      <IconUpload {...args} />
+      <IconAdminPanelSettings {...args} />
+      <IconDatabase {...args} />
+      <IconRemoveOperator {...args} />
+      <IconNotifications {...args} />
+      <IconMoreVert {...args} />
+      <IconLogout {...args} />
+      <IconChevronLeft {...args} />
+      <IconChevronRight {...args} />
+      <IconChevronDown {...args} />
+      <IconChevronUp {...args} />
+      <IconAdd {...args} />
+      <IconEdit {...args} />
+      <IconGroup {...args} />
+      <IconDownload {...args} />
+      <IconArrowTopRight {...args} />
+      <IconFileCopy {...args} />
+      <IconDelete {...args} />
+      <IconSend {...args} />
+      <IconPersonAdd {...args} />
+      <IconPerson {...args} />
+      <IconCheck {...args} />
+      <IconLibraryAddCheck {...args} />
+      <IconSelectCheckBox {...args} />
+      <IconCheckBoxOutlineBlank {...args} />
+      <IconCheckCircle {...args} />
+      <IconError {...args} />
+      <IconWarning {...args} />
+      <IconInvitations {...args} />
+      <IconWorkspaces {...args} />
+      <IconFlag {...args} />
+      <IconClose {...args} />
+      <IconSchedule {...args} />
+      <IconClearAll {...args} />
+      <IconOpenInNew {...args} />
+      <IconInfo {...args} />
+      <IconSearch {...args} />
+      <IconRefresh {...args} />
+      <IconSync {...args} />
+      <IconGridView {...args} />
+      <IconArrowUpward {...args} />
+      <IconArrowDownward {...args} />
+      <IconExpandMore {...args} />
+      <IconList {...args} />
+      <IconHourglass {...args} />
+      <IconKeyboardArrowLeft {...args} />
+      <IconKeyboardArrowRight {...args} />
+      <IconKeyboardDoubleArrowRight {...args} />
+      <IconKeyboardDoubleArrowLeft {...args} />
+      <IconFirstPage {...args} />
+      <IconLastPage {...args} />
+      <IconHistory {...args} />
+      <IconModeHeat {...args} />
+      <IconSecurity {...args} />
+      <IconVisibility {...args} />
+      <IconTune {...args} />
+      <IconHome {...args} />
+      <IconStacks {...args} />
+      <IconCloudUpload {...args} />
+      <IconBolt {...args} />
+      <IconChat {...args} />
+      <IconFavorite {...args} />
+      <IconWhatshot {...args} />
+      <IconSwapVerticalCircle {...args} />
+      <IconFrontHand {...args} />
+      <IconHandshake {...args} />
+      <IconRemoveModerator {...args} />
+      <IconShield {...args} />
+      <IconThumbUp {...args} />
+      <IconThumbDown {...args} />
     </div>
   ),
 }
