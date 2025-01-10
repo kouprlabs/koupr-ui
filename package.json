@@ -16,8 +16,10 @@
     "tsc": "tsc",
     "format": "prettier --write .",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "clean": "rimraf ./dist",
     "storybook": "rollup -c && bun ./scripts/post-build.ts && storybook dev -p 6006 --ci",
-    "build-storybook": "rollup -c && bun ./scripts/post-build.ts && storybook build"
+    "storybook:build": "rollup -c && bun ./scripts/post-build.ts && storybook build",
+    "storybook:clean": "rimraf ./storybook-static"
   },
   "dependencies": {
     "@chakra-ui/react": "2.10.3",

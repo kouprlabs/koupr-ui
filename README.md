@@ -46,7 +46,7 @@ bun run storybook
 Build Storybook:
 
 ```shell
-bun run build-storybook
+bun run storybook:build
 ```
 
 ## Licensing

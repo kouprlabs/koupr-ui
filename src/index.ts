@@ -2,7 +2,7 @@
 //
 // Use of this software is governed by the MIT License
 // included in the file LICENSE in the root of this repository.
-import '@fontsource-variable/material-symbols-rounded'
+import '@fontsource-variable/material-symbols-rounded/full.css'
 import '@fontsource-variable/unbounded'
 import '@fontsource/ibm-plex-sans'
 import './styles.css'
