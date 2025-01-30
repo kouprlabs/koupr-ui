@@ -1,6 +1,6 @@
 # Koupr UI
 
-Design System and React Components.
+Design system and React components.
 
 ## Installation
 
