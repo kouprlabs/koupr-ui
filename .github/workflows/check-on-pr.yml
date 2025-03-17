@@ -3,7 +3,7 @@
 # Use of this software is governed by the MIT License
 # included in the file LICENSE in the root of this repository.
 
-name: Lint and Build
+name: Koupr UI
 
 on:
   pull_request:
@@ -17,13 +17,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Node
         uses: actions/setup-node@v4
 
-      - name: Install Packages
+      - name: Install packages
         run: npm i
 
       - name: Build
@@ -37,13 +37,13 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Node
         uses: actions/setup-node@v4
 
-      - name: Install Packages
+      - name: Install packages
         run: npm i
 
       - name: Build
@@ -62,7 +62,7 @@ jobs:
       - build
       - storybook-build
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Node
@@ -74,7 +74,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Run TypeScript Compiler
+      - name: Run TypeScript compiler
         run: npm run tsc
 
       - name: Run ESLint
