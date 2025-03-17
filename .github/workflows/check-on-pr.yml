@@ -43,6 +43,11 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
 
+      - name: Set Up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
       - name: Install packages
         run: npm i
 
