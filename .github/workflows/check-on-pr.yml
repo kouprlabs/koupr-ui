@@ -20,16 +20,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set Up Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
+      - name: Setup Node
+        uses: actions/setup-node@v4
 
       - name: Install Packages
-        run: bun i
+        run: npm i
 
       - name: Build
-        run: bun run build
+        run: npm run build
     permissions:
       contents: read
       pull-requests: read
@@ -42,19 +40,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set Up Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
+      - name: Setup Node
+        uses: actions/setup-node@v4
 
       - name: Install Packages
-        run: bun i
+        run: npm i
 
       - name: Build
-        run: bun run build
+        run: npm run build
 
       - name: Build Storybook
-        run: bun run storybook:build
+        run: npm run storybook:build
     permissions:
       contents: read
       pull-requests: read
@@ -69,22 +65,20 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set Up Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
+      - name: Setup Node
+        uses: actions/setup-node@v4
 
       - name: Install packages
-        run: bun i
+        run: npm i
 
       - name: Build
-        run: bun run build
+        run: npm run build
 
       - name: Run TypeScript Compiler
-        run: bun run tsc
+        run: npm run tsc
 
       - name: Run ESLint
-        run: bun run lint
+        run: npm run lint
     permissions:
       contents: read
       pull-requests: read
