@@ -76,9 +76,6 @@ jobs:
       - name: Install packages
         run: npm i
 
-      - name: Build
-        run: npm run build
-
       - name: Run TypeScript compiler
         run: npm run tsc
 
