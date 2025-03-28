@@ -34,19 +34,19 @@ createRoot(document.getElementById('root') as HTMLElement).render(
 Build library:
 
 ```shell
-bun run build
+npm run build
 ```
 
 Run Storybook:
 
 ```shell
-bun run storybook
+npm run storybook
 ```
 
 Build Storybook:
 
 ```shell
-bun run build-storybook
+npm run build-storybook
 ```
 
 ## Licensing

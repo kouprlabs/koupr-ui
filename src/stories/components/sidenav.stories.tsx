@@ -41,7 +41,6 @@ export const Default: Story = {
             href="/"
             icon={<IconWorkspaces />}
             primaryText="Workspaces"
-            secondaryText="Isolated containers for files and folders."
             pathnameFn={() => location.pathname}
             navigateFn={navigateFn}
           />
@@ -49,7 +48,6 @@ export const Default: Story = {
             href="/group"
             icon={<IconGroup />}
             primaryText="Groups"
-            secondaryText="Allows assigning permissions to a group of users."
             pathnameFn={() => location.pathname}
             navigateFn={navigateFn}
           />
@@ -57,7 +55,6 @@ export const Default: Story = {
             href="/organization"
             icon={<IconFlag />}
             primaryText="Organizations"
-            secondaryText="Umbrellas for workspaces and users."
             pathnameFn={() => location.pathname}
             navigateFn={navigateFn}
           />
