@@ -23,7 +23,7 @@ export type ShellItem = {
   href: string
   icon: ReactElement
   primaryText: string
-  secondaryText: string
+  secondaryText?: string
 }
 
 export const Shell = ({

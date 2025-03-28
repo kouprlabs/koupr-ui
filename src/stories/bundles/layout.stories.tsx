@@ -123,19 +123,16 @@ const Layout = ({ children }: LayoutProps) => {
           href: '/workspace',
           icon: <IconWorkspaces />,
           primaryText: 'Workspaces',
-          secondaryText: 'Isolated containers for files and folders.',
         },
         {
           href: '/group',
           icon: <IconGroup />,
           primaryText: 'Groups',
-          secondaryText: 'Allows assigning permissions to a group of users.',
         },
         {
           href: '/organization',
           icon: <IconFlag />,
           primaryText: 'Organizations',
-          secondaryText: 'Umbrellas for workspaces and users.',
         },
       ]}
       pathnameFn={() => location.pathname}

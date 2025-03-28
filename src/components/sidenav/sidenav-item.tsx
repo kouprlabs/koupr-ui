@@ -11,7 +11,7 @@ export type SidenavItemProps = {
   icon: ReactElement
   href: string
   primaryText: string
-  secondaryText: string
+  secondaryText?: string
   pathnameFn?: () => string
   navigateFn?: (href: string) => void
 }
@@ -41,7 +41,7 @@ export const SidenavItem = ({
 
   return (
     <Link
-      title={isCollapsed ? `${primaryText}: ${secondaryText}` : secondaryText}
+      title={secondaryText}
       className={cx('koupr-w-full', 'koupr-no-underline')}
       onClick={() => navigateFn?.(href)}
     >
